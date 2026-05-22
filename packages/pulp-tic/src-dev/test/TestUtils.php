@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace OpenMapsight\pulptic\dev\test;
 
 use DateTime;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\Assert;
 
 class TestUtils
 {
@@ -34,10 +34,9 @@ class TestUtils
 
         $actually = self::normalizeArray($actually);
 
-        PHPUnit_Framework_TestCase::assertEquals(
+        Assert::assertEqualsWithDelta(
             $expected,
             $actually,
-            '',
             0.00001
         );
     }

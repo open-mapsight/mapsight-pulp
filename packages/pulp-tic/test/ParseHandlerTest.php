@@ -6,9 +6,9 @@ namespace OpenMapsight\pulptic\dev\test;
 
 use OpenMapsight\Pulp;
 use OpenMapsight\PulpTIC;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ParseHandlerTest extends PHPUnit_Framework_TestCase
+class ParseHandlerTest extends TestCase
 {
     public function testTic(): void
     {

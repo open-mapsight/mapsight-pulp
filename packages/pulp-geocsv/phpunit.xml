@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    backupGlobals="false"
-    backupStaticAttributes="false"
-    colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    stopOnFailure="false"
-    bootstrap="./vendor/autoload.php"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
+	backupGlobals="false"
+	colors="true"
+	processIsolation="false"
+	stopOnFailure="false"
+	cacheDirectory=".phpunit.cache"
 >
-    <testsuites>
-        <testsuite name="Test Suite">
-            <directory>./test/</directory>
-        </testsuite>
-    </testsuites>
+	<testsuites>
+		<testsuite name="Test Suite">
+			<directory>./test/</directory>
+		</testsuite>
+	</testsuites>
 
-    <coverage>
-        <include>
-            <directory>./src/</directory>
-            <directory>./src-dev/</directory>
-            <file>./PulpGeoCSV.php</file>
-        </include>
-    </coverage>
+	<source>
+		<include>
+			<directory>./src/</directory>
+			<directory>./src-dev/</directory>
+			<file>./PulpGeoCSV.php</file>
+		</include>
+	</source>
 </phpunit>

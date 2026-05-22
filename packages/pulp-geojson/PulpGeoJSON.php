@@ -46,7 +46,7 @@ class PulpGeoJSON
         return new BuildInfoHandler();
     }
 
-    public static function addStatistics(?string $name = null): StatisticsHandler
+    public static function addStatistics(string|array|null $name = null): StatisticsHandler
     {
         return new StatisticsHandler($name);
     }

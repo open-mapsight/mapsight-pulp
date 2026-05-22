@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
 	backupGlobals="false"
-	backupStaticAttributes="false"
 	colors="true"
-	convertErrorsToExceptions="true"
-	convertNoticesToExceptions="true"
-	convertWarningsToExceptions="true"
 	processIsolation="false"
 	stopOnFailure="false"
-	syntaxCheck="false"
+	cacheDirectory=".phpunit.cache"
 >
 	<testsuites>
 		<testsuite name="Test Suite">
@@ -17,31 +15,11 @@
 		</testsuite>
 	</testsuites>
 
-	<groups>
-		<exclude>
-			<group>slow</group>
-		</exclude>
-	</groups>
-
-	<filter>
-		<whitelist>
+	<source>
+		<include>
 			<directory>./src/</directory>
 			<file>./PulpTIC.php</file>
-		</whitelist>
-	</filter>
-
-	<logging>
-		<log
-			type="coverage-html"
-			target="build/coverage-html"
-			lowUpperBound="50"
-			highLowerBound="90"
-		/>
-
-		<log
-			type="coverage-clover"
-			target="build/coverage.xml"
-		/>
-	</logging>
+		</include>
+	</source>
 
 </phpunit>
