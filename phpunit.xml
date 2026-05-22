@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="pulp">
+            <directory>packages/pulp/test</directory>
+        </testsuite>
+        <testsuite name="pulp-concert">
+            <directory>packages/pulp-concert/test</directory>
+        </testsuite>
+        <testsuite name="pulp-geocsv">
+            <directory>packages/pulp-geocsv/test</directory>
+        </testsuite>
+        <testsuite name="pulp-geojson">
+            <directory>packages/pulp-geojson/test</directory>
+        </testsuite>
+        <testsuite name="pulp-json">
+            <directory>packages/pulp-json/test</directory>
+        </testsuite>
+        <testsuite name="pulp-tic">
+            <directory>packages/pulp-tic/test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

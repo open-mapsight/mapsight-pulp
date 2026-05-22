@@ -46,7 +46,7 @@
         "mapsight/geojson-reproject": "@dev"
     },
     "scripts": {
-        "test": "php test.php"
+        "test": "phpunit"
     },
     "config": {
         "sort-packages": true,
@@ -61,5 +61,12 @@
         "mikey179/vfsstream": "^1.6.12",
         "phpunit/phpunit": "^11.0",
         "rector/rector": "^2.4"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenMapsight\\pulpconcert\\dev\\": "packages/pulp-concert/src-dev",
+            "OpenMapsight\\pulpgeojson\\dev\\": "packages/pulp-geojson/src-dev",
+            "OpenMapsight\\pulptic\\dev\\": "packages/pulp-tic/src-dev"
+        }
     }
 }

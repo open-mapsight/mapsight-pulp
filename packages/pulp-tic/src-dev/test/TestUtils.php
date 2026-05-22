@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OpenMapsight\pulptic\dev\test;
 
 use DateTime;
+use DateTimeInterface;
 use PHPUnit\Framework\Assert;
 
 class TestUtils
@@ -14,7 +15,7 @@ class TestUtils
         return array_map(
             function ($val) {
                 if ($val instanceof DateTime) {
-                    return $val->format(DateTime::ISO8601);
+                    return $val->format(DateTimeInterface::ATOM);
                 }
 
                 if (is_array($val)) {
