@@ -3,6 +3,7 @@
     "description": "Specialized handlers for parsing Traffic Information Center (TIC) XML data.",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "tic",
         "xml",

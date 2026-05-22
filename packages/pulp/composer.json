@@ -3,6 +3,7 @@
     "description": "Core library providing the stream-based processing engine.",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "stream",
         "processing",

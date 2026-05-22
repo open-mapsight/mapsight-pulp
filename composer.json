@@ -3,8 +3,8 @@
     "description": "Monorepo for Pulp packages",
     "type": "project",
     "keywords": [
+        "mapsight",
         "pulp",
-        "monorepo",
         "stream",
         "processing"
     ],

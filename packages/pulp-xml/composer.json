@@ -3,6 +3,7 @@
     "description": "Handlers for parsing and manipulating XML data.",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "xml",
         "parsing"

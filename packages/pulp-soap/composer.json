@@ -3,6 +3,7 @@
     "description": "SOAP source handler for Pulp streams.",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "soap",
         "stream"

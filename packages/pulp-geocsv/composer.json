@@ -3,6 +3,7 @@
     "description": "Utility to convert CSV files with geographic data to GeoJSON.",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "csv",
         "geojson",

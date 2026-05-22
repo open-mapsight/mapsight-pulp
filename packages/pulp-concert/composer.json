@@ -3,6 +3,7 @@
     "description": "Specialized handlers for parsing Concert XML data (traffic, parking, etc.).",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "concert",
         "xml",

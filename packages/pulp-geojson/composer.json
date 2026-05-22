@@ -3,6 +3,7 @@
     "description": "Tools for handling, transforming, and converting GeoJSON data.",
     "type": "library",
     "keywords": [
+        "mapsight",
         "pulp",
         "geojson",
         "geo",
