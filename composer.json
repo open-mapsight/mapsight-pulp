@@ -1,45 +1,63 @@
 {
-  "name": "mapsight/pulp-monorepo",
-  "description": "Monorepo for Pulp packages",
-  "type": "project",
-  "license": "proprietary",
-  "repositories": [
-    {
-      "type": "path",
-      "url": "packages/*",
-      "options": {
-        "symlink": true
-      }
+    "name": "mapsight/pulp-monorepo",
+    "description": "Monorepo for Pulp packages",
+    "type": "project",
+    "keywords": [
+        "pulp",
+        "monorepo",
+        "stream",
+        "processing"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "symfony/polyfill-php83": "^1.37",
+        "symfony/polyfill-php84": "^1.37",
+        "symfony/polyfill-php85": "^1.37",
+        "mapsight/pulp": "@dev",
+        "mapsight/pulp-concert": "@dev",
+        "mapsight/pulp-geocsv": "@dev",
+        "mapsight/pulp-geojson": "@dev",
+        "mapsight/pulp-json": "@dev",
+        "mapsight/pulp-soap": "@dev",
+        "mapsight/pulp-tic": "@dev",
+        "mapsight/pulp-xml": "@dev",
+        "mapsight/geojson-reproject": "@dev"
+    },
+    "scripts": {
+        "test": "php test.php"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "rector/rector": "^2.4"
     }
-  ],
-  "require": {
-    "php": "^8.2",
-    "symfony/polyfill-php83": "^1.37",
-    "symfony/polyfill-php84": "^1.37",
-    "symfony/polyfill-php85": "^1.37",
-    "mapsight/pulp": "@dev",
-    "mapsight/pulp-concert": "@dev",
-    "mapsight/pulp-geocsv": "@dev",
-    "mapsight/pulp-geojson": "@dev",
-    "mapsight/pulp-json": "@dev",
-    "mapsight/pulp-soap": "@dev",
-    "mapsight/pulp-tic": "@dev",
-    "mapsight/pulp-xml": "@dev",
-    "mapsight/geojson-reproject": "@dev"
-  },
-  "scripts": {
-    "test": "php test.php"
-  },
-  "config": {
-    "sort-packages": true,
-    "allow-plugins": {
-      "php-http/discovery": true
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.95",
-    "rector/rector": "^2.4"
-  }
 }

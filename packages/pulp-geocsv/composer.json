@@ -1,42 +1,63 @@
 {
-  "name": "mapsight/pulp-geocsv",
-  "license": "proprietary",
-  "require": {
-    "php": "^8.2",
-    "symfony/polyfill-php83": "^1.37",
-    "symfony/polyfill-php84": "^1.37",
-    "symfony/polyfill-php85": "^1.37",
-    "ext-json": "*",
-    "mapsight/geojson-reproject": "*",
-    "mapsight/pulp": "*",
-    "phayes/geophp": "^1"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "phpunit/phpunit": "^11.0"
-  },
-  "scripts": {
-    "test": "phpunit test/"
-  },
-  "autoload": {
-    "classmap": [
-      "PulpGeoCSV.php"
+    "name": "mapsight/pulp-geocsv",
+    "description": "Utility to convert CSV files with geographic data to GeoJSON.",
+    "type": "library",
+    "keywords": [
+        "pulp",
+        "csv",
+        "geojson",
+        "geo",
+        "conversion"
     ],
-    "psr-4": {
-      "OpenMapsight\\pulpgeocsv\\": "src"
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-geocsv"
+    },
+    "require": {
+        "php": "^8.2",
+        "symfony/polyfill-php83": "^1.37",
+        "symfony/polyfill-php84": "^1.37",
+        "symfony/polyfill-php85": "^1.37",
+        "ext-json": "*",
+        "mapsight/geojson-reproject": "*",
+        "mapsight/pulp": "*",
+        "phayes/geophp": "^1"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^11.0"
+    },
+    "scripts": {
+        "test": "phpunit test/"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpGeoCSV.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpgeocsv\\": "src"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "8.2.0"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpGeoCSV.php"
+        ]
     }
-  },
-  "config": {
-    "platform": {
-      "php": "8.2.0"
-    }
-  },
-  "archive": {
-    "exclude": [
-      "*",
-      ".*",
-      "!/src/*",
-      "!/PulpGeoCSV.php"
-    ]
-  }
 }

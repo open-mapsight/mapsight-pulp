@@ -80,17 +80,3 @@ Pulp::start()
 	->pipe(Pulp::dest('myotherdir'))
 	->run();
 ```
-
-
-## How to publish
-
-* Note changes in `CHANGELOG.md`
-* Git publish:
-```
-git status
-git commit
-git tag -a vX.X.X
-git push
-git push --tags
-```
-* done (update projects to use it)

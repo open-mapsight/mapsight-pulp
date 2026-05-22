@@ -61,9 +61,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           package_directory: 'packages/${{ matrix.package }}'
-          repository_organization: 'mapsight'
+          repository_organization: 'open-mapsight'
           repository_name: '${{ matrix.package }}'
           # split-repository-host: "github.com" # Optional: defaults to github.com
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
           branch: "main"
+
+      - name: Notify Packagist
+        env:
+          PACKAGIST_USER: ${{ secrets.PACKAGIST_USER }}
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+          PACKAGE_NAME: ${{ matrix.package }}
+        run: curl -XPOST -H'Content-Type:application/json' "https://packagist.org/api/update-package?username=$PACKAGIST_USER&apiToken=$PACKAGIST_TOKEN" -d "{\"repository\":\"https://github.com/open-mapsight/$PACKAGE_NAME\"}"

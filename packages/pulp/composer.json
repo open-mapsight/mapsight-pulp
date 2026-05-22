@@ -1,43 +1,64 @@
 {
-  "name": "mapsight/pulp",
-  "require": {
-    "php": "^8.2",
-    "symfony/polyfill-php83": "^1.37",
-    "symfony/polyfill-php84": "^1.37",
-    "symfony/polyfill-php85": "^1.37",
-    "ext-mbstring": "*",
-    "guzzlehttp/guzzle": "^7.8"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "phpunit/phpunit": "^11.0",
-    "mikey179/vfsstream": "^1.6.12"
-  },
-  "scripts": {
-    "test": "phpunit"
-  },
-  "autoload": {
-    "psr-4": {
-      "OpenMapsight\\pulp\\": "src"
+    "name": "mapsight/pulp",
+    "description": "Core library providing the stream-based processing engine.",
+    "type": "library",
+    "keywords": [
+        "pulp",
+        "stream",
+        "processing",
+        "engine"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp"
     },
-    "classmap": [
-      "Pulp.php"
-    ]
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true,
-    "platform": {
-      "php": "8.2.0"
+    "require": {
+        "php": "^8.2",
+        "symfony/polyfill-php83": "^1.37",
+        "symfony/polyfill-php84": "^1.37",
+        "symfony/polyfill-php85": "^1.37",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^11.0",
+        "mikey179/vfsstream": "^1.6.12"
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenMapsight\\pulp\\": "src"
+        },
+        "classmap": [
+            "Pulp.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "8.2.0"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/Pulp.php"
+        ]
     }
-  },
-  "archive": {
-    "exclude": [
-      "*",
-      ".*",
-      "!/src/*",
-      "!/Pulp.php"
-    ]
-  }
 }

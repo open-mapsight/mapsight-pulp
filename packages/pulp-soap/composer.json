@@ -1,32 +1,52 @@
 {
-  "name": "mapsight/pulp-soap",
-  "require": {
-    "php": "^8.2",
-    "symfony/polyfill-php83": "^1.37",
-    "symfony/polyfill-php84": "^1.37",
-    "symfony/polyfill-php85": "^1.37",
-    "ext-soap": "*",
-    "mapsight/pulp": "*"
-  },
-  "autoload": {
-    "classmap": [
-      "PulpSoap.php"
+    "name": "mapsight/pulp-soap",
+    "description": "SOAP source handler for Pulp streams.",
+    "type": "library",
+    "keywords": [
+        "pulp",
+        "soap",
+        "stream"
     ],
-    "psr-4": {
-      "OpenMapsight\\pulpsoap\\": "src"
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-soap"
+    },
+    "require": {
+        "php": "^8.2",
+        "symfony/polyfill-php83": "^1.37",
+        "symfony/polyfill-php84": "^1.37",
+        "symfony/polyfill-php85": "^1.37",
+        "ext-soap": "*",
+        "mapsight/pulp": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpSoap.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpsoap\\": "src"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "8.2.0"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpSoap.php"
+        ]
     }
-  },
-  "config": {
-    "platform": {
-      "php": "8.2.0"
-    }
-  },
-  "archive": {
-    "exclude": [
-      "*",
-      ".*",
-      "!/src/*",
-      "!/PulpSoap.php"
-    ]
-  }
 }

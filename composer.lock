@@ -339,7 +339,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
-                "reference": "ac1c0e422161d0b29cdd94c7431f7b77cb03b4b4"
+                "reference": "436a702b333a2deeea96e7071726f84fc83b5492"
             },
             "require": {
                 "php": "^8.2",
@@ -361,6 +361,13 @@
                     "!/GeoJsonReproject.php"
                 ]
             },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -372,7 +379,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
-                "reference": "92a1c9474f52cedfa0c316b8d9c3ef37aef659f4"
+                "reference": "93b815cfb557a4734395a6693c52b1fdafd67c15"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -409,6 +416,13 @@
                     "phpunit"
                 ]
             },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -420,7 +434,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
-                "reference": "29cd5db7924139e75e9d0ebcb91c48d51ab10948"
+                "reference": "65f08b7c6be0cc780fca1ac8f9354a4660794d2d"
             },
             "require": {
                 "ext-dom": "*",
@@ -470,6 +484,10 @@
             "license": [
                 "proprietary"
             ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -481,7 +499,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
-                "reference": "0968b85dce94f975d9a344dc38569739d8f611ad"
+                "reference": "24b47a520aaaebf1d16cf31ef4b912e0efb1585a"
             },
             "require": {
                 "ext-json": "*",
@@ -522,6 +540,10 @@
             "license": [
                 "proprietary"
             ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -533,7 +555,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
-                "reference": "8806aab8ce6c2c78b4b15e0ee98b2b9ab2cb11a0"
+                "reference": "0e9fc51a8d793c4346e07a1e57334a547606ff35"
             },
             "require": {
                 "ext-json": "*",
@@ -579,6 +601,13 @@
                     "phpunit test/"
                 ]
             },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -590,7 +619,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
-                "reference": "b512afba3b15380c891b289f2ec4f7c00afc2538"
+                "reference": "8bc2802518a41659851c29fcefef50c44d7672ce"
             },
             "require": {
                 "ext-json": "*",
@@ -627,6 +656,13 @@
                     "phpunit test/"
                 ]
             },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -638,7 +674,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
-                "reference": "831025e0f649105e4d096f143dad3aac27fcf9ec"
+                "reference": "b0361c853fbec44af201cc127eb90d9d52e87358"
             },
             "require": {
                 "ext-soap": "*",
@@ -665,6 +701,13 @@
                     "!/PulpSoap.php"
                 ]
             },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -676,7 +719,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
-                "reference": "1c2fa0d3e8528b1932e2be64283d03d38df33df3"
+                "reference": "7e87bb93698f8cd99b055589bbc232c551a13a53"
             },
             "require": {
                 "mapsight/pulp": "*",
@@ -716,6 +759,13 @@
                     "phpunit"
                 ]
             },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -727,7 +777,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
-                "reference": "ae28ea523e60474570181186d5b1bde217ebaed1"
+                "reference": "0df32fe35d255a74b3cd7445946962b74b243bda"
             },
             "require": {
                 "ext-libxml": "*",
@@ -757,6 +807,13 @@
                     "!/src/*",
                     "!/PulpXML.php"
                 ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "support": {
+                "source": "https://github.com/open-mapsight/mapsight-pulp"
             },
             "transport-options": {
                 "symlink": true,

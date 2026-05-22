@@ -1,27 +1,49 @@
 {
-  "name": "mapsight/geojson-reproject",
-  "require": {
-    "php": "^8.2",
-    "symfony/polyfill-php83": "^1.37",
-    "symfony/polyfill-php84": "^1.37",
-    "symfony/polyfill-php85": "^1.37",
-    "proj4php/proj4php": "^2.0.9"
-  },
-  "config": {
-    "platform": {
-      "php": "8.2.0"
+    "name": "mapsight/geojson-reproject",
+    "description": "Utility for re-projecting GeoJSON coordinates.",
+    "type": "library",
+    "keywords": [
+        "pulp",
+        "geojson",
+        "geo",
+        "reproject",
+        "proj4"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/geojson-reproject"
+    },
+    "require": {
+        "php": "^8.2",
+        "symfony/polyfill-php83": "^1.37",
+        "symfony/polyfill-php84": "^1.37",
+        "symfony/polyfill-php85": "^1.37",
+        "proj4php/proj4php": "^2.0.9"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2.0"
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "GeoJsonReproject.php"
+        ]
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/GeoJsonReproject.php"
+        ]
     }
-  },
-  "autoload": {
-    "classmap": [
-      "GeoJsonReproject.php"
-    ]
-  },
-  "archive": {
-    "exclude": [
-      "*",
-      ".*",
-      "!/GeoJsonReproject.php"
-    ]
-  }
 }
