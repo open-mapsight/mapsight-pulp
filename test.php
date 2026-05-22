@@ -31,7 +31,12 @@ foreach ($packages as $package) {
         echo "Testing $packageName...\n";
         echo "------------------------------------------------\n";
 
-        $command = sprintf('cd %s && composer test', escapeshellarg($package));
+        $testScript = $composerJson['scripts']['test'];
+        // If the script calls phpunit, use the root vendor binary
+        if (str_contains($testScript, 'phpunit')) {
+            $testScript = str_replace('phpunit', '../../vendor/bin/phpunit', $testScript);
+        }
+        $command = sprintf('cd %s && %s', escapeshellarg($package), $testScript);
         passthru($command, $packageExitCode);
 
         if ($packageExitCode !== 0) {
