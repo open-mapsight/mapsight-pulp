@@ -1,0 +1,51 @@
+{
+  "name": "mapsight/pulp-concert",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.2",
+    "symfony/polyfill-php83": "^1.37",
+    "symfony/polyfill-php84": "^1.37",
+    "symfony/polyfill-php85": "^1.37",
+    "ext-dom": "*",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "mapsight/pulp": "*",
+    "proj4php/proj4php": "^2.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^11.0",
+    "mapsight/pulp-xml": "*",
+    "mapsight/pulp-geojson": "*",
+    "mapsight/pulp-json": "*"
+  },
+  "scripts": {
+    "test": "phpunit test/"
+  },
+  "autoload": {
+    "classmap": [
+      "src/PulpConcert.php"
+    ],
+    "psr-4": {
+      "OpenMapsight\\pulpconcert\\": "src/pulpconcert"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OpenMapsight\\pulpconcert\\dev\\": "src-dev"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/src/*",
+      "!/composer.json"
+    ]
+  }
+}

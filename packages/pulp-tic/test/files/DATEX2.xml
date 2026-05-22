@@ -1,0 +1,2405 @@
+<?xml version="1.0"?>
+<d2LogicalModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				modelBaseVersion="2" xmlns="http://datex2.eu/schema/2/2_0">
+	<exchange>
+		<supplierIdentification>
+			<country>de</country>
+			<nationalIdentifier>LMS-HB</nationalIdentifier>
+		</supplierIdentification>
+		<target>
+			<address/>
+			<protocol/>
+		</target>
+		<subscription>
+			<operatingMode>operatingMode0</operatingMode>
+			<subscriptionStartTime>2016-08-30T08:42:11.7688278Z</subscriptionStartTime>
+			<subscriptionState>active</subscriptionState>
+			<updateMethod>snapshot</updateMethod>
+			<target>
+				<address/>
+				<protocol/>
+			</target>
+		</subscription>
+	</exchange>
+	<payloadPublication xsi:type="SituationPublication" lang="de-DE">
+		<publicationTime>2016-08-30T15:07:15.21748Z</publicationTime>
+		<publicationCreator>
+			<country>de</country>
+			<nationalIdentifier>LMS-HB</nationalIdentifier>
+		</publicationCreator>
+		<situation id="D  NI LMS-NI  /289708" version="0">
+			<situationVersionTime>2016-08-30T08:14:53Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="D  NI LMS-NI  /289708.0" version="0">
+				<situationRecordCreationTime>2016-08-30T07:22:55Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T08:14:53Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T07:22:55Z</overallStartTime>
+						<overallEndTime>2016-08-31T14:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-08-31T14:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Hamburg Richtung Bremen
+								Ausfahrt Stuckenborstel
+								Anschlussstelle gesperrt, bis 31.08.2016 16:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.11128</latitude>
+						<longitude>9.2019</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>slipRoads</carriageway>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10122</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+		</situation>
+		<situation id="D  NI LMS-NI  /285348" version="0">
+			<situationVersionTime>2016-08-10T04:21:35Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="D  NI LMS-NI  /285348.0" version="0">
+				<situationRecordCreationTime>2016-07-26T14:15:01Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-10T04:21:35Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-07-26T14:15:01Z</overallStartTime>
+						<overallEndTime>2016-09-09T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-09T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">B215 Nienburg (Weser) - Verden (Aller)
+								zwischen Hassel (Weser) und Hönisch
+								in beiden Richtungen gesperrt für Durchgangsverkehr, Durchfahrt gesperrt für LKW, folgen Sie den
+								Schildern, bis 10.09.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>52.80253</latitude>
+						<longitude>9.20748</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>52.91887</latitude>
+								<longitude>9.21963</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>52.80253</latitude>
+								<longitude>9.20748</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>21767</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>29791</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<applicableForTrafficType>throughTraffic</applicableForTrafficType>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="D  NI LMS-NI  /285348.1" version="0">
+				<situationRecordCreationTime>2016-07-26T14:15:01Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-10T04:21:35Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-07-26T14:15:01Z</overallStartTime>
+						<overallEndTime>2016-09-09T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-09T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">B215 Nienburg (Weser) - Verden (Aller)
+								zwischen Hassel (Weser) und Hönisch
+								in beiden Richtungen gesperrt für Durchgangsverkehr, Durchfahrt gesperrt für LKW, folgen Sie den
+								Schildern, bis 10.09.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>52.80253</latitude>
+						<longitude>9.20748</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>52.91887</latitude>
+								<longitude>9.21963</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>52.80253</latitude>
+								<longitude>9.20748</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>21767</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>29791</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<applicableForTrafficType>throughTraffic</applicableForTrafficType>
+				<forVehiclesWithCharacteristicsOf>
+					<vehicleType>lorry</vehicleType>
+				</forVehiclesWithCharacteristicsOf>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="ReroutingManagement" id="D  NI LMS-NI  /285348.2" version="0">
+				<situationRecordCreationTime>2016-07-26T14:15:01Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-10T04:21:35Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-07-26T14:15:01Z</overallStartTime>
+						<overallEndTime>2016-09-09T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-09T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">B215 Nienburg (Weser) - Verden (Aller)
+								zwischen Hassel (Weser) und Hönisch
+								in beiden Richtungen gesperrt für Durchgangsverkehr, Durchfahrt gesperrt für LKW, folgen Sie den
+								Schildern, bis 10.09.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>52.80253</latitude>
+						<longitude>9.20748</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>52.91887</latitude>
+								<longitude>9.21963</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>52.80253</latitude>
+								<longitude>9.20748</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>21767</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>29791</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<reroutingManagementType>followDiversionSigns</reroutingManagementType>
+				<reroutingManagementExtension/>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_LMS-HB/496907" version="0">
+			<situationVersionTime>2016-07-05T07:48:23.49Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="LMS-HB/r_LMS-HB/496907.0" version="0">
+				<situationRecordCreationTime>2016-06-09T06:22:08.323Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-07-05T07:48:23.49Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-09T06:22:08.323Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Huchting, Heinrich-Plett-Allee
+								in Höhe Oldenburger Straße
+								in beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet
+								Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin
+								benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin
+								benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.05068</latitude>
+						<longitude>8.7153</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>34578</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="MaintenanceWorks" id="LMS-HB/r_LMS-HB/496907.1" version="0">
+				<situationRecordCreationTime>2016-06-09T06:22:08.323Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-07-05T07:48:23.49Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-09T06:22:08.323Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Huchting, Heinrich-Plett-Allee
+								in Höhe Oldenburger Straße
+								in beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet
+								Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin
+								benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin
+								benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.05068</latitude>
+						<longitude>8.7153</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>34578</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+			<situationRecord xsi:type="AbnormalTraffic" id="LMS-HB/r_LMS-HB/496907.2" version="0">
+				<situationRecordCreationTime>2016-06-09T06:22:08.323Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-07-05T07:48:23.49Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-09T06:22:08.323Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Huchting, Heinrich-Plett-Allee
+								in Höhe Oldenburger Straße
+								in beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet
+								Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin
+								benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 können weiterhin
+								benutzt werden.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.05068</latitude>
+						<longitude>8.7153</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>34578</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+			</situationRecord>
+		</situation>
+		<situation id="D  NI LMS-NI  /289759" version="0">
+			<situationVersionTime>2016-08-30T15:05:16Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="Conditions" id="D  NI LMS-NI  /289759.0" version="0">
+				<situationRecordCreationTime>2016-08-30T14:10:39Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T15:05:16Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>suspended</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T14:10:39Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A27 Bremen Richtung Walsrode
+								zwischen Bremen-Sebaldsbrück und Achim-Ost
+								Verkehrsstörung besteht nicht mehr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.05515</latitude>
+						<longitude>8.96958</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.01879</latitude>
+								<longitude>9.06587</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.05515</latitude>
+								<longitude>8.96958</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10708</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10711</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<management>
+					<lifeCycleManagement>
+						<cancel>true</cancel>
+					</lifeCycleManagement>
+				</management>
+				<drivingConditionType>normal</drivingConditionType>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_D   HB  VRZ-HB  /40584" version="0">
+			<situationVersionTime>2016-08-30T14:47:40.39Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="Accident" id="LMS-HB/r_D   HB  VRZ-HB  /40584.0" version="0">
+				<situationRecordCreationTime>2016-08-30T14:47:40.39Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T14:47:40.39Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T14:47:40.39Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Bremen Richtung Hamburg
+								zwischen Uphusen/Bremen-Mahndorf und Bremer Kreuz
+								Unfall, rechter Fahrstreifen blockiert
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.0311</latitude>
+						<longitude>8.96168</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.03868</latitude>
+								<longitude>8.97675</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.0311</latitude>
+								<longitude>8.96168</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10117</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10116</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<accidentType>accident</accidentType>
+			</situationRecord>
+			<situationRecord xsi:type="AbnormalTraffic" id="LMS-HB/r_D   HB  VRZ-HB  /40584.1" version="0">
+				<situationRecordCreationTime>2016-08-30T14:47:40.39Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T14:47:40.39Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T14:47:40.39Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<impact>
+					<trafficConstrictionType>lanesBlocked</trafficConstrictionType>
+				</impact>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Bremen Richtung Hamburg
+								zwischen Uphusen/Bremen-Mahndorf und Bremer Kreuz
+								Unfall, rechter Fahrstreifen blockiert
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.0311</latitude>
+						<longitude>8.96168</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>mainCarriageway</carriageway>
+							<lane>rightLane</lane>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.03868</latitude>
+								<longitude>8.97675</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.0311</latitude>
+								<longitude>8.96168</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10117</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10116</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<abnormalTrafficType>other</abnormalTrafficType>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_D   HB  VRZ-HB  /40585" version="0">
+			<situationVersionTime>2016-08-30T14:59:40.347Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="AbnormalTraffic" id="LMS-HB/r_D   HB  VRZ-HB  /40585.0" version="0">
+				<situationRecordCreationTime>2016-08-30T14:49:40.157Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T14:59:40.347Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T14:49:40.157Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Osnabrück Richtung Hamburg
+								zwischen Bremen-Hemelingen und Bremer Kreuz
+								2 km Stau
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.03881</latitude>
+						<longitude>8.89334</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>mainCarriageway</carriageway>
+							<lengthAffected>2000</lengthAffected>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.03868</latitude>
+								<longitude>8.97675</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.03881</latitude>
+								<longitude>8.89334</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10117</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10115</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<abnormalTrafficType>stationaryTraffic</abnormalTrafficType>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_D   HB  VRZ-HB  /40583" version="0">
+			<situationVersionTime>2016-08-30T14:50:40.703Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="AbnormalTraffic" id="LMS-HB/r_D   HB  VRZ-HB  /40583.0" version="0">
+				<situationRecordCreationTime>2016-08-30T14:31:40.567Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T14:50:40.703Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T14:31:40.567Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Osnabrück Richtung Bremen
+								zwischen Dreieck Stuhr und Bremen/Brinkum
+								3 km Stau
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.00648</latitude>
+						<longitude>8.71149</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>mainCarriageway</carriageway>
+							<lengthAffected>3000</lengthAffected>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02321</latitude>
+								<longitude>8.80257</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.00648</latitude>
+								<longitude>8.71149</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10113</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>54132</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<abnormalTrafficType>stationaryTraffic</abnormalTrafficType>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_D   HB  VRZ-HB  /40283" version="0">
+			<situationVersionTime>2016-08-29T15:11:10.63Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="MaintenanceWorks" id="LMS-HB/r_D   HB  VRZ-HB  /40283.0" version="0">
+				<situationRecordCreationTime>2016-08-09T15:09:40.517Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-29T15:11:10.63Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-09T15:09:40.517Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Osnabrück Richtung Bremen
+								zwischen Dreieck Stuhr und Bremen/Brinkum
+								Baustelle
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.00648</latitude>
+						<longitude>8.71149</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02321</latitude>
+								<longitude>8.80257</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.00648</latitude>
+								<longitude>8.71149</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10113</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>54132</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_LMS-HB/497057" version="0">
+			<situationVersionTime>2016-08-07T15:44:16.503Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="MaintenanceWorks" id="LMS-HB/r_LMS-HB/497057.0" version="0">
+				<situationRecordCreationTime>2016-07-07T12:31:03.44Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-07T15:44:16.503Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-07-07T12:31:03.44Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Bremen, Nordstraße
+								zwischen Hansestraße und Grenzstraße
+								in beiden Richtungen Baustelle, linker Fahrstreifen gesperrt
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.0888977</latitude>
+						<longitude>8.785169</longitude>
+					</locationForDisplay>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>28215</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>1260</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>28199</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>11</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="LMS-HB/r_LMS-HB/497057.1" version="0">
+				<situationRecordCreationTime>2016-07-07T12:31:03.44Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-07T15:44:16.503Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>active</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-07-07T12:31:03.44Z</overallStartTime>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Bremen, Nordstraße
+								zwischen Hansestraße und Grenzstraße
+								in beiden Richtungen Baustelle, linker Fahrstreifen gesperrt
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.0888977</latitude>
+						<longitude>8.785169</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>mainCarriageway</carriageway>
+							<lane>leftLane</lane>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>28215</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>1260</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>28199</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>11</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>laneClosures</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_LMS-HB/497244" version="0">
+			<situationVersionTime>2016-08-19T05:58:31.067Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="MaintenanceWorks" id="LMS-HB/r_LMS-HB/497244.0" version="0">
+				<situationRecordCreationTime>2016-08-12T08:24:26.72Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-19T05:58:31.067Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-12T08:24:26.72Z</overallStartTime>
+						<overallEndTime>2016-09-17T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-17T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Osnabrück Richtung Bremen
+								zwischen Bremen/Brinkum und Bremen-Arsten
+								Fahrbahnerneuerung auf dem mittleren Fahrstreifen, rechter Fahrstreifen gesperrt, Stau zu erwarten,
+								bis 18.09.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.02345</latitude>
+						<longitude>8.8064</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>mainCarriageway</carriageway>
+							<lane>middleLane</lane>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02608</latitude>
+								<longitude>8.85169</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02345</latitude>
+								<longitude>8.8064</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10114</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10113</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<roadMaintenanceType>resurfacingWork</roadMaintenanceType>
+			</situationRecord>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="LMS-HB/r_LMS-HB/497244.1" version="0">
+				<situationRecordCreationTime>2016-08-12T08:24:26.72Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-19T05:58:31.067Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-12T08:24:26.72Z</overallStartTime>
+						<overallEndTime>2016-09-17T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-17T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Osnabrück Richtung Bremen
+								zwischen Bremen/Brinkum und Bremen-Arsten
+								Fahrbahnerneuerung auf dem mittleren Fahrstreifen, rechter Fahrstreifen gesperrt, Stau zu erwarten,
+								bis 18.09.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.02345</latitude>
+						<longitude>8.8064</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>mainCarriageway</carriageway>
+							<lane>rightLane</lane>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02608</latitude>
+								<longitude>8.85169</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02345</latitude>
+								<longitude>8.8064</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10114</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10113</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>laneClosures</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="AbnormalTraffic" id="LMS-HB/r_LMS-HB/497244.2" version="0">
+				<situationRecordCreationTime>2016-08-12T08:24:26.72Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-19T05:58:31.067Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>probable</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-12T08:24:26.72Z</overallStartTime>
+						<overallEndTime>2016-09-17T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-17T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Osnabrück Richtung Bremen
+								zwischen Bremen/Brinkum und Bremen-Arsten
+								Fahrbahnerneuerung auf dem mittleren Fahrstreifen, rechter Fahrstreifen gesperrt, Stau zu erwarten,
+								bis 18.09.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.02345</latitude>
+						<longitude>8.8064</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>unknown</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02608</latitude>
+								<longitude>8.85169</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.02345</latitude>
+								<longitude>8.8064</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10114</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10113</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<abnormalTrafficType>stationaryTraffic</abnormalTrafficType>
+			</situationRecord>
+		</situation>
+		<situation id="D  NI LMS-NI  /280458" version="0">
+			<situationVersionTime>2016-08-30T13:03:02Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="D  NI LMS-NI  /280458.0" version="0">
+				<situationRecordCreationTime>2016-06-15T14:30:54Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T13:03:02Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-15T14:30:54Z</overallStartTime>
+						<overallEndTime>2016-08-30T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-08-30T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A27 Bremen Richtung Walsrode
+								Ausfahrt Achim-Nord
+								Ausfahrt gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.08.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.02445</latitude>
+						<longitude>9.02809</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>exitSlipRoad</carriageway>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10709</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="MaintenanceWorks" id="D  NI LMS-NI  /280458.1" version="0">
+				<situationRecordCreationTime>2016-06-15T14:30:54Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T13:03:02Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-15T14:30:54Z</overallStartTime>
+						<overallEndTime>2016-08-30T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-08-30T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A27 Bremen Richtung Walsrode
+								Ausfahrt Achim-Nord
+								Ausfahrt gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.08.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.02445</latitude>
+						<longitude>9.02809</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10709</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+			<situationRecord xsi:type="AbnormalTraffic" id="D  NI LMS-NI  /280458.2" version="0">
+				<situationRecordCreationTime>2016-06-15T14:30:54Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T13:03:02Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-15T14:30:54Z</overallStartTime>
+						<overallEndTime>2016-08-30T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-08-30T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A27 Bremen Richtung Walsrode
+								Ausfahrt Achim-Nord
+								Ausfahrt gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.08.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.02445</latitude>
+						<longitude>9.02809</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10709</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+			</situationRecord>
+		</situation>
+		<situation id="LMS-HB/r_LMS-HB/496863" version="0">
+			<situationVersionTime>2016-05-30T04:16:52.523Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="LMS-HB/r_LMS-HB/496863.0" version="0">
+				<situationRecordCreationTime>2016-05-30T04:16:52.523Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-05-30T04:16:52.523Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-05-30T04:16:52.523Z</overallStartTime>
+						<overallEndTime>2016-12-30T23:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-12-30T23:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Bremerhaven, Rickmersstraße
+								zwischen Van-Heukelum-Straße und Körnerstraße
+								in beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr
+								Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der
+								Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle
+								befindet sich in der Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle
+								befindet sich in der Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.56056</latitude>
+						<longitude>8.57486</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.56068</latitude>
+								<longitude>8.5785</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.56056</latitude>
+								<longitude>8.57486</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="MaintenanceWorks" id="LMS-HB/r_LMS-HB/496863.1" version="0">
+				<situationRecordCreationTime>2016-05-30T04:16:52.523Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-05-30T04:16:52.523Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-05-30T04:16:52.523Z</overallStartTime>
+						<overallEndTime>2016-12-30T23:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-12-30T23:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Bremerhaven, Rickmersstraße
+								zwischen Van-Heukelum-Straße und Körnerstraße
+								in beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr
+								Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der
+								Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle
+								befindet sich in der Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle
+								befindet sich in der Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.56056</latitude>
+						<longitude>8.57486</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.56068</latitude>
+								<longitude>8.5785</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.56056</latitude>
+								<longitude>8.57486</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+			<situationRecord xsi:type="AbnormalTraffic" id="LMS-HB/r_LMS-HB/496863.2" version="0">
+				<situationRecordCreationTime>2016-05-30T04:16:52.523Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-05-30T04:16:52.523Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-05-30T04:16:52.523Z</overallStartTime>
+						<overallEndTime>2016-12-30T23:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-12-30T23:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Bremerhaven, Rickmersstraße
+								zwischen Van-Heukelum-Straße und Körnerstraße
+								in beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr
+								Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der
+								Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle
+								befindet sich in der Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Die Bushaltestelle "Goethestraße" wird nicht angefahren. Die Ersatzhaltestelle
+								befindet sich in der Batteriestraße.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.56056</latitude>
+						<longitude>8.57486</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.56068</latitude>
+								<longitude>8.5785</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.56056</latitude>
+								<longitude>8.57486</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+				</groupOfLocations>
+			</situationRecord>
+		</situation>
+		<situation id="D  NI LMS-NI  /280931" version="0">
+			<situationVersionTime>2016-08-10T04:21:25Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="D  NI LMS-NI  /280931.0" version="0">
+				<situationRecordCreationTime>2016-06-20T05:31:47Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-10T04:21:25Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-20T05:31:47Z</overallStartTime>
+						<overallEndTime>2016-08-30T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-08-30T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A27 Walsrode Richtung Bremen
+								Einfahrt Achim-Nord
+								Einfahrt gesperrt, Baustelle, bis 31.08.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.02515</latitude>
+						<longitude>9.03151</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>entrySlipRoad</carriageway>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10709</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="MaintenanceWorks" id="D  NI LMS-NI  /280931.1" version="0">
+				<situationRecordCreationTime>2016-06-20T05:31:47Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-10T04:21:25Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-20T05:31:47Z</overallStartTime>
+						<overallEndTime>2016-08-30T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-08-30T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A27 Walsrode Richtung Bremen
+								Einfahrt Achim-Nord
+								Einfahrt gesperrt, Baustelle, bis 31.08.2016 00:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.02515</latitude>
+						<longitude>9.03151</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>positive</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10709</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+		</situation>
+		<situation id="D  NI LMS-NI  /281484" version="0">
+			<situationVersionTime>2016-08-29T09:13:19Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="TransitInformation" id="D  NI LMS-NI  /281484.0" version="0">
+				<situationRecordCreationTime>2016-06-24T07:58:40Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-29T09:13:19Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-06-24T07:58:40Z</overallStartTime>
+						<overallEndTime>2016-09-16T22:00:00Z</overallEndTime>
+						<validPeriod>
+							<endOfPeriod>2016-09-16T22:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">Kreis Wesermarsch und Bremerhaven, B212
+								zwischen Weserfähre Bremerhaven und Weserfähre Bremerhaven in Bremerhaven
+								in beiden Richtungen Fähre außer Betrieb, bis 17.09.2016 00:00 Uhr
+								, empfohlene Umleitung über B437 Wesertunnel . Alternativ wird zu jeder vollen Stunde ein
+								Bustransfer vom Fähranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">, empfohlene Umleitung über B437 Wesertunnel . Alternativ wird zu jeder vollen
+								Stunde ein Bustransfer vom Fähranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.
+							</value>
+						</values>
+					</comment>
+					<commentType>internalNote</commentType>
+				</generalPublicComment>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">, empfohlene Umleitung über B437 Wesertunnel . Alternativ wird zu jeder vollen
+								Stunde ein Bustransfer vom Fähranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.
+							</value>
+						</values>
+					</comment>
+					<commentType>other</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Linear">
+					<locationForDisplay>
+						<latitude>53.52056</latitude>
+						<longitude>8.54415</longitude>
+					</locationForDisplay>
+					<tpegLinearLocation>
+						<tpegDirection>bothWays</tpegDirection>
+						<tpegLinearLocationType>segment</tpegLinearLocationType>
+						<to xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.53661</latitude>
+								<longitude>8.58076</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</to>
+						<from xsi:type="TpegNonJunctionPoint">
+							<pointCoordinates>
+								<latitude>53.52056</latitude>
+								<longitude>8.54415</longitude>
+							</pointCoordinates>
+							<name>
+								<descriptor>
+									<values>
+										<value/>
+									</values>
+								</descriptor>
+								<tpegOtherPointDescriptorType>other</tpegOtherPointDescriptorType>
+							</name>
+						</from>
+					</tpegLinearLocation>
+					<alertCLinear xsi:type="AlertCMethod4Linear">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>both</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>34609</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+						<alertCMethod4SecondaryPointLocation>
+							<alertCLocation>
+								<specificLocation>29786</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4SecondaryPointLocation>
+					</alertCLinear>
+				</groupOfLocations>
+				<transitServiceInformation>serviceSuspended</transitServiceInformation>
+				<transitServiceType>ferry</transitServiceType>
+			</situationRecord>
+		</situation>
+		<situation id="D  NI LMS-NI  /289690" version="0">
+			<situationVersionTime>2016-08-30T05:49:33Z</situationVersionTime>
+			<headerInformation>
+				<confidentiality>noRestriction</confidentiality>
+				<informationStatus>real</informationStatus>
+				<urgency>normalUrgency</urgency>
+			</headerInformation>
+			<situationRecord xsi:type="MaintenanceWorks" id="D  NI LMS-NI  /289690.0" version="0">
+				<situationRecordCreationTime>2016-08-30T05:47:45Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T05:49:33Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T07:00:00Z</overallStartTime>
+						<overallEndTime>2016-08-31T14:00:00Z</overallEndTime>
+						<validPeriod>
+							<startOfPeriod>2016-08-30T07:00:00Z</startOfPeriod>
+							<endOfPeriod>2016-08-31T14:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Hamburg Richtung Bremen
+								Ausfahrt Stuckenborstel
+								2 Tagesbaustellen, Anschlussstelle gesperrt, folgen Sie den Schildern, von 30.08.2016 09:00 Uhr bis
+								31.08.2016 16:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.11128</latitude>
+						<longitude>9.2019</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10122</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<roadMaintenanceType>roadworks</roadMaintenanceType>
+			</situationRecord>
+			<situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="D  NI LMS-NI  /289690.1" version="0">
+				<situationRecordCreationTime>2016-08-30T05:47:45Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T05:49:33Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T07:00:00Z</overallStartTime>
+						<overallEndTime>2016-08-31T14:00:00Z</overallEndTime>
+						<validPeriod>
+							<startOfPeriod>2016-08-30T07:00:00Z</startOfPeriod>
+							<endOfPeriod>2016-08-31T14:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Hamburg Richtung Bremen
+								Ausfahrt Stuckenborstel
+								2 Tagesbaustellen, Anschlussstelle gesperrt, folgen Sie den Schildern, von 30.08.2016 09:00 Uhr bis
+								31.08.2016 16:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.11128</latitude>
+						<longitude>9.2019</longitude>
+					</locationForDisplay>
+					<supplementaryPositionalDescription>
+						<affectedCarriagewayAndLanes>
+							<carriageway>slipRoads</carriageway>
+						</affectedCarriagewayAndLanes>
+					</supplementaryPositionalDescription>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10122</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+			</situationRecord>
+			<situationRecord xsi:type="ReroutingManagement" id="D  NI LMS-NI  /289690.2" version="0">
+				<situationRecordCreationTime>2016-08-30T05:47:45Z</situationRecordCreationTime>
+				<situationRecordVersionTime>2016-08-30T05:49:33Z</situationRecordVersionTime>
+				<probabilityOfOccurrence>certain</probabilityOfOccurrence>
+				<validity>
+					<validityStatus>definedByValidityTimeSpec</validityStatus>
+					<validityTimeSpecification>
+						<overallStartTime>2016-08-30T07:00:00Z</overallStartTime>
+						<overallEndTime>2016-08-31T14:00:00Z</overallEndTime>
+						<validPeriod>
+							<startOfPeriod>2016-08-30T07:00:00Z</startOfPeriod>
+							<endOfPeriod>2016-08-31T14:00:00Z</endOfPeriod>
+						</validPeriod>
+					</validityTimeSpecification>
+				</validity>
+				<generalPublicComment>
+					<comment>
+						<values>
+							<value lang="de-DE">A1 Hamburg Richtung Bremen
+								Ausfahrt Stuckenborstel
+								2 Tagesbaustellen, Anschlussstelle gesperrt, folgen Sie den Schildern, von 30.08.2016 09:00 Uhr bis
+								31.08.2016 16:00 Uhr
+							</value>
+						</values>
+					</comment>
+					<commentType>description</commentType>
+				</generalPublicComment>
+				<groupOfLocations xsi:type="Point">
+					<locationForDisplay>
+						<latitude>53.11128</latitude>
+						<longitude>9.2019</longitude>
+					</locationForDisplay>
+					<alertCPoint xsi:type="AlertCMethod4Point">
+						<alertCLocationCountryCode>D</alertCLocationCountryCode>
+						<alertCLocationTableNumber>1</alertCLocationTableNumber>
+						<alertCLocationTableVersion>14.0</alertCLocationTableVersion>
+						<alertCDirection>
+							<alertCDirectionCoded>negative</alertCDirectionCoded>
+						</alertCDirection>
+						<alertCMethod4PrimaryPointLocation>
+							<alertCLocation>
+								<specificLocation>10122</specificLocation>
+							</alertCLocation>
+							<offsetDistance>
+								<offsetDistance>0</offsetDistance>
+							</offsetDistance>
+						</alertCMethod4PrimaryPointLocation>
+					</alertCPoint>
+				</groupOfLocations>
+				<complianceOption>mandatory</complianceOption>
+				<reroutingManagementType>followDiversionSigns</reroutingManagementType>
+				<reroutingManagementExtension/>
+			</situationRecord>
+		</situation>
+	</payloadPublication>
+</d2LogicalModel>

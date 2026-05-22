@@ -1,0 +1,40 @@
+{
+  "name": "mapsight/pulp-json",
+  "require": {
+    "php": "^8.2",
+    "symfony/polyfill-php83": "^1.37",
+    "symfony/polyfill-php84": "^1.37",
+    "symfony/polyfill-php85": "^1.37",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "mapsight/pulp": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^11.0"
+  },
+  "scripts": {
+    "test": "phpunit test/"
+  },
+  "autoload": {
+    "classmap": [
+      "PulpJSON.php"
+    ],
+    "psr-4": {
+      "OpenMapsight\\pulpjson\\": "src"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/src/*",
+      "!/PulpJSON.php"
+    ]
+  }
+}

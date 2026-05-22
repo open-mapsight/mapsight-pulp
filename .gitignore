@@ -1,0 +1,5 @@
+/vendor/
+.DS_Store
+.php-cs-fixer.cache
+.phpunit.result.cache
+rector-cache

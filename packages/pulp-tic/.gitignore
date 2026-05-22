@@ -1,0 +1,3 @@
+/vendor/
+/test/files/tmp/*.json
+/test/files/tmp/*.geojson

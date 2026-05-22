@@ -1,0 +1,515 @@
+[
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -289708}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A1",
+			"segment": "Hamburg Richtung Bremen",
+			"content": "Ausfahrt Stuckenborstel\n\t\t\t\t\t\t\tAnschlussstelle gesperrt, bis 31.08.2016 16:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "A1 Hamburg Richtung Bremen",
+		"description": "A1 Hamburg Richtung Bremen Ausfahrt Stuckenborstel\n\t\t\t\t\t\t\tAnschlussstelle gesperrt, bis 31.08.2016 16:00 Uhr\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+				"pos": [
+					{
+						"x": 9.19969,
+						"y": 53.10914
+					}
+				],
+				"code": 10122,
+				"typeCode": 2,
+				"type": "point",
+				"messages": [],
+				"subTypeCode": 0,
+				"subType": "misc"
+			}
+		]
+	},
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -289572}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A1",
+			"segment": "Hamburg Richtung Bremen",
+			"content": "Ausfahrt Elsdorf\n\t\t\t\t\t\t\tAnschlussstelle gesperrt, Baustelle, folgen Sie den Schildern, bis 30.08.2016 16:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "A1 Hamburg Richtung Bremen",
+		"description": "A1 Hamburg Richtung Bremen Ausfahrt Elsdorf\n\t\t\t\t\t\t\tAnschlussstelle gesperrt, Baustelle, folgen Sie den Schildern, bis 30.08.2016 16:00 Uhr\n\t\t\t\t\t\t",
+		"eventTypes": [
+			{
+				"code": 50,
+				"type": "misc"
+			}
+		],
+		"locMessages": [],
+		"locations": [
+			{
+				"pos": [
+					{
+						"x": 9.34279,
+						"y": 53.23179
+					}
+				],
+				"code": 13324,
+				"typeCode": 2,
+				"type": "point",
+				"messages": [],
+				"subTypeCode": 0,
+				"subType": "misc"
+			}
+		]
+	},
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -285348}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "B215",
+			"segment": "Nienburg (Weser) - Verden (Aller)",
+			"content": "zwischen Hassel (Weser) und H\u00f6nisch\n\t\t\t\t\t\t\tin beiden Richtungen gesperrt f\u00fcr Durchgangsverkehr, Durchfahrt gesperrt f\u00fcr LKW, folgen Sie den\n\t\t\t\t\t\t\tSchildern, bis 10.09.2016 00:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "B215 Nienburg (Weser) - Verden (Aller)",
+		"description": "B215 Nienburg (Weser) - Verden (Aller) zwischen Hassel (Weser) und H\u00f6nisch\n\t\t\t\t\t\t\tin beiden Richtungen gesperrt f\u00fcr Durchgangsverkehr, Durchfahrt gesperrt f\u00fcr LKW, folgen Sie den\n\t\t\t\t\t\t\tSchildern, bis 10.09.2016 00:00 Uhr\n\t\t\t\t\t\t",
+		"eventTypes": [
+			{
+				"code": 50,
+				"type": "misc"
+			}
+		],
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 9.21964,
+						"y": 52.91889
+			},
+			{
+						"x": 9.22739,
+						"y": 52.84699
+			},
+			{
+						"x": 9.20749,
+						"y": 52.80249
+					}
+				],
+				"messages": [],
+                "code": 21767,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D HB LMS-HB",
+		"guid": "{D HB LMS-HB-40577}",
+		"organisation": "D HB LMS-HB",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A27",
+			"segment": "Bremerhaven Richtung Bremen",
+			"content": "zwischen Bremen-Vahr und Bremen-Sebaldsbr\u00fcck\n\t\t\t\t\t\t\tBaustelle, linker Fahrstreifen gesperrt\n\t\t\t\t\t\t"
+		},
+		"name": "A27 Bremerhaven Richtung Bremen",
+		"description": "A27 Bremerhaven Richtung Bremen zwischen Bremen-Vahr und Bremen-Sebaldsbr\u00fcck\n\t\t\t\t\t\t\tBaustelle, linker Fahrstreifen gesperrt\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 8.96859,
+						"y": 53.05809
+			},
+			{
+						"x": 8.90749,
+						"y": 53.08219
+					}
+				],
+				"messages": [],
+                "code": 10711,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D HB LMS-HB",
+		"guid": "{D HB LMS-HB-496907}",
+		"organisation": "D HB LMS-HB",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"segment": "Huchting, Heinrich-Plett-Allee",
+			"content": "in H\u00f6he Oldenburger Stra\u00dfe\n\t\t\t\t\t\t\tin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet\n\t\t\t\t\t\t",
+			"freeText": "Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 k\u00f6nnen weiterhin benutzt werden."
+		},
+		"name": "Huchting, Heinrich-Plett-Allee",
+		"description": "Huchting, Heinrich-Plett-Allee in H\u00f6he Oldenburger Stra\u00dfe\n\t\t\t\t\t\t\tin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet\n\t\t\t\t\t\t Die Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75 k\u00f6nnen weiterhin benutzt werden.",
+		"eventTypes": [
+			{
+				"code": 50,
+				"type": "misc"
+			}
+		],
+		"locMessages": [],
+		"locations": [
+			{
+				"pos": [
+					{
+						"x": 8.71529,
+						"y": 53.04949
+					}
+				],
+				"code": 34578,
+				"typeCode": 2,
+				"type": "point",
+				"messages": [],
+				"subTypeCode": 0,
+				"subType": "misc"
+			}
+		]
+	},
+	{
+		"originName": "D HB LMS-HB",
+		"guid": "{D HB LMS-HB-40283}",
+		"organisation": "D HB LMS-HB",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A1",
+			"segment": "Osnabr\u00fcck Richtung Bremen",
+			"content": "zwischen Dreieck Stuhr und Bremen\/Brinkum\n\t\t\t\t\t\t\tBaustelle\n\t\t\t\t\t\t"
+		},
+		"name": "A1 Osnabr\u00fcck Richtung Bremen",
+		"description": "A1 Osnabr\u00fcck Richtung Bremen zwischen Dreieck Stuhr und Bremen\/Brinkum\n\t\t\t\t\t\t\tBaustelle\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 8.80249,
+						"y": 53.02329
+			},
+					{
+						"x": 8.70239,
+						"y": 53.00529
+					}
+				],
+				"messages": [],
+                "code": 10113,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D HB LMS-HB",
+		"guid": "{D HB LMS-HB-497057}",
+		"organisation": "D HB LMS-HB",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"segment": "Bremen, Nordstra\u00dfe",
+			"content": "zwischen Hansestra\u00dfe und Grenzstra\u00dfe\n\t\t\t\t\t\t\tin beiden Richtungen Baustelle, linker Fahrstreifen gesperrt\n\t\t\t\t\t\t"
+		},
+		"name": "Bremen, Nordstra\u00dfe",
+		"description": "Bremen, Nordstra\u00dfe zwischen Hansestra\u00dfe und Grenzstra\u00dfe\n\t\t\t\t\t\t\tin beiden Richtungen Baustelle, linker Fahrstreifen gesperrt\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 8.77609,
+						"y": 53.09859
+			},
+					{
+						"x": 8.78529,
+						"y": 53.08889
+					}
+				],
+				"messages": [],
+                "code": 28215,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D HB LMS-HB",
+		"guid": "{D HB LMS-HB-497244}",
+		"organisation": "D HB LMS-HB",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A1",
+			"segment": "Osnabr\u00fcck Richtung Bremen",
+			"content": "zwischen Bremen\/Brinkum und Bremen-Arsten\n\t\t\t\t\t\t\tFahrbahnerneuerung auf dem mittleren Fahrstreifen, rechter Fahrstreifen gesperrt, Stau zu erwarten, bis\n\t\t\t\t\t\t\t18.09.2016 00:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "A1 Osnabr\u00fcck Richtung Bremen",
+		"description": "A1 Osnabr\u00fcck Richtung Bremen zwischen Bremen\/Brinkum und Bremen-Arsten\n\t\t\t\t\t\t\tFahrbahnerneuerung auf dem mittleren Fahrstreifen, rechter Fahrstreifen gesperrt, Stau zu erwarten, bis\n\t\t\t\t\t\t\t18.09.2016 00:00 Uhr\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 8.85889,
+						"y": 53.02919
+			},
+			{
+						"x": 8.84384,
+						"y": 53.02434
+			},
+			{
+						"x": 8.82469,
+						"y": 53.02364
+			},
+					{
+						"x": 8.80249,
+						"y": 53.02329
+					}
+				],
+				"messages": [],
+                "code": 10114,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -280458}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A27",
+			"segment": "Bremen Richtung Walsrode",
+			"content": "Ausfahrt Achim-Nord\n\t\t\t\t\t\t\tAusfahrt gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.08.2016 00:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "A27 Bremen Richtung Walsrode",
+		"description": "A27 Bremen Richtung Walsrode Ausfahrt Achim-Nord\n\t\t\t\t\t\t\tAusfahrt gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.08.2016 00:00 Uhr\n\t\t\t\t\t\t",
+		"eventTypes": [
+			{
+				"code": 50,
+				"type": "misc"
+			}
+		],
+		"locMessages": [],
+		"locations": [
+			{
+				"pos": [
+					{
+						"x": 9.03149,
+						"y": 53.02389
+					}
+				],
+				"code": 10709,
+				"typeCode": 2,
+				"type": "point",
+				"messages": [],
+				"subTypeCode": 0,
+				"subType": "misc"
+			}
+		]
+	},
+	{
+		"originName": "D HB LMS-HB",
+		"guid": "{D HB LMS-HB-496863}",
+		"organisation": "D HB LMS-HB",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"freeText": "Bremerhaven, Rickmersstra\u00dfe\n\t\t\t\t\t\t\tzwischen Van-Heukelum-Stra\u00dfe und K\u00f6rnerstra\u00dfe\n\t\t\t\t\t\t\tin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr\n\t\t\t\t\t\t\tDie Bushaltestelle \"Goethestra\u00dfe\" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der\n\t\t\t\t\t\t\tBatteriestra\u00dfe.\n\t\t\t\t\t\t"
+		},
+		"name": "",
+		"description": "Bremerhaven, Rickmersstra\u00dfe\n\t\t\t\t\t\t\tzwischen Van-Heukelum-Stra\u00dfe und K\u00f6rnerstra\u00dfe\n\t\t\t\t\t\t\tin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr\n\t\t\t\t\t\t\tDie Bushaltestelle \"Goethestra\u00dfe\" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der\n\t\t\t\t\t\t\tBatteriestra\u00dfe.\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 8.5785,
+						"y": 53.56068
+					},
+					{
+						"x": 8.57762,
+						"y": 53.56065
+					},
+					{
+						"x": 8.57682,
+						"y": 53.56064
+					},
+					{
+						"x": 8.57657,
+						"y": 53.56063
+					},
+					{
+						"x": 8.57602,
+						"y": 53.5606
+					},
+					{
+						"x": 8.57485,
+						"y": 53.56056
+					}
+				],
+                "messages": [],
+				"code": 0,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -280931}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A27",
+			"segment": "Walsrode Richtung Bremen",
+			"content": "Einfahrt Achim-Nord\n\t\t\t\t\t\t\tEinfahrt gesperrt, Baustelle, bis 31.08.2016 00:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "A27 Walsrode Richtung Bremen",
+		"description": "A27 Walsrode Richtung Bremen Einfahrt Achim-Nord\n\t\t\t\t\t\t\tEinfahrt gesperrt, Baustelle, bis 31.08.2016 00:00 Uhr\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+				"pos": [
+					{
+						"x": 9.03149,
+						"y": 53.02389
+					}
+				],
+				"code": 10709,
+				"typeCode": 2,
+				"type": "point",
+				"messages": [],
+				"subTypeCode": 0,
+				"subType": "misc"
+			}
+		]
+	},
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -281484}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "B212",
+			"segment": "Nordenham - Bremerhaven",
+			"content": "zwischen Weserf\u00e4hre Bremerhaven und Weserf\u00e4hre Bremerhaven in Bremerhaven\n\t\t\t\t\t\t\tin beiden Richtungen F\u00e4hre au\u00dfer Betrieb, bis 17.09.2016 00:00 Uhr\n\t\t\t\t\t\t",
+			"freeText": ", empfohlene Umleitung \u00fcber B437 Wesertunnel . Alternativ wird zu jeder vollen Stunde ein Bustransfer\n\t\t\t\t\t\t\tvom F\u00e4hranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.\n\t\t\t\t\t\t"
+		},
+		"name": "B212 Nordenham - Bremerhaven",
+		"description": "B212 Nordenham - Bremerhaven zwischen Weserf\u00e4hre Bremerhaven und Weserf\u00e4hre Bremerhaven in Bremerhaven\n\t\t\t\t\t\t\tin beiden Richtungen F\u00e4hre au\u00dfer Betrieb, bis 17.09.2016 00:00 Uhr\n\t\t\t\t\t\t , empfohlene Umleitung \u00fcber B437 Wesertunnel . Alternativ wird zu jeder vollen Stunde ein Bustransfer\n\t\t\t\t\t\t\tvom F\u00e4hranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.\n\t\t\t\t\t\t",
+		"locMessages": [],
+		"locations": [
+			{
+                "type": "line",
+                "typeCode": 1,
+				"pos": [
+					{
+						"x": 8.58054,
+						"y": 53.53659
+			},
+					{
+						"x": 8.54359,
+						"y": 53.52044
+					}
+				],
+				"messages": [],
+                "code": 34609,
+                "subType": "misc",
+                "subTypeCode": 0
+			}
+		]
+	},
+	{
+		"originName": "D NI LMS-NI",
+		"guid": "{D NI LMS-NI -289690}",
+		"organisation": "D NI LMS-NI",
+		"activateTime": false,
+		"status": "modification",
+		"startTime": false,
+		"stopTime": false,
+		"messages": {
+			"roadNumber": "A1",
+			"segment": "Hamburg Richtung Bremen",
+			"content": "Ausfahrt Stuckenborstel\n\t\t\t\t\t\t\t2 Tagesbaustellen, Anschlussstelle gesperrt, folgen Sie den Schildern, bis 31.08.2016 16:00 Uhr\n\t\t\t\t\t\t"
+		},
+		"name": "A1 Hamburg Richtung Bremen",
+		"description": "A1 Hamburg Richtung Bremen Ausfahrt Stuckenborstel\n\t\t\t\t\t\t\t2 Tagesbaustellen, Anschlussstelle gesperrt, folgen Sie den Schildern, bis 31.08.2016 16:00 Uhr\n\t\t\t\t\t\t",
+		"eventTypes": [
+			{
+				"code": 50,
+				"type": "misc"
+			}
+		],
+		"locMessages": [],
+		"locations": [
+			{
+				"pos": [
+					{
+						"x": 9.19969,
+						"y": 53.10914
+					}
+				],
+				"code": 10122,
+				"typeCode": 2,
+				"type": "point",
+				"messages": [],
+				"subTypeCode": 0,
+				"subType": "misc"
+			}
+		]
+	}
+]

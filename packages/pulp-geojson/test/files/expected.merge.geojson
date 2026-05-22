@@ -1,0 +1,97 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102,
+          0.5
+        ]
+      },
+      "properties": {
+        "source": "input1.geojson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102,
+            5
+          ],
+          [
+            103,
+            4
+          ],
+          [
+            104,
+            3
+          ],
+          [
+            105,
+            2
+          ]
+        ]
+      },
+      "properties": {
+        "source": "input1.geojson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105,
+              1
+            ],
+            [
+              104,
+              2
+            ],
+            [
+              103,
+              3
+            ],
+            [
+              102,
+              4
+            ],
+            [
+              101,
+              5
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "source": "input1.geojson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0087855234786889,
+          0.00084890794346119
+        ]
+      },
+      "properties": {
+        "source": "input2.geojson"
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  }
+}

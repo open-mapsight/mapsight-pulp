@@ -1,0 +1,49 @@
+{
+  "name": "mapsight/pulp-geojson",
+  "require": {
+    "php": "^8.2",
+    "symfony/polyfill-php83": "^1.37",
+    "symfony/polyfill-php84": "^1.37",
+    "symfony/polyfill-php85": "^1.37",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "mapsight/geojson-reproject": "*",
+    "mapsight/pulp": "*",
+    "mapsight/pulp-json": "*",
+    "phayes/geophp": "^1",
+    "stepandalecky/kml-parser": "^0.2.2"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^11.0"
+  },
+  "scripts": {
+    "test": "phpunit test/"
+  },
+  "autoload": {
+    "classmap": [
+      "PulpGeoJSON.php"
+    ],
+    "psr-4": {
+      "OpenMapsight\\pulpgeojson\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OpenMapsight\\pulpgeojson\\dev\\": "src-dev"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/src/*",
+      "!/PulpGeoJSON.php"
+    ]
+  }
+}

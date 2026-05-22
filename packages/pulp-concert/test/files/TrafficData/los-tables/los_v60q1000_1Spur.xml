@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ParamSets idRef="LOS"> 
+  <ParamSet name="los_v60q1000_1Spur">
+    <Algostate algoRef="AlgoLOSStandard" enabled="true"/>
+    <Algostate algoRef="AlgoLOSPrognosisStandard" enabled="true"/>
+    <Algostate algoRef="AlgoLOSOccBased" enabled="false"/>
+    <Algostate algoRef="AlgoLOSPrognosisOccBased" enabled="false"/>
+    <Algostate algoRef="AlgoLOSFromInput" enabled="false"/>
+    <Params algoRef="AlgoLOSStandard">
+      <Param name="vThresholdArr" vehType="all">0.0;300.0;550.0;750.0;900.0;1000.0</Param>
+      <Param name="sThresholdArr" vehType="all">0.0;14.0;22.0;30.0;41.0;54.0</Param>
+      <Param name="vHysteresisArr" vehType="all">0.0;54.0;99.0;67.5;36.0;25.0</Param>
+      <Param name="sHysteresisArr" vehType="all">0.0;1.1;1.8;2.4;3.3;4.3</Param>
+      <Param name="LOSArr" vehType="all">[2;2;1;0;0;0][2;2;1;0;0;0][2;2;1;0;0;0][2;2;1;1;0;0][2;1;1;1;0;0][2;1;1;1;0;0]</Param>
+      <Param name="LOSHysteresisCount" vehType="all">0</Param>
+    </Params>
+    <Params algoRef="AlgoLOSPrognosisStandard">
+      <Param name="vThresholdArr" vehType="all">0.0;570.0;1045.0;1425.0;1710.0;1900.0</Param>
+      <Param name="sThresholdArr" vehType="all">0.0;12.0;18.0;25.0;34.0;45.0</Param>
+      <Param name="vHysteresisArr" vehType="all">0.0;95.0;74.0;59.0;48.0;38.0</Param>
+      <Param name="sHysteresisArr" vehType="all">0.0;1.0;2.0;2.0;2.0;3.0</Param>
+      <Param name="LOSArr" vehType="all">[2;2;1;0;0;0][2;2;1;0;0;0][2;2;1;0;0;0][2;2;1;1;0;0][2;1;1;1;0;0][2;1;1;1;0;0]</Param>
+      <Param name="LOSHysteresisCount" vehType="all">2</Param>
+    </Params>
+    <Params algoRef="AlgoLOSOccBased">
+      <Param name="vThresholdArr" vehType="all">0.0;570.0;1045.0;1425.0;1710.0;1900.0</Param>
+      <Param name="oThresholdArr" vehType="all">0.0;10.0;20.0;30.0;40.0;50.0</Param>
+      <Param name="vHysteresisArr" vehType="all">0.0;95.0;74.0;59.0;48.0;38.0</Param>
+      <Param name="oHysteresisArr" vehType="all">0.0;2.0;2.0;2.0;2.0;2.0</Param>
+      <Param name="LOSArr" vehType="all">[0;1;2;2;2;2][0;0;1;2;2;2][0;0;1;2;2;2][0;0;1;1;2;2][0;0;1;1;2;2][0;1;1;1;1;1]</Param>
+      <Param name="LOSHysteresisCount" vehType="all">2</Param>
+    </Params>
+    <Params algoRef="AlgoLOSPrognosisOccBased">
+      <Param name="vThresholdArr" vehType="all">0.0;570.0;1045.0;1425.0;1710.0;1900.0</Param>
+      <Param name="oThresholdArr" vehType="all">0.0;10.0;20.0;30.0;40.0;50.0</Param>
+      <Param name="vHysteresisArr" vehType="all">0.0;95.0;74.0;59.0;48.0;38.0</Param>
+      <Param name="oHysteresisArr" vehType="all">0.0;2.0;2.0;2.0;2.0;2.0</Param>
+      <Param name="LOSArr" vehType="all">[0;1;2;2;2;2][0;0;1;2;2;2][0;0;1;2;2;2][0;0;1;1;2;2][0;0;1;1;2;2][0;1;1;1;1;1]</Param>
+      <Param name="LOSHysteresisCount" vehType="all">2</Param>
+    </Params>
+  </ParamSet>
+</ParamSets>

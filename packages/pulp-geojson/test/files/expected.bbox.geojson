@@ -1,0 +1,93 @@
+{
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102,
+          0.5
+        ]
+      },
+      "bbox": [
+        102,
+        0.5,
+        102,
+        0.5
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102,
+            5
+          ],
+          [
+            103,
+            4
+          ],
+          [
+            104,
+            3
+          ],
+          [
+            105,
+            2
+          ]
+        ]
+      },
+      "bbox": [
+        102,
+        2,
+        105,
+        5
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105,
+              1
+            ],
+            [
+              104,
+              2
+            ],
+            [
+              103,
+              3
+            ],
+            [
+              102,
+              4
+            ],
+            [
+              101,
+              5
+            ]
+          ]
+        ]
+      },
+      "bbox": [
+        101,
+        1,
+        105,
+        5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParamSets idRef="LOS">
+	<ParamSet name="los_v50q1000_1Spur">
+		<Algostate algoRef="AlgoLOSStandard" enabled="true" />
+		<Params algoRef="AlgoLOSStandard">
+			<Param name="vThresholdArr" vehType="all">0.0;300.0;550.0;750.0;900.0;1000.0</Param>
+			<Param name="sThresholdArr" vehType="all">0.0;12.0;18.0;25.0;34.0;45.0</Param>
+			<Param name="LOSArr" vehType="all">[2;2;1;0;0;0][2;2;1;0;0;0][2;2;1;0;0;0][2;2;1;1;0;0][2;1;1;1;0;0][2;1;1;1;0;0]</Param>
+		</Params>
+	</ParamSet>
+</ParamSets>

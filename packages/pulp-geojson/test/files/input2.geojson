@@ -1,0 +1,22 @@
+{
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:900913"
+    }
+  },
+  "statistics": "imastring",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          978.0,
+          94.5
+        ]
+      }
+    }
+  ]
+}

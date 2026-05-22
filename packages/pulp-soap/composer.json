@@ -1,0 +1,32 @@
+{
+  "name": "mapsight/pulp-soap",
+  "require": {
+    "php": "^8.2",
+    "symfony/polyfill-php83": "^1.37",
+    "symfony/polyfill-php84": "^1.37",
+    "symfony/polyfill-php85": "^1.37",
+    "ext-soap": "*",
+    "mapsight/pulp": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "PulpSoap.php"
+    ],
+    "psr-4": {
+      "OpenMapsight\\pulpsoap\\": "src"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/src/*",
+      "!/PulpSoap.php"
+    ]
+  }
+}

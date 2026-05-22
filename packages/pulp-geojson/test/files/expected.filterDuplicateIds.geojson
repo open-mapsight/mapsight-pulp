@@ -1,0 +1,33 @@
+{
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "EPSG:4326"
+        }
+    },
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "a",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    105.0,
+                    0.5
+                ]
+            }
+        },
+        {
+            "id": "b",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    110.0,
+                    0.5
+                ]
+            }
+        }
+    ]
+}

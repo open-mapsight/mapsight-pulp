@@ -1,0 +1,27 @@
+{
+  "name": "mapsight/geojson-reproject",
+  "require": {
+    "php": "^8.2",
+    "symfony/polyfill-php83": "^1.37",
+    "symfony/polyfill-php84": "^1.37",
+    "symfony/polyfill-php85": "^1.37",
+    "proj4php/proj4php": "^2.0.9"
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
+  },
+  "autoload": {
+    "classmap": [
+      "GeoJsonReproject.php"
+    ]
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/GeoJsonReproject.php"
+    ]
+  }
+}
