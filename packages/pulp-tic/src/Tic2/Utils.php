@@ -71,7 +71,8 @@ class Utils
             422 => 'Nightlife', 423 => 'Public sport airport',
             424 => 'Sports centre', 425 => 'Winery',
             426 => 'Automobile dealership', 427 => 'Motorcycle dealership',
-            428 => 'Parking garage']];
+            428 => 'Parking garage'],
+    ];
 
     public static function msTimezoneStringToTimezone($msTimezoneString): ?DateTimeZone
     {
@@ -102,9 +103,6 @@ class Utils
         };
     }
 
-    /**
-     * @return mixed[][]|string[]
-     */
     public static function parseMessages(SimpleXMLElement $parent): array
     {
         $codeMap = [0 => 'roadNumber', 1 => 'segment', 2 => 'content',
@@ -115,10 +113,6 @@ class Utils
             47 => 'postalCode', 48 => 'houseNumber'];
         $messages = [];
 
-        if (!isset($parent)) {
-            return $messages;
-        }
-
         foreach ($codeMap as $messageCode => $messageKey) {
             $messageTexts = $parent->xpath(
                 './MES/MDA/MDC[.="' . $messageCode . '"]/../MDT'
@@ -128,11 +122,11 @@ class Utils
                 case 0:
                     break;
                 case 1:
-                    $messages[$messageKey] = (string) $messageTexts[0][0];
+                    $messages[$messageKey] = (string)$messageTexts[0][0];
                     break;
                 default:
                     $messages[$messageKey] = array_map(
-                        fn(array $messageText): string => (string) $messageText[0],
+                        fn(array $messageText): string => (string)$messageText[0],
                         $messageTexts
                     );
                     break;
@@ -144,20 +138,9 @@ class Utils
 
     public static function locationTypeCodeSubTypeCodeToString($code, $subCode)
     {
-        if (isset(self::$stringByLocationTypeCodeAndSubCode[$code]) &&
-            isset(self::$stringByLocationTypeCodeAndSubCode[$code][$subCode])
-        ) {
-            return self::$stringByLocationTypeCodeAndSubCode[$code][$subCode];
-        }
-        return 'misc';
+        return self::$stringByLocationTypeCodeAndSubCode[$code][$subCode] ?? 'misc';
     }
 
-    /**
-     *
-     * @param array $messagse
-     *
-     * @return string
-     */
     public static function buildDescription(array $messagse): string
     {
         return self::buildFieldFromMessages(
@@ -166,12 +149,6 @@ class Utils
         );
     }
 
-    /**
-     *
-     * @param array $messagse
-     *
-     * @return string
-     */
     public static function buildName(array $messagse): string
     {
         return self::buildFieldFromMessages(
@@ -180,13 +157,6 @@ class Utils
         );
     }
 
-    /**
-     *
-     * @param array $messages
-     * @param array $keys
-     *
-     * @return string
-     */
     public static function buildFieldFromMessages(array $messages, array $keys): string
     {
         $result = [];
@@ -202,34 +172,28 @@ class Utils
         return implode(' ', $result);
     }
 
-    /**
-     *
-     * @param SimpleXMLElement $loc
-     *
-     * @return array
-     */
     public static function parseLocationData(SimpleXMLElement $loc): array
     {
         $curLoc = [];
 
         $curLoc['pos'] = [];
         foreach ($loc->xpath('./LCO') as $lco) {
-            $x = $lco->xpath('./X');
-            $y = $lco->xpath('./Y');
-            if (($x = reset($x)) !== false && ($y = reset($y)) !== false) {
+            $x = $lco->xpath('./X')[0] ?? false;
+            $y = $lco->xpath('./Y')[0] ?? false;
+            if ($x !== false && $y !== false) {
                 $curLoc['pos'][] = [
-                    'x' => ((int) $x) / 100000,
-                    'y' => ((int) $y) / 100000,
+                    'x' => ((int)$x) / 100000,
+                    'y' => ((int)$y) / 100000,
                 ];
             }
         }
 
-        if (($val = reset($loc->xpath('./LCD'))) !== false) {
-            $curLoc['code'] = (int) $val;
+        if (($val = $loc->xpath('./LCD')[0] ?? false) !== false) {
+            $curLoc['code'] = (int)$val;
         }
 
-        if (($val = reset($loc->xpath('./LTP'))) !== false) {
-            $curLoc['typeCode'] = (int) $val;
+        if (($val = $loc->xpath('./LTP')[0] ?? false) !== false) {
+            $curLoc['typeCode'] = (int)$val;
 
             switch ($curLoc['typeCode']) {
                 case 0:
@@ -246,12 +210,12 @@ class Utils
 
         $curLoc['messages'] = self::parseMessages($loc);
 
-        if (($val = reset($loc->xpath('./LSU'))) !== false) {
-            $curLoc['subTypeCode'] = (int) $val;
+        if (($val = $loc->xpath('./LSU')[0] ?? false) !== false) {
+            $curLoc['subTypeCode'] = (int)$val;
             if (isset($curLoc['typeCode'])) {
                 $curLoc['subType'] = self::locationTypeCodeSubTypeCodeToString(
                     $curLoc['typeCode'],
-                    (int) $val
+                    (int)$val
                 );
             }
         }
@@ -259,30 +223,25 @@ class Utils
         return $curLoc;
     }
 
-    /**
-     * @param SimpleXMLElement $entry
-     *
-     * @return array
-     */
     public static function parseEntry(SimpleXMLElement $entry): array
     {
         $res = [];
 
-        if (($val = reset($entry->xpath('./ORI/ONA'))) !== false) {
-            $res['originName'] = trim((string) $val);
+        if (($val = $entry->xpath('./ORI/ONA')[0] ?? false) !== false) {
+            $res['originName'] = trim((string)$val);
         }
 
-        if (($val = reset($entry->xpath('./IID'))) !== false) {
-            $res['guid'] = trim((string) $val);
+        if (($val = $entry->xpath('./IID')[0] ?? false) !== false) {
+            $res['guid'] = trim((string)$val);
         }
 
-        if (($val = reset($entry->xpath('./IDT/ORG'))) !== false) {
-            $res['organisation'] = trim((string) $val);
+        if (($val = $entry->xpath('./IDT/ORG')[0] ?? false) !== false) {
+            $res['organisation'] = trim((string)$val);
         }
 
         $timezone = null;
-        if (($val = reset($entry->xpath('./VER/MNG/TZI'))) !== false) {
-            $timezone = Utils::msTimezoneStringToTimezone((string) $val);
+        if (($val = $entry->xpath('./VER/MNG/TZI')[0] ?? false) !== false) {
+            $timezone = Utils::msTimezoneStringToTimezone((string)$val);
         }
 
         if (!$timezone instanceof DateTimeZone) {
@@ -290,29 +249,29 @@ class Utils
         }
 
         // activation time
-        if (($val = reset($entry->xpath('./VER/MNG/ACT'))) !== false) {
-            $res['activateTime'] = Utils::parseTime((string) $val, $timezone);
+        if (($val = $entry->xpath('./VER/MNG/ACT')[0] ?? false) !== false) {
+            $res['activateTime'] = Utils::parseTime((string)$val, $timezone);
         }
 
         // expiration time
-        if (($val = reset($entry->xpath('./VER/MNG/EXP'))) !== false) {
-            $res['expiryTime'] = Utils::parseTime((string) $val, $timezone);
+        if (($val = $entry->xpath('./VER/MNG/EXP')[0] ?? false) !== false) {
+            $res['expiryTime'] = Utils::parseTime((string)$val, $timezone);
         }
 
-        if (($val = reset($entry->xpath('./VER/MNG/STA'))) !== false) {
-            $res['status'] = Utils::statusCodeToString((int) $val);
+        if (($val = $entry->xpath('./VER/MNG/STA')[0] ?? false) !== false) {
+            $res['status'] = Utils::statusCodeToString((int)$val);
         }
 
-        if (($val = reset($entry->xpath('./VER/TRA/TTI/TSA'))) !== false) {
-            $res['startTime'] = Utils::parseTime((string) $val, $timezone);
+        if (($val = $entry->xpath('./VER/TRA/TTI/TSA')[0] ?? false) !== false) {
+            $res['startTime'] = Utils::parseTime((string)$val, $timezone);
         }
 
-        if (($val = reset($entry->xpath('./VER/TRA/TTI/TSO'))) !== false) {
-            $res['stopTime'] = Utils::parseTime((string) $val, $timezone);
+        if (($val = $entry->xpath('./VER/TRA/TTI/TSO')[0] ?? false) !== false) {
+            $res['stopTime'] = Utils::parseTime((string)$val, $timezone);
         }
 
         // additional data "messages"
-        if (($val = reset($entry->xpath('./VER/TRA'))) !== false) {
+        if (($val = $entry->xpath('./VER/TRA')[0] ?? false) !== false) {
             $res['messages'] = Utils::parseMessages($val);
             $res['name'] = Utils::buildName($res['messages']);
             $res['description'] = Utils::buildDescription($res['messages']);
@@ -320,8 +279,8 @@ class Utils
 
         // type of events
         foreach ($entry->xpath('./VER/TRA/EVT/EDA') as $eventData) {
-            if (($val = reset($eventData->xpath('./ECT'))) !== false) {
-                $val = (int) $val;
+            if (($val = $eventData->xpath('./ECT')[0] ?? false) !== false) {
+                $val = (int)$val;
 
                 if (!isset($res['eventTypes'])) {
                     $res['eventTypes'] = [];
@@ -334,7 +293,7 @@ class Utils
             }
         }
 
-        if (($val = reset($entry->xpath('./VER/TRA/LCA'))) !== false) {
+        if (($val = $entry->xpath('./VER/TRA/LCA')[0] ?? false) !== false) {
             $res['locMessages'] = Utils::parseMessages($val);
         }
 

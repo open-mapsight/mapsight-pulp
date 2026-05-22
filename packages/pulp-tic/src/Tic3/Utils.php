@@ -11,11 +11,6 @@ use SimpleXMLElement;
 
 class Utils
 {
-    /**
-     * @param $timezoneEnum
-     *
-     * @return DateTimeZone|null
-     */
     private static function timezoneEnumToTimezone(string $timezoneEnum): ?DateTimeZone
     {
         // TODO: Support more timezones
@@ -26,25 +21,14 @@ class Utils
         };
     }
 
-    /**
-     * @param               $str
-     * @param DateTimeZone $timezone
-     *
-     * @return DateTime
-     */
     public static function parseTime($str, DateTimeZone $timezone): DateTime
     {
         return new DateTime($str, $timezone);
     }
 
-    /**
-     * @param SimpleXMLElement $element
-     *
-     * @return string
-     */
     private static function parseShapeOrPositionType(SimpleXMLElement $element): ?string
     {
-        if (($val = reset($element->xpath('./Type'))) !== false) {
+        if (($val = $element->xpath('./Type')[0] ?? false) !== false) {
             switch ($val) {
                 case '0':
                 case 'Area':
@@ -61,17 +45,12 @@ class Utils
         return null;
     }
 
-    /**
-     * @param SimpleXMLElement $element
-     *
-     * @return array
-     */
     private static function parseCoordinates(SimpleXMLElement $element): array
     {
         $positions = [];
         foreach ($element->xpath('./Coordinate') as $coordinate) {
-            if (($x = reset($coordinate->xpath('./Longitude'))) !== false &&
-                ($y = reset($coordinate->xpath('./Latitude'))) !== false) {
+            if (($x = $coordinate->xpath('./Longitude')[0] ?? false) !== false &&
+                ($y = $coordinate->xpath('./Latitude')[0] ?? false) !== false) {
                 $positions[] = ['x' => (float) $x, 'y' => (float) $y];
             }
         }
@@ -79,11 +58,6 @@ class Utils
         return $positions;
     }
 
-    /**
-     * @param SimpleXMLElement $locationPosition
-     *
-     * @return array
-     */
     public static function parseLocationShapeOrPosition(SimpleXMLElement $locationPosition): array
     {
         return [
@@ -92,11 +66,6 @@ class Utils
         ];
     }
 
-    /**
-     * @param SimpleXMLElement $tic3Location
-     *
-     * @return array
-     */
     public static function parseTic3Location(SimpleXMLElement $tic3Location): array
     {
         return array_map(self::parseLocationShapeOrPosition(...), $tic3Location->xpath('./Shape'));
@@ -106,9 +75,6 @@ class Utils
      * We try to extract more info from description. We assume the description value is made up
      * from multiple sources concatenated with line breaks. Part 0 is the road identifier and segment or direction,
      * part 1 is the narrower localization on the road and the rest is the actual description.
-     *
-     * @param $val
-     * @param $res
      */
     private static function parseDescription($val, array &$res): void
     {
@@ -132,11 +98,6 @@ class Utils
         }
     }
 
-    /**
-     * @param SimpleXMLElement $entry
-     *
-     * @return array
-     */
     private static function parseLocations(SimpleXMLElement $entry): array
     {
         $locations = [];
@@ -148,24 +109,19 @@ class Utils
             $locations = array_merge($locations, $locations);
         }
 
-        if (($val = reset($entry->xpath('./Location/Position'))) !== false) {
+        if (($val = $entry->xpath('./Location/Position')[0] ?? false) !== false) {
             $locations[] = self::parseLocationShapeOrPosition($val);
         }
 
         return $locations;
     }
 
-    /**
-     * @param SimpleXMLElement $entry
-     *
-     * @return array
-     */
     private static function parseTimes(SimpleXMLElement $entry): array
     {
         $res = [];
 
         $timezone = null;
-        if (($val = reset($entry->xpath('./TimeZone'))) !== false) {
+        if (($val = $entry->xpath('./TimeZone')[0] ?? false) !== false) {
             $timezone = Utils::timezoneEnumToTimezone((string) $val);
         }
 
@@ -173,30 +129,24 @@ class Utils
             $timezone = new DateTimeZone('UTC');
         }
 
-        if (($val = reset($entry->xpath('./CreateTime'))) !== false) {
+        if (($val = $entry->xpath('./CreateTime')[0] ?? false) !== false) {
             $res['activateTime'] = Utils::parseTime((string) $val, $timezone);
         }
 
-        if (($val = reset($entry->xpath('./Duration/StartTime'))) !== false) {
+        if (($val = $entry->xpath('./Duration/StartTime')[0] ?? false) !== false) {
             $res['startTime'] = Utils::parseTime((string) $val, $timezone);
         }
 
-        if (($val = reset($entry->xpath('./Duration/EndTime'))) !== false) {
+        if (($val = $entry->xpath('./Duration/EndTime')[0] ?? false) !== false) {
             $res['stopTime'] = Utils::parseTime((string) $val, $timezone);
         }
 
         return $res;
     }
 
-    /**
-     * type of events
-     *
-     * @param SimpleXMLElement $eventData
-     * @param                   $res
-     */
     private static function parseTmcEvent(SimpleXMLElement $eventData, array &$res): void
     {
-        if (($val = reset($eventData->xpath('./UpdateClass'))) !== false) {
+        if (($val = $eventData->xpath('./UpdateClass')[0] ?? false) !== false) {
             $val = (int) $val;
 
             if (!isset($res['eventTypes'])) {
@@ -210,19 +160,16 @@ class Utils
         }
     }
 
-    /**
-     * @return mixed[]
-     */
     public static function parseEntry(SimpleXMLElement $entry): array
     {
         $res = [];
 
-        if (($val = reset($entry->xpath('./DataProducer'))) !== false) {
+        if (($val = $entry->xpath('./DataProducer')[0] ?? false) !== false) {
             $res['originName'] = trim((string) $val->attributes()['value']);
             $res['organisation'] = trim((string) $val->attributes()['value']);
         }
 
-        if (($val = reset($entry->xpath('./TicId'))) !== false) {
+        if (($val = $entry->xpath('./TicId')[0] ?? false) !== false) {
             $res['guid'] = trim((string) $val);
         }
 
@@ -232,17 +179,17 @@ class Utils
             self::parseTmcEvent($eventData, $res);
         }
 
-        if (($val = reset($entry->xpath('./Location'))) !== false) {
+        if (($val = $entry->xpath('./Location')[0] ?? false) !== false) {
             $res['name'] = trim((string) $val->attributes()['description']);
         }
 
-        $res['isAbolished'] = reset($entry->xpath('./CancelationTime')) !== false;
+        $res['isAbolished'] = ($entry->xpath('./CancelationTime')[0] ?? false) !== false;
 
-        if (($val = reset($entry->xpath('./Location/Tic3Location/Edge'))) !== false) {
+        if (($val = $entry->xpath('./Location/Tic3Location/Edge')[0] ?? false) !== false) {
             $res['locationName'] = trim((string) $val->attributes()['description']);
         }
 
-        if (($val = reset($entry->xpath('./Location/Tic3Location/Edge/SortRoadNumber'))) !== false) {
+        if (($val = $entry->xpath('./Location/Tic3Location/Edge/SortRoadNumber')[0] ?? false) !== false) {
             $val = trim((string) $val);
 
             if ($val !== '' && $val !== '0') {
@@ -259,26 +206,23 @@ class Utils
         return $res;
     }
 
-    /**
-     * @return mixed[]
-     */
     public static function parseTemplateEntry(SimpleXMLElement $entry): array
     {
         $res = [];
 
-        if (($val = reset($entry->xpath('./TicId'))) !== false) {
+        if (($val = $entry->xpath('./TicId')[0] ?? false) !== false) {
             $res['guid'] = trim((string) $val);
         }
 
-        if (($val = reset($entry->xpath('./Location'))) !== false) {
+        if (($val = $entry->xpath('./Location')[0] ?? false) !== false) {
             $res['name'] = trim((string) $val->attributes()['description']);
         }
 
-        if (($val = reset($entry->xpath('./Location/Tic3Location/Edge'))) !== false) {
+        if (($val = $entry->xpath('./Location/Tic3Location/Edge')[0] ?? false) !== false) {
             $res['locationName'] = trim((string) $val->attributes()['description']);
         }
 
-        if (($val = reset($entry->xpath('./Location/Tic3Location/Edge/SortRoadNumber'))) !== false) {
+        if (($val = $entry->xpath('./Location/Tic3Location/Edge/SortRoadNumber')[0] ?? false) !== false) {
             $val = trim((string) $val);
 
             if ($val !== '' && $val !== '0') {
@@ -286,7 +230,7 @@ class Utils
             }
         }
 
-        if (($val = reset($entry->xpath('./Description'))) !== false) {
+        if (($val = $entry->xpath('./Description')[0] ?? false) !== false) {
             self::parseDescription($val, $res);
         }
 
