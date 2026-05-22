@@ -34,6 +34,8 @@ jobs:
     needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment:
+        name: production
     strategy:
       fail-fast: false
       matrix:
