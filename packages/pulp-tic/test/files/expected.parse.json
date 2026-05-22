@@ -1,54 +1,52 @@
 [
-	{
+    {
         "originName": "MM-VWD-1_LMS_vwd1",
-		"guid": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
+        "guid": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
         "organisation": "D NI LMS-NI",
-		"activateTime": "2014-09-11T15:24:19+0200",
-		"expiryTime": "2014-09-11T15:39:19+0200",
-		"status": "cancellation",
-		"startTime": "2123-02-03T13:37:42+0100",
-		"stopTime": "2123-04-05T14:38:43+0100",
-		"messages": {
-			"roadNumber": "A352",
-			"segment": "Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
-			"content": "Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt"
-		},
-		"name": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
-		"description": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt",
-		"eventTypes": [
-			{
-				"code": 12,
-				"type": "misc"
-			}
-		],
-		"locMessages": [
-
-		],
-		"locations": [
-			{
+        "activateTime": "2014-09-11T15:24:19+0200",
+        "expiryTime": "2014-09-11T15:39:19+0200",
+        "status": "cancellation",
+        "startTime": "2123-02-03T13:37:42+0100",
+        "stopTime": "2123-04-05T14:38:43+0200",
+        "messages": {
+            "roadNumber": "A352",
+            "segment": "Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
+            "content": "Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Straße geräumt"
+        },
+        "name": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
+        "description": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Straße geräumt",
+        "eventTypes": [
+            {
+                "code": 12,
+                "type": "misc"
+            }
+        ],
+        "locMessages": [],
+        "locations": [
+            {
                 "type": "line",
                 "typeCode": 1,
-				"pos": [
-					{
-						"x": 9.80015,
-						"y": 52.5424
-				},
-					{
-						"x": 9.76405,
-						"y": 52.5083
-					}
-				],
-				"messages": {
-					"name": "Bissendorf",
-					"roadName": "Eckverbindung Hannover",
-					"areaName": "Langenhagen",
-					"linearFirstName": "Hannover-Nord",
-					"linearSecondName": "Hannover-West"
-				},
+                "pos": [
+                    {
+                        "x": 9.80015,
+                        "y": 52.5424
+                    },
+                    {
+                        "x": 9.76405,
+                        "y": 52.5083
+                    }
+                ],
+                "messages": {
+                    "name": "Bissendorf",
+                    "roadName": "Eckverbindung Hannover",
+                    "areaName": "Langenhagen",
+                    "linearFirstName": "Hannover-Nord",
+                    "linearSecondName": "Hannover-West"
+                },
                 "code": 11038,
                 "subType": "Motorway triangle",
                 "subTypeCode": 102
-			}
+            }
         ]
-	}
+    }
 ]
