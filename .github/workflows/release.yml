@@ -68,10 +68,10 @@ jobs:
           package_directory: 'packages/${{ matrix.package }}'
           repository_organization: 'open-mapsight'
           repository_name: '${{ matrix.package }}'
-          # split-repository-host: "github.com" # Optional: defaults to github.com
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
           branch: "main"
+          tag: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
 
       - name: Notify Packagist
         env:
