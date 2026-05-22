@@ -24,7 +24,8 @@
     "mapsight/pulp-json": "@dev",
     "mapsight/pulp-soap": "@dev",
     "mapsight/pulp-tic": "@dev",
-    "mapsight/pulp-xml": "@dev"
+    "mapsight/pulp-xml": "@dev",
+    "mapsight/geojson-reproject": "@dev"
   },
   "scripts": {
     "test": "php test.php"

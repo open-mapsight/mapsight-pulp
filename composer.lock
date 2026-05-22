@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08605f1ae7df2ba1092000f42fd6ab98",
+    "content-hash": "b749cf3b80d93adab5a08718489e80ea",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -335,11 +335,11 @@
         },
         {
             "name": "mapsight/geojson-reproject",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
-                "reference": "c8e8a323f89e48f0bab85ffbab9c110bbe39177f"
+                "reference": "ac1c0e422161d0b29cdd94c7431f7b77cb03b4b4"
             },
             "require": {
                 "php": "^8.2",
@@ -368,11 +368,11 @@
         },
         {
             "name": "mapsight/pulp",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
-                "reference": "92dd13208eae73358c16ed4a529d90d2997489e5"
+                "reference": "92a1c9474f52cedfa0c316b8d9c3ef37aef659f4"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -416,11 +416,11 @@
         },
         {
             "name": "mapsight/pulp-concert",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
-                "reference": "5d7f5bcd5ff678dfc0deebb524980e0c1d5e61ee"
+                "reference": "29cd5db7924139e75e9d0ebcb91c48d51ab10948"
             },
             "require": {
                 "ext-dom": "*",
@@ -477,11 +477,11 @@
         },
         {
             "name": "mapsight/pulp-geocsv",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
-                "reference": "ab0c5506320f11a5c5ebf8e2351fc8fa0021de13"
+                "reference": "0968b85dce94f975d9a344dc38569739d8f611ad"
             },
             "require": {
                 "ext-json": "*",
@@ -529,11 +529,11 @@
         },
         {
             "name": "mapsight/pulp-geojson",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
-                "reference": "e8db505dd73649efc7999aaa626a7e2658c81b78"
+                "reference": "8806aab8ce6c2c78b4b15e0ee98b2b9ab2cb11a0"
             },
             "require": {
                 "ext-json": "*",
@@ -586,11 +586,11 @@
         },
         {
             "name": "mapsight/pulp-json",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
-                "reference": "06b4bc9385a1538bc24cf2e7d4905c588b2dabc3"
+                "reference": "b512afba3b15380c891b289f2ec4f7c00afc2538"
             },
             "require": {
                 "ext-json": "*",
@@ -634,11 +634,11 @@
         },
         {
             "name": "mapsight/pulp-soap",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
-                "reference": "d0a42b0b60d63d75aa030a064fa099e8c9f6c19d"
+                "reference": "831025e0f649105e4d096f143dad3aac27fcf9ec"
             },
             "require": {
                 "ext-soap": "*",
@@ -672,11 +672,11 @@
         },
         {
             "name": "mapsight/pulp-tic",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
-                "reference": "16bcd33e582b8c7569f138b0062f5b81e4d2698d"
+                "reference": "1c2fa0d3e8528b1932e2be64283d03d38df33df3"
             },
             "require": {
                 "mapsight/pulp": "*",
@@ -723,11 +723,11 @@
         },
         {
             "name": "mapsight/pulp-xml",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
-                "reference": "a4a609b51ef50a31bf2fc148b53fecfb79904fc9"
+                "reference": "ae28ea523e60474570181186d5b1bde217ebaed1"
             },
             "require": {
                 "ext-libxml": "*",
@@ -4197,6 +4197,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "mapsight/geojson-reproject": 20,
         "mapsight/pulp": 20,
         "mapsight/pulp-concert": 20,
         "mapsight/pulp-geocsv": 20,
