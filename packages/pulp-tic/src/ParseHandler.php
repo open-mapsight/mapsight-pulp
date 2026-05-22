@@ -6,7 +6,8 @@ namespace OpenMapsight\pulptic;
 
 use OpenMapsight\pulp\AbstractHandler;
 use OpenMapsight\pulp\File;
-use OpenMapsight\pulptic\OpenMapsight\pulptic\Tic2\Utils;
+use OpenMapsight\pulptic\Tic2\Utils as Tic2Utils;
+use OpenMapsight\pulptic\Tic3\Utils as Tic3Utils;
 use SimpleXMLElement;
 
 class ParseHandler extends AbstractHandler
@@ -31,13 +32,13 @@ class ParseHandler extends AbstractHandler
     {
         // auto detect tic2 or tic3 xml format
         if ($dom->xpath(self::$tic2EventXPath)) {
-            return array_map(Utils::parseEntry(...), $dom->xpath(self::$tic2EventXPath));
+            return array_map(Tic2Utils::parseEntry(...), $dom->xpath(self::$tic2EventXPath));
         }
         if ($dom->xpath(self::$tic3EventXPath)) {
-            return array_map(OpenMapsight\pulptic\Tic3\Utils::parseEntry(...), $dom->xpath(self::$tic3EventXPath));
+            return array_map(Tic3Utils::parseEntry(...), $dom->xpath(self::$tic3EventXPath));
         }
         if ($dom->xpath(self::$tic3TemplateXPath)) {
-            return array_map(OpenMapsight\pulptic\Tic3\Utils::parseTemplateEntry(...), $dom->xpath(self::$tic3TemplateXPath));
+            return array_map(Tic3Utils::parseTemplateEntry(...), $dom->xpath(self::$tic3TemplateXPath));
         }
         // TODO: Error/exception handling
         return [];

@@ -213,7 +213,7 @@ class LosUtils
             $los = $algorithm->getLosMatrix()[$volumeIndex][$speedIndex];
         }
 
-        $trafficSituationString = match ($los) {
+        $trafficSituationString = match ((int) $los) {
             0 => Counter::TRAFFIC_SITUATION_FREE,
             1 => Counter::TRAFFIC_SITUATION_SLOW,
             2 => Counter::TRAFFIC_SITUATION_JAM,

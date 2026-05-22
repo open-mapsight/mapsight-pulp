@@ -13,7 +13,7 @@ class ToGeoJSONHandler extends AbstractHandler
     protected static function situationTextToType($text): string
     {
         if ($text) {
-            $text = strtolower((string) $text);
+            $text = strtolower((string)$text);
 
             // Descanding in importance:
             if (preg_match('/\bstau\b/', $text) ||
@@ -69,7 +69,7 @@ class ToGeoJSONHandler extends AbstractHandler
                 $row['messages']['content'][0] :
                 $row['messages']['content'];
 
-            $messageText = mb_strtolower((string) $messageText, 'UTF-8');
+            $messageText = mb_strtolower((string)$messageText, 'UTF-8');
         } elseif (isset($row['description'])) {
             $messageText = mb_strtolower($row['description'], 'UTF-8');
         }
@@ -155,14 +155,14 @@ class ToGeoJSONHandler extends AbstractHandler
             $properties['updatedAt'] = $res['activateTime']->format(DateTime::ISO8601);
         }
         foreach ([
-            'guid' => 'id',
-            'name' => 'name',
-            'description' => 'description',
-            'originName' => 'originName',
-            'organisation' => 'organisation',
-            'roadNumber' => 'roadNumber',
-            'segment' => 'segment',
-        ] as $source => $target) {
+                     'guid' => 'id',
+                     'name' => 'name',
+                     'description' => 'description',
+                     'originName' => 'originName',
+                     'organisation' => 'organisation',
+                     'roadNumber' => 'roadNumber',
+                     'segment' => 'segment',
+                 ] as $source => $target) {
             if (isset($res[$source])) {
                 $properties[$target] = $res[$source];
             }

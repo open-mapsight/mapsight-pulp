@@ -103,7 +103,7 @@ class Los extends DataObject implements HasIdInterface, HasRelatedIdInterface
      */
     public function getLosString(): string
     {
-        return match ($this->los) {
+        return match ((int) $this->los) {
             self::LOS_VALUE_FREE => self::LOS_FREE,
             self::LOS_VALUE_SLOW => self::LOS_SLOW,
             self::LOS_VALUE_SLOWER => self::LOS_SLOWER,
