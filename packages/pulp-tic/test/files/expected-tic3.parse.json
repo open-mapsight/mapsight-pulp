@@ -3,8 +3,8 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/289708",
-        "activateTime": "2016-08-30T08:14:53+0000",
-        "stopTime": "2016-08-31T14:00:00+0000",
+        "activateTime": "2016-08-30T08:14:53+00:00",
+        "stopTime": "2016-08-31T14:00:00+00:00",
         "name": "A1 Hamburg Richtung Bremen Ausfahrt Stuckenborstel",
         "isAbolished": false,
         "segment": "A1 Hamburg Richtung Bremen",
@@ -170,9 +170,9 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/289572",
-        "activateTime": "2016-08-29T06:45:58+0000",
-        "startTime": "2016-08-29T07:00:00+0000",
-        "stopTime": "2016-08-30T14:00:00+0000",
+        "activateTime": "2016-08-29T06:45:58+00:00",
+        "startTime": "2016-08-29T07:00:00+00:00",
+        "stopTime": "2016-08-30T14:00:00+00:00",
         "name": "A1 Hamburg Richtung Bremen Ausfahrt Elsdorf",
         "isAbolished": false,
         "segment": "A1 Hamburg Richtung Bremen",
@@ -330,12 +330,12 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/285348",
-        "activateTime": "2016-08-10T04:21:35+0000",
-        "stopTime": "2016-09-09T22:00:00+0000",
-        "name": "B215 Nienburg (Weser) Richtung Verden (Aller) zwischen Hassel (Weser) und Hönisch",
+        "activateTime": "2016-08-10T04:21:35+00:00",
+        "stopTime": "2016-09-09T22:00:00+00:00",
+        "name": "B215 Nienburg (Weser) Richtung Verden (Aller) zwischen Hassel (Weser) und H\u00f6nisch",
         "isAbolished": false,
         "segment": "B215 Nienburg (Weser) - Verden (Aller)",
-        "description": "zwischen Hassel (Weser) und Hönisch\nin beiden Richtungen gesperrt für Durchgangsverkehr, Durchfahrt gesperrt für LKW, folgen Sie den Schildern, bis 10.09.2016 00:00 Uhr",
+        "description": "zwischen Hassel (Weser) und H\u00f6nisch\nin beiden Richtungen gesperrt f\u00fcr Durchgangsverkehr, Durchfahrt gesperrt f\u00fcr LKW, folgen Sie den Schildern, bis 10.09.2016 00:00 Uhr",
         "locations": [
             {
                 "pos": [
@@ -2817,17 +2817,17 @@
         "originName": "D  HB LMS-HB",
         "organisation": "D  HB LMS-HB",
         "guid": "LMS-HB\/r_D HB VRZ-HB \/40577",
-        "activateTime": "2016-08-30T11:26:40+0000",
+        "activateTime": "2016-08-30T11:26:40+00:00",
         "eventTypes": [
             {
                 "code": 5,
                 "type": "misc"
             }
         ],
-        "name": "A27 Bremerhaven Richtung Bremen zwischen Bremen-Vahr und Bremen-Sebaldsbrück",
+        "name": "A27 Bremerhaven Richtung Bremen zwischen Bremen-Vahr und Bremen-Sebaldsbr\u00fcck",
         "isAbolished": false,
         "segment": "A27 Bremerhaven Richtung Bremen",
-        "description": "zwischen Bremen-Vahr und Bremen-Sebaldsbrück\nBaustelle, linker Fahrstreifen gesperrt",
+        "description": "zwischen Bremen-Vahr und Bremen-Sebaldsbr\u00fcck\nBaustelle, linker Fahrstreifen gesperrt",
         "locations": [
             {
                 "pos": [
@@ -3349,17 +3349,17 @@
         "originName": "D  HB LMS-HB",
         "organisation": "D  HB LMS-HB",
         "guid": "LMS-HB\/r_LMS-HB\/496907",
-        "activateTime": "2016-07-05T07:48:23+0000",
+        "activateTime": "2016-07-05T07:48:23+00:00",
         "eventTypes": [
             {
                 "code": 5,
                 "type": "misc"
             }
         ],
-        "name": "Huchting, Heinrich-Plett-Allee in Höhe Oldenburger Straße",
+        "name": "Huchting, Heinrich-Plett-Allee in H\u00f6he Oldenburger Stra\u00dfe",
         "isAbolished": false,
         "segment": "Huchting, Heinrich-Plett-Allee",
-        "description": "in Höhe Oldenburger Straße\nin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet\nDie Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75  können weiterhin benutzt werden.",
+        "description": "in H\u00f6he Oldenburger Stra\u00dfe\nin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet\nDie Auf- und Abfahrten von der Heinrich-Plett-Allee auf die B75  k\u00f6nnen weiterhin benutzt werden.",
         "locations": [
             {
                 "pos": [
@@ -3489,16 +3489,16 @@
         "originName": "D  HB LMS-HB",
         "organisation": "D  HB LMS-HB",
         "guid": "LMS-HB\/r_D HB VRZ-HB \/40283",
-        "activateTime": "2016-08-29T15:11:10+0000",
+        "activateTime": "2016-08-29T15:11:10+00:00",
         "eventTypes": [
             {
                 "code": 11,
                 "type": "roadworks"
             }
         ],
-        "name": "A1 Osnabrück Richtung Bremen zwischen Dreieck Stuhr und Bremen\/Brinkum",
+        "name": "A1 Osnabr\u00fcck Richtung Bremen zwischen Dreieck Stuhr und Bremen\/Brinkum",
         "isAbolished": false,
-        "segment": "A1 Osnabrück Richtung Bremen",
+        "segment": "A1 Osnabr\u00fcck Richtung Bremen",
         "description": "zwischen Dreieck Stuhr und Bremen\/Brinkum\nBaustelle",
         "locations": [
             {
@@ -3925,17 +3925,17 @@
         "originName": "D  HB LMS-HB",
         "organisation": "D  HB LMS-HB",
         "guid": "LMS-HB\/r_LMS-HB\/497057",
-        "activateTime": "2016-08-07T15:44:16+0000",
+        "activateTime": "2016-08-07T15:44:16+00:00",
         "eventTypes": [
             {
                 "code": 5,
                 "type": "misc"
             }
         ],
-        "name": "Bremen, Nordstraße zwischen Hansestraße und Grenzstraße",
+        "name": "Bremen, Nordstra\u00dfe zwischen Hansestra\u00dfe und Grenzstra\u00dfe",
         "isAbolished": false,
-        "segment": "Bremen, Nordstraße",
-        "description": "zwischen Hansestraße und Grenzstraße\nin beiden Richtungen Baustelle, linker Fahrstreifen gesperrt",
+        "segment": "Bremen, Nordstra\u00dfe",
+        "description": "zwischen Hansestra\u00dfe und Grenzstra\u00dfe\nin beiden Richtungen Baustelle, linker Fahrstreifen gesperrt",
         "locations": [
             {
                 "pos": [
@@ -3961,8 +3961,8 @@
         "originName": "D  HB LMS-HB",
         "organisation": "D  HB LMS-HB",
         "guid": "LMS-HB\/r_LMS-HB\/497244",
-        "activateTime": "2016-08-19T05:58:31+0000",
-        "stopTime": "2016-09-17T22:00:00+0000",
+        "activateTime": "2016-08-19T05:58:31+00:00",
+        "stopTime": "2016-09-17T22:00:00+00:00",
         "eventTypes": [
             {
                 "code": 11,
@@ -3977,9 +3977,9 @@
                 "type": "misc"
             }
         ],
-        "name": "A1 Osnabrück Richtung Bremen zwischen Bremen\/Brinkum und Bremen-Arsten",
+        "name": "A1 Osnabr\u00fcck Richtung Bremen zwischen Bremen\/Brinkum und Bremen-Arsten",
         "isAbolished": false,
-        "segment": "A1 Osnabrück Richtung Bremen",
+        "segment": "A1 Osnabr\u00fcck Richtung Bremen",
         "description": "zwischen Bremen\/Brinkum und Bremen-Arsten\nFahrbahnerneuerung auf dem mittleren Fahrstreifen, rechter Fahrstreifen gesperrt, Stau zu erwarten, bis 18.09.2016 00:00 Uhr",
         "locations": [
             {
@@ -4286,8 +4286,8 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/280458",
-        "activateTime": "2016-07-01T06:35:00+0000",
-        "stopTime": "2016-08-30T22:00:00+0000",
+        "activateTime": "2016-07-01T06:35:00+00:00",
+        "stopTime": "2016-08-30T22:00:00+00:00",
         "name": "A27 Bremen Richtung Walsrode Ausfahrt Achim-Nord",
         "isAbolished": false,
         "segment": "A27 Bremen Richtung Walsrode",
@@ -4445,18 +4445,18 @@
         "originName": "D  HB LMS-HB",
         "organisation": "D  HB LMS-HB",
         "guid": "LMS-HB\/r_LMS-HB\/496863",
-        "activateTime": "2016-05-30T04:16:52+0000",
-        "stopTime": "2016-12-30T23:00:00+0000",
+        "activateTime": "2016-05-30T04:16:52+00:00",
+        "stopTime": "2016-12-30T23:00:00+00:00",
         "eventTypes": [
             {
                 "code": 5,
                 "type": "misc"
             }
         ],
-        "name": "Bremerhaven, Rickmersstraße zwischen Van-Heukelum-Straße und Körnerstraße",
+        "name": "Bremerhaven, Rickmersstra\u00dfe zwischen Van-Heukelum-Stra\u00dfe und K\u00f6rnerstra\u00dfe",
         "isAbolished": false,
-        "segment": "Bremerhaven, Rickmersstraße",
-        "description": "zwischen Van-Heukelum-Straße und Körnerstraße\nin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr\nDie Bushaltestelle \"Goethestraße\" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der Batteriestraße.",
+        "segment": "Bremerhaven, Rickmersstra\u00dfe",
+        "description": "zwischen Van-Heukelum-Stra\u00dfe und K\u00f6rnerstra\u00dfe\nin beiden Richtungen gesperrt, Baustelle, eine Umleitung ist eingerichtet, bis 31.12.2016 00:00 Uhr\nDie Bushaltestelle \"Goethestra\u00dfe\" wird nicht angefahren. Die Ersatzhaltestelle befindet sich in der Batteriestra\u00dfe.",
         "locations": [
             {
                 "pos": [
@@ -4522,8 +4522,8 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/280931",
-        "activateTime": "2016-08-10T04:21:25+0000",
-        "stopTime": "2016-08-30T22:00:00+0000",
+        "activateTime": "2016-08-10T04:21:25+00:00",
+        "stopTime": "2016-08-30T22:00:00+00:00",
         "name": "A27 Walsrode Richtung Bremen Einfahrt Achim-Nord",
         "isAbolished": false,
         "segment": "A27 Walsrode Richtung Bremen",
@@ -4697,12 +4697,12 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/281484",
-        "activateTime": "2016-08-29T09:13:19+0000",
-        "stopTime": "2016-09-16T22:00:00+0000",
-        "name": "Kreis Wesermarsch und Bremerhaven, B212 zwischen Weserfähre Bremerhaven und Weserfähre Bremerhaven in Bremerhaven",
+        "activateTime": "2016-08-29T09:13:19+00:00",
+        "stopTime": "2016-09-16T22:00:00+00:00",
+        "name": "Kreis Wesermarsch und Bremerhaven, B212 zwischen Weserf\u00e4hre Bremerhaven und Weserf\u00e4hre Bremerhaven in Bremerhaven",
         "isAbolished": false,
         "segment": "Kreis Wesermarsch und Bremerhaven, B212",
-        "description": "zwischen Weserfähre Bremerhaven und Weserfähre Bremerhaven in Bremerhaven\nin beiden Richtungen Fähre außer Betrieb, bis 17.09.2016 00:00 Uhr\n, empfohlene Umleitung über B437 Wesertunnel . Alternativ wird zu jeder vollen Stunde ein Bustransfer vom Fähranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.",
+        "description": "zwischen Weserf\u00e4hre Bremerhaven und Weserf\u00e4hre Bremerhaven in Bremerhaven\nin beiden Richtungen F\u00e4hre au\u00dfer Betrieb, bis 17.09.2016 00:00 Uhr\n, empfohlene Umleitung \u00fcber B437 Wesertunnel . Alternativ wird zu jeder vollen Stunde ein Bustransfer vom F\u00e4hranleger Blexen zum Anleger nach Bremerhaven und umgekehrt angeboten.",
         "locations": [
             {
                 "pos": [
@@ -4880,9 +4880,9 @@
         "originName": "D  NI LMS-NI",
         "organisation": "D  NI LMS-NI",
         "guid": "D NI LMS-NI \/289690",
-        "activateTime": "2016-08-30T05:49:33+0000",
-        "startTime": "2016-08-30T07:00:00+0000",
-        "stopTime": "2016-08-31T14:00:00+0000",
+        "activateTime": "2016-08-30T05:49:33+00:00",
+        "startTime": "2016-08-30T07:00:00+00:00",
+        "stopTime": "2016-08-31T14:00:00+00:00",
         "name": "A1 Hamburg Richtung Bremen Ausfahrt Stuckenborstel",
         "isAbolished": false,
         "segment": "A1 Hamburg Richtung Bremen",

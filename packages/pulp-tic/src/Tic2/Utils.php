@@ -280,6 +280,7 @@ class Utils
             $res['organisation'] = trim((string) $val);
         }
 
+        $timezone = null;
         if (($val = reset($entry->xpath('./VER/MNG/TZI'))) !== false) {
             $timezone = Utils::msTimezoneStringToTimezone((string) $val);
         }

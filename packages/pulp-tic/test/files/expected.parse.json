@@ -3,18 +3,18 @@
         "originName": "MM-VWD-1_LMS_vwd1",
         "guid": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
         "organisation": "D NI LMS-NI",
-        "activateTime": "2014-09-11T15:24:19+0200",
-        "expiryTime": "2014-09-11T15:39:19+0200",
+        "activateTime": "2014-09-11T15:24:19+02:00",
+        "expiryTime": "2014-09-11T15:39:19+02:00",
         "status": "cancellation",
-        "startTime": "2123-02-03T13:37:42+0100",
-        "stopTime": "2123-04-05T14:38:43+0200",
+        "startTime": "2123-02-03T13:37:42+01:00",
+        "stopTime": "2123-04-05T14:38:43+02:00",
         "messages": {
             "roadNumber": "A352",
             "segment": "Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
-            "content": "Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Straße geräumt"
+            "content": "Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt"
         },
         "name": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
-        "description": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Straße geräumt",
+        "description": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt",
         "eventTypes": [
             {
                 "code": 12,

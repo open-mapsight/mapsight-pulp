@@ -1,58 +1,58 @@
 {
-	"type": "FeatureCollection",
-	"crs": {
-		"type": "EPSG",
-		"properties": {
-			"code": "4326"
-		}
-	},
-	"features": [
-		{
-			"type": "Feature",
-			"id": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
-			"properties": {
-				"roadNumber": "A352",
-				"segment": "Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
-				"content": "Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt",
-				"id": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
-				"name": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
-				"description": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt",
-				"type": "situation",
-				"isAbolished": true,
-				"originName": "MM-VWD-1_LMS_vwd1",
-				"organisation": "D NI LMS-NI",
-				"updatedAt": "2014-09-11T15:24:19+0200"
-			},
-			"geometry": {
-				"type": "GeometryCollection",
-				"geometries": [
-					{
-						"type": "LineString",
-						"coordinates": [
-							[
-								9.80015,
-								52.5424
-							],
-							[
-								9.76405,
-								52.5083
-							]
-						]
-					},
-					{
-						"type": "Point",
-						"coordinates": [
-							9.80015,
-							52.5424
-						]
-					}
-				]
-			},
-			"when": {
-				"@type": "Interval",
-				"start": "2123-02-03T13:37:42+0100",
-				"stop": "2123-04-05T14:38:43+0100"
-			}
-		}
-	]
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "EPSG",
+        "properties": {
+            "code": "4326"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
+            "properties": {
+                "roadNumber": "A352",
+                "segment": "Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
+                "content": "Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt",
+                "type": "situation",
+                "isAbolished": true,
+                "updatedAt": "2014-09-11T15:24:19+0200",
+                "id": "{DABACFF3-CC7D-4522-A596-5D18AA0FBF1B}",
+                "name": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord",
+                "description": "A352 Eckverbindung Hannover: Hannover-West Richtung Hannover-Nord Zwischen Parkplatz Bissendorf und Dreieck Hannover-Nord Stra\u00dfe ger\u00e4umt",
+                "originName": "MM-VWD-1_LMS_vwd1",
+                "organisation": "D NI LMS-NI"
+            },
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [
+                    {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                9.80015,
+                                52.5424
+                            ],
+                            [
+                                9.76405,
+                                52.5083
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "Point",
+                        "coordinates": [
+                            9.80015,
+                            52.5424
+                        ]
+                    }
+                ]
+            },
+            "when": {
+                "@type": "Interval",
+                "start": "2123-02-03T13:37:42+0100",
+                "stop": "2123-04-05T14:38:43+0200"
+            }
+        }
+    ]
 }

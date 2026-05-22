@@ -164,6 +164,7 @@ class Utils
     {
         $res = [];
 
+        $timezone = null;
         if (($val = reset($entry->xpath('./TimeZone'))) !== false) {
             $timezone = Utils::timezoneEnumToTimezone((string) $val);
         }
