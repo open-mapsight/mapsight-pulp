@@ -41,7 +41,7 @@ class PulpJSON
      * @link http://php.net/manual/en/function.json-encode.php
      *
      */
-    public static function encodeJSON(null | int $options = null): EncodeJSONHandler
+    public static function encodeJSON(?int $options = null): EncodeJSONHandler
     {
         return new EncodeJSONHandler($options);
     }
@@ -57,7 +57,7 @@ class PulpJSON
      *
      * @see  \json_encode
      */
-    public static function encodeJSONP(string $paddingName = '_', null | int $options = null): EncodeJSONPHandler
+    public static function encodeJSONP(string $paddingName = '_', ?int $options = null): EncodeJSONPHandler
     {
         return new EncodeJSONPHandler($paddingName, $options);
     }

@@ -29,7 +29,7 @@ class FromArcGisJsonHandler extends AbstractHandler
         $this->pushFile($file);
     }
 
-    protected static function arcGisJsonToGeoJson(array $element, string $idAttribute = null): array
+    protected static function arcGisJsonToGeoJson(array $element, ?string $idAttribute = null): array
     {
         $geojson = [];
         if (isset($element['features']) && is_array($element['features'])) {

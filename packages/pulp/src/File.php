@@ -19,16 +19,13 @@ class File
 
     /**
      * File constructor.
-     *
-     * @param string $fileName
-     * @param null $srcFileName
      */
-    public function __construct(public $fileName, $srcFileName = null)
+    public function __construct(public $fileName, ?string $srcFileName = null)
     {
         $this->srcFileName = empty($srcFileName) ? $this->fileName : $srcFileName;
     }
 
-    public static function fromPath(string $path, $fileName = null): File
+    public static function fromPath(string $path, ?string $fileName = null): File
     {
         $file = new File(
             $fileName ?: $path,

@@ -225,12 +225,12 @@ class Pulp implements Handler
     }
 
     /**
-     * @param File[]|File $files
+     * @param File|File[]|null $files
      *
      * @return File[]
      * @throws RuntimeException
      */
-    public function run($files = null): array
+    public function run(array|File|null $files = null): array
     {
         if ($files === null) {
             $files = [];

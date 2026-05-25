@@ -87,7 +87,7 @@ final class ArcGisUtils
         return false;
     }
 
-    public static function arrayIntersectsArray(array $a = null, array $b = null): bool
+    public static function arrayIntersectsArray(?array $a = null, ?array $b = null): bool
     {
         for ($i = 0; $i < count($a) - 1; $i++) {
             for ($j = 0; $j < count($b) - 1; $j++) {
@@ -267,7 +267,7 @@ final class ArcGisUtils
         return $output;
     }
 
-    public static function getId(array $attributes, string $idAttribute = null): string|float|int
+    public static function getId(array $attributes, ?string $idAttribute = null): string|float|int
     {
         $keys = $idAttribute ? [$idAttribute, 'OBJECTID', 'FID'] : ['OBJECTID', 'FID'];
         foreach ($keys as $iValue) {

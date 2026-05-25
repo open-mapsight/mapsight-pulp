@@ -180,7 +180,7 @@ class PulpGeoJSON
      * }} [$options]
      */
     public static function fromGeoRss(
-        callable $handler = null,
+        ?callable $handler = null,
         array $options = []
     ): FromGeoRssHandler {
         return new FromGeoRssHandler($handler, $options);
