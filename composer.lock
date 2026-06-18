@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "583d0e5dfebfba0aec5816860ab52ec1",
+    "content-hash": "4906dc3c96208e2c527264c389c9c710",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -455,6 +455,63 @@
             "support": {
                 "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
                 "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "mapsight/pulp-cache",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-cache",
+                "reference": "f2d9209c609c7e7dc9dc2d37336eb51b9c0e1c09"
+            },
+            "require": {
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpCache.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpcache\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpCache.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Cache handlers and sources for Pulp pipelines.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "cache",
+                "mapsight",
+                "pulp"
+            ],
+            "support": {
+                "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+                "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-cache"
             },
             "transport-options": {
                 "symlink": true,
@@ -6171,6 +6228,7 @@
     "stability-flags": {
         "mapsight/geojson-reproject": 20,
         "mapsight/pulp": 20,
+        "mapsight/pulp-cache": 20,
         "mapsight/pulp-concert": 20,
         "mapsight/pulp-geocsv": 20,
         "mapsight/pulp-geojson": 20,
