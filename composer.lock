@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cad5f6ea0465b3b4214936a0a7afbe9c",
+    "content-hash": "177689a417e17b9dd2250c9dbbbb1677",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -749,6 +749,60 @@
                 "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
                 "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-geojson"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "mapsight/pulp-gtfs",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-gtfs",
+                "reference": "860a0b2dae8c2f0550a5447798833d12856f45e1"
+            },
+            "require": {
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpGTFS.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpgtfs\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpGTFS.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "GTFS helpers for Pulp pipelines.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "gtfs",
+                "mapsight",
+                "public-transport",
+                "pulp"
+            ],
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6286,6 +6340,7 @@
         "mapsight/pulp-concert": 20,
         "mapsight/pulp-geocsv": 20,
         "mapsight/pulp-geojson": 20,
+        "mapsight/pulp-gtfs": 20,
         "mapsight/pulp-json": 20,
         "mapsight/pulp-soap": 20,
         "mapsight/pulp-tic": 20,

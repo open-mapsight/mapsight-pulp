@@ -38,6 +38,7 @@
         "mapsight/pulp-concert": "@dev",
         "mapsight/pulp-geocsv": "@dev",
         "mapsight/pulp-geojson": "@dev",
+        "mapsight/pulp-gtfs": "@dev",
         "mapsight/pulp-json": "@dev",
         "mapsight/pulp-soap": "@dev",
         "mapsight/pulp-tic": "@dev",

@@ -13,6 +13,9 @@
         <testsuite name="pulp-geojson">
             <directory>packages/pulp-geojson/test</directory>
         </testsuite>
+        <testsuite name="pulp-gtfs">
+            <directory>packages/pulp-gtfs/test</directory>
+        </testsuite>
         <testsuite name="pulp-json">
             <directory>packages/pulp-json/test</directory>
         </testsuite>
