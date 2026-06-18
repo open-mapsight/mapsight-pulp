@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
+        <testsuite name="geojson-reproject">
+            <directory>packages/geojson-reproject/test</directory>
+        </testsuite>
         <testsuite name="pulp">
             <directory>packages/pulp/test</directory>
+        </testsuite>
+        <testsuite name="pulp-cache">
+            <directory>packages/pulp-cache/test</directory>
         </testsuite>
         <testsuite name="pulp-concert">
             <directory>packages/pulp-concert/test</directory>
@@ -19,8 +25,14 @@
         <testsuite name="pulp-json">
             <directory>packages/pulp-json/test</directory>
         </testsuite>
+        <testsuite name="pulp-soap">
+            <directory>packages/pulp-soap/test</directory>
+        </testsuite>
         <testsuite name="pulp-tic">
             <directory>packages/pulp-tic/test</directory>
+        </testsuite>
+        <testsuite name="pulp-xml">
+            <directory>packages/pulp-xml/test</directory>
         </testsuite>
         <testsuite name="pulp-zip">
             <directory>packages/pulp-zip/test</directory>
