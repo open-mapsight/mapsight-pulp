@@ -1,0 +1,45 @@
+{
+    "name": "mapsight/pulp-cache",
+    "description": "Cache handlers and sources for Pulp pipelines.",
+    "type": "library",
+    "keywords": [
+        "mapsight",
+        "pulp",
+        "cache"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-cache"
+    },
+    "require": {
+        "php": "^8.2",
+        "mapsight/pulp": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpCache.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpcache\\": "src"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpCache.php",
+            "!/README.md",
+            "!/CHANGELOG.md"
+        ]
+    }
+}
