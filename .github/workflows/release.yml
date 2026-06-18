@@ -8,7 +8,7 @@ on:
     branches:
       - main
     tags:
-      - '*'
+      - '**'
 
 permissions:
   contents: read
@@ -63,7 +63,35 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Resolve Package Release
+        id: release
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF_TYPE" != "tag" ]]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "tag=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          package="${GITHUB_REF_NAME%%/*}"
+          version="${GITHUB_REF_NAME#*/}"
+
+          if [[ "$GITHUB_REF_NAME" != */* || -z "$package" || -z "$version" ]]; then
+            echo "::error::Package release tags must use <package>/v<version>, for example pulp-json/v1.1.0."
+            exit 1
+          fi
+
+          if [[ "$package" != "${{ matrix.package }}" ]]; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "tag=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+          echo "tag=$version" >> "$GITHUB_OUTPUT"
+
       - name: Split and Push ${{ matrix.package }}
+        if: steps.release.outputs.publish == 'true'
         uses: danharrin/monorepo-split-github-action@14e42e2437f674b8987c1f50ca3689116aea1893 # v2.4.5
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -74,9 +102,10 @@ jobs:
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
           branch: "main"
-          tag: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
+          tag: ${{ steps.release.outputs.tag }}
 
       - name: Notify Packagist
+        if: steps.release.outputs.publish == 'true'
         env:
           PACKAGIST_USER: ${{ secrets.PACKAGIST_USER }}
           PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
