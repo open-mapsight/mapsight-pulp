@@ -45,13 +45,16 @@ jobs:
         package:
           - geojson-reproject
           - pulp
+          - pulp-cache
           - pulp-concert
           - pulp-geocsv
           - pulp-geojson
+          - pulp-gtfs
           - pulp-json
           - pulp-soap
           - pulp-tic
           - pulp-xml
+          - pulp-zip
 
     steps:
       - name: Checkout
