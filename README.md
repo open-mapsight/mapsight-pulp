@@ -87,7 +87,7 @@ By default, the release script pushes to **GitHub** (`github.com`). If you ever 
 ### Packagist Integration
 
 1. Get your API Token from your [Packagist profile](https://packagist.org/profile/).
-2. Add your Packagist username as a secret named `PACKAGIST_USER` and your API Token as `PACKAGIST_TOKEN` in this monorepo's GitHub settings.
+2. Add your Packagist username as a repository secret named `PACKAGIST_USER` and your API Token as a repository secret named `PACKAGIST_TOKEN` in this monorepo's GitHub settings. Package tag releases do not use an environment gate, so environment-only secrets are not available to them.
 3. The release workflow will then notify Packagist via `curl` after each split.
 
 ### Adding a New Package to the Release
