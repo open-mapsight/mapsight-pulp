@@ -42,6 +42,7 @@
         "mapsight/pulp-soap": "@dev",
         "mapsight/pulp-tic": "@dev",
         "mapsight/pulp-xml": "@dev",
+        "mapsight/pulp-zip": "@dev",
         "symfony/polyfill-php83": "^1.37",
         "symfony/polyfill-php84": "^1.37",
         "symfony/polyfill-php85": "^1.37"
