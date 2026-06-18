@@ -78,10 +78,12 @@ By default, the release script pushes to **GitHub** (`github.com`). If you ever 
 2. Add your Packagist username as a secret named `PACKAGIST_USER` and your API Token as `PACKAGIST_TOKEN` in this monorepo's GitHub settings.
 3. The release workflow will then notify Packagist via `curl` after each split.
 
-### Setup Requirements
+### Adding a New Package to the Release
 
-To make the release workflow work, you need to:
+When adding a package under `packages/`, make sure the split release target is ready before merging to `main`:
 
-1. **Create the Target Repositories:** Ensure that all repositories (e.g., `open-mapsight/pulp`, `open-mapsight/pulp-geojson`, etc.) exist in the `open-mapsight` organization.
-2. **GitHub Personal Access Token:** Create a GitHub Personal Access Token (PAT) with `repo` scope.
-3. **Repository Secret:** Add the PAT as a secret named `ACCESS_TOKEN` in this monorepo's GitHub settings (`Settings > Secrets and variables > Actions`).
+1. **Add the package directory:** Create `packages/<package-name>` with its own `composer.json` and README.
+2. **Add it to the release matrix:** Add `<package-name>` to `.github/workflows/release.yml`.
+3. **Create and initialize the target repository:** Create `open-mapsight/<package-name>` and make sure it has an initialized `main` branch. An empty initial commit is enough; the split action cannot push to a completely empty repository with no `main` ref.
+4. **Grant token access:** Make sure the `ACCESS_TOKEN` PAT used by this monorepo can write to the new target repository.
+5. **Set up Packagist:** Add the package on Packagist so the release workflow's update notification can refresh it after each split.
