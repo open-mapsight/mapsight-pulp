@@ -90,8 +90,20 @@ jobs:
           echo "publish=true" >> "$GITHUB_OUTPUT"
           echo "tag=$version" >> "$GITHUB_OUTPUT"
 
+      - name: Check Existing Split Tag
+        id: existing_tag
+        if: steps.release.outputs.publish == 'true' && steps.release.outputs.tag != ''
+        shell: bash
+        run: |
+          if git ls-remote --exit-code --tags "https://github.com/open-mapsight/${{ matrix.package }}.git" "refs/tags/${{ steps.release.outputs.tag }}" > /dev/null 2>&1; then
+            echo "::notice::open-mapsight/${{ matrix.package }} already has tag ${{ steps.release.outputs.tag }}; skipping split tag creation."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Split and Push ${{ matrix.package }}
-        if: steps.release.outputs.publish == 'true'
+        if: steps.release.outputs.publish == 'true' && steps.existing_tag.outputs.exists != 'true'
         uses: danharrin/monorepo-split-github-action@14e42e2437f674b8987c1f50ca3689116aea1893 # v2.4.5
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -105,7 +117,7 @@ jobs:
           tag: ${{ steps.release.outputs.tag }}
 
       - name: Notify Packagist
-        if: steps.release.outputs.publish == 'true'
+        if: steps.release.outputs.publish == 'true' && steps.existing_tag.outputs.exists != 'true'
         env:
           PACKAGIST_USER: ${{ secrets.PACKAGIST_USER }}
           PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
