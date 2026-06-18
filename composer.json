@@ -34,6 +34,7 @@
         "php": "^8.2",
         "mapsight/geojson-reproject": "@dev",
         "mapsight/pulp": "@dev",
+        "mapsight/pulp-cache": "@dev",
         "mapsight/pulp-concert": "@dev",
         "mapsight/pulp-geocsv": "@dev",
         "mapsight/pulp-geojson": "@dev",
@@ -42,6 +43,7 @@
         "mapsight/pulp-soap": "@dev",
         "mapsight/pulp-tic": "@dev",
         "mapsight/pulp-xml": "@dev",
+        "mapsight/pulp-zip": "@dev",
         "symfony/polyfill-php83": "^1.37",
         "symfony/polyfill-php84": "^1.37",
         "symfony/polyfill-php85": "^1.37"

@@ -22,5 +22,8 @@
         <testsuite name="pulp-tic">
             <directory>packages/pulp-tic/test</directory>
         </testsuite>
+        <testsuite name="pulp-zip">
+            <directory>packages/pulp-zip/test</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

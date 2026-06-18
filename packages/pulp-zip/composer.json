@@ -1,0 +1,42 @@
+{
+    "name": "mapsight/pulp-zip",
+    "description": "ZIP helpers for Pulp packages.",
+    "type": "library",
+    "keywords": [
+        "mapsight",
+        "pulp",
+        "zip"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-zip": "*",
+        "mapsight/pulp": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpZip.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpzip\\": "src"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpZip.php",
+            "!/README.md",
+            "!/CHANGELOG.md"
+        ]
+    }
+}
