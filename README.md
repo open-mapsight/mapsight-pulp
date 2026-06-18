@@ -5,6 +5,7 @@ Monorepo for Pulp packages - a stream-based file processing library for PHP, ins
 ## Packages
 
 - **[pulp](packages/pulp):** Core library providing the stream-based processing engine.
+- **[pulp-gtfs](packages/pulp-gtfs):** GTFS helpers for generating stops and lines GeoJSON.
 - **[pulp-geojson](packages/pulp-geojson):** Tools for handling, transforming, and converting GeoJSON data.
 - **[pulp-xml](packages/pulp-xml):** Handlers for parsing and manipulating XML data.
 - **[pulp-json](packages/pulp-json):** Handlers for JSON and JSONP decoding and encoding.

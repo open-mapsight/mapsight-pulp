@@ -1,0 +1,42 @@
+{
+    "name": "mapsight/pulp-gtfs",
+    "description": "GTFS helpers for Pulp pipelines.",
+    "type": "library",
+    "keywords": [
+        "mapsight",
+        "pulp",
+        "gtfs",
+        "public-transport"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "mapsight/pulp": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpGTFS.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpgtfs\\": "src"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpGTFS.php",
+            "!/README.md",
+            "!/CHANGELOG.md"
+        ]
+    }
+}
