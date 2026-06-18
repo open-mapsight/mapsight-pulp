@@ -16,6 +16,7 @@ use OpenMapsight\pulp\MergeHandler;
 use OpenMapsight\pulp\ResultsHandler;
 use OpenMapsight\pulp\ServeHttpHandler;
 use OpenMapsight\pulp\ShadowHandler;
+use OpenMapsight\pulp\SplitHandler;
 use OpenMapsight\pulp\SrcFileHandler;
 use OpenMapsight\pulp\SrcHandler;
 use OpenMapsight\pulp\SrcHttpHandler;
@@ -165,6 +166,16 @@ class Pulp implements Handler
         return new ShadowHandler($cb);
     }
 
+    public static function split(): SplitHandler
+    {
+        $pipelines = func_get_args();
+        if (count($pipelines) === 1 && is_array($pipelines[0])) {
+            $pipelines = $pipelines[0];
+        }
+
+        return new SplitHandler($pipelines);
+    }
+
     public static function results($cb): ResultsHandler
     {
         return new ResultsHandler($cb);
@@ -222,6 +233,14 @@ class Pulp implements Handler
     public function addResultFile(File $result): void
     {
         $this->result[] = $result;
+    }
+
+    /**
+     * @return File[]
+     */
+    public function getResultFiles(): array
+    {
+        return $this->result;
     }
 
     /**

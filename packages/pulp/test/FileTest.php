@@ -40,4 +40,64 @@ class FileTest extends TestCase
         $this->assertNull($f->myProperty);
         $this->assertFalse(isset($f->myProperty));
     }
+
+    public function testFromPathLoadsContentLazily(): void
+    {
+        $tmpFile = tempnam(sys_get_temp_dir(), 'pulp-file-test-');
+        $this->assertIsString($tmpFile);
+        file_put_contents($tmpFile, 'originalContent');
+
+        try {
+            $f = File::fromPath($tmpFile, 'file.txt');
+            file_put_contents($tmpFile, 'updatedContent');
+
+            $this->assertSame('updatedContent', $f->content);
+        } finally {
+            @unlink($tmpFile);
+        }
+    }
+
+    public function testStreamReadsFromPathWithoutTouchingContent(): void
+    {
+        $tmpFile = tempnam(sys_get_temp_dir(), 'pulp-file-test-');
+        $this->assertIsString($tmpFile);
+        file_put_contents($tmpFile, 'streamContent');
+
+        try {
+            $f = File::fromPath($tmpFile, 'file.txt');
+            $stream = $f->stream();
+
+            try {
+                $this->assertSame('streamContent', stream_get_contents($stream));
+            } finally {
+                fclose($stream);
+            }
+        } finally {
+            @unlink($tmpFile);
+        }
+    }
+
+    public function testStreamFromGeneratedContent(): void
+    {
+        $f = new File('file.txt');
+        $f->content = 'generatedContent';
+
+        $stream = $f->stream();
+
+        try {
+            $this->assertSame('generatedContent', stream_get_contents($stream));
+        } finally {
+            fclose($stream);
+        }
+    }
+
+    public function testStreamRejectsNonStringContent(): void
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Unable to create stream from non-string file content');
+
+        $f = new File('file.txt');
+        $f->content = ['not streamable'];
+        $f->stream();
+    }
 }
