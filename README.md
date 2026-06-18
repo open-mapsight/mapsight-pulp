@@ -66,7 +66,7 @@ This monorepo is set up to automatically split and release packages to separate 
 1. **GitHub Action:** The `.github/workflows/release.yml` workflow runs on every push to `main` and every package release tag.
 2. **Splitting:** It uses the `danharrin/monorepo-split-github-action` to split each directory in `packages/` into its own repository.
 3. **Main branches:** Every push to `main` updates the `main` branch in each split repository.
-4. **Package tags:** Package releases use scoped monorepo tags in the form `<package>/v<version>` (for example, `pulp-json/v1.1.0`). The workflow strips the package prefix and pushes `v<version>` to only that package's split repository.
+4. **Package tags:** Package releases use scoped monorepo tags in the form `<package>@v<version>` (for example, `pulp-json@v1.1.0`). The workflow strips the package prefix and pushes `v<version>` to only that package's split repository.
 5. **Packagist:** Once the split repositories are updated and tagged, Packagist will pick up the new versions.
 
 ### Releasing a Package
@@ -74,8 +74,8 @@ This monorepo is set up to automatically split and release packages to separate 
 Use package-scoped tags so each package can follow its own semantic version:
 
 ```bash
-git tag pulp-json/v1.1.0
-git push origin pulp-json/v1.1.0
+git tag pulp-json@v1.1.0
+git push origin pulp-json@v1.1.0
 ```
 
 This releases `mapsight/pulp-json` as `v1.1.0` without changing the versions of the other packages.

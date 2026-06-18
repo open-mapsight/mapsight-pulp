@@ -8,7 +8,7 @@ on:
     branches:
       - main
     tags:
-      - '**'
+      - 'v*'
 
 permissions:
   contents: read
@@ -37,6 +37,8 @@ jobs:
     needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment:
+      name: production
     strategy:
       fail-fast: false
       matrix:
@@ -71,11 +73,11 @@ jobs:
             exit 0
           fi
 
-          package="${GITHUB_REF_NAME%%/*}"
-          version="${GITHUB_REF_NAME#*/}"
+          package="${GITHUB_REF_NAME%@v*}"
+          version="${GITHUB_REF_NAME##*@}"
 
-          if [[ "$GITHUB_REF_NAME" != */* || -z "$package" || -z "$version" ]]; then
-            echo "::error::Package release tags must use <package>/v<version>, for example pulp-json/v1.1.0."
+          if [[ "$GITHUB_REF_NAME" != *@v* || -z "$package" || -z "$version" ]]; then
+            echo "::error::Package release tags must use <package>@v<version>, for example pulp-json@v1.1.0."
             exit 1
           fi
 
