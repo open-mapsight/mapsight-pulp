@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "583d0e5dfebfba0aec5816860ab52ec1",
+    "content-hash": "94a119ed5021a96158499d078cfffb5f",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -962,6 +962,60 @@
                 "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
                 "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-xml"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "mapsight/pulp-zip",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-zip",
+                "reference": "c31f6e0dc77cf0e8ac502872b385addafa05c662"
+            },
+            "require": {
+                "ext-zip": "*",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpZip.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpzip\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpZip.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ZIP helpers for Pulp packages.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "mapsight",
+                "pulp",
+                "zip"
+            ],
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6177,7 +6231,8 @@
         "mapsight/pulp-json": 20,
         "mapsight/pulp-soap": 20,
         "mapsight/pulp-tic": 20,
-        "mapsight/pulp-xml": 20
+        "mapsight/pulp-xml": 20,
+        "mapsight/pulp-zip": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
