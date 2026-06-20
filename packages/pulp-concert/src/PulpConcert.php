@@ -75,8 +75,8 @@ class PulpConcert
     }
 
     public static function parseTrafficCounters(
-        Pulp $counterDataPulp = null,
-        Pulp $counterDerivedDataPulp = null
+        ?Pulp $counterDataPulp = null,
+        ?Pulp $counterDerivedDataPulp = null
     ): ParseCountersHandler {
         return new ParseCountersHandler($counterDataPulp, $counterDerivedDataPulp);
     }

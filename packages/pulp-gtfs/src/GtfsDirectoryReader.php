@@ -22,7 +22,7 @@ class GtfsDirectoryReader implements GtfsReader
         }
 
         try {
-            $headers = fgetcsv($stream);
+            $headers = fgetcsv($stream, null, ',', '"', '');
             if ($headers === false) {
                 return;
             }
@@ -30,7 +30,7 @@ class GtfsDirectoryReader implements GtfsReader
             $headers[0] = preg_replace('/^\xEF\xBB\xBF/', '', (string)$headers[0]);
             $headerCount = count($headers);
 
-            while (($row = fgetcsv($stream)) !== false) {
+            while (($row = fgetcsv($stream, null, ',', '"', '')) !== false) {
                 if ($row === [null] || $row === []) {
                     continue;
                 }

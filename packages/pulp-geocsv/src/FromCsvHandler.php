@@ -23,7 +23,7 @@ class FromCsvHandler extends AbstractHandler
 
         $rows = explode($ls, $csv);
         $rows = array_map(static function ($row) use ($fs, $qc): array {
-            $items = str_getcsv($row, $fs, $qc);
+            $items = str_getcsv($row, $fs, $qc, '');
             return array_map(stripslashes(...), $items);
         }, $rows);
 
