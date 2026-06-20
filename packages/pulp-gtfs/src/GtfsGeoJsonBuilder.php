@@ -439,7 +439,7 @@ class GtfsGeoJsonBuilder
                 (float)$stops[$stopId]['stop_lat_float'],
             ];
 
-            if ($coordinate === ($coordinates[array_key_last($coordinates)] ?? null)) {
+            if ($coordinates !== [] && $coordinate === $coordinates[array_key_last($coordinates)]) {
                 continue;
             }
 
