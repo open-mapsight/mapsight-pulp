@@ -36,7 +36,7 @@ class ToCsvHandler extends AbstractHandler
     protected static function makeCsvString(array $fields, string $delimiter, string $enclosure): string
     {
         $f = fopen('php://memory', 'rwb');
-        if (fputcsv($f, $fields, $delimiter, $enclosure) === false) {
+        if (fputcsv($f, $fields, $delimiter, $enclosure, '') === false) {
             return false;
         }
         rewind($f);

@@ -132,7 +132,7 @@ class LosTableAlgorithm implements AllPropertiesAsArrayInterface, JsonSerializab
         ];
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->getAllPropertiesAsArray();
     }

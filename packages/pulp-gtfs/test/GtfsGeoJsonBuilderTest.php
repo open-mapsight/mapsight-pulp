@@ -223,7 +223,7 @@ class GtfsGeoJsonBuilderTest extends TestCase
         $this->assertIsResource($stream);
 
         foreach ($rows as $row) {
-            fputcsv($stream, $row);
+            fputcsv($stream, $row, ',', '"', '');
         }
 
         fclose($stream);

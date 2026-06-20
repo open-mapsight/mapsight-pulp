@@ -222,7 +222,7 @@ class PulpGeoJSON
     }
 
     public static function fromArcGisJson(
-        string $idAttribute = null
+        ?string $idAttribute = null
     ): FromArcGisJsonHandler {
         return new FromArcGisJsonHandler($idAttribute);
     }

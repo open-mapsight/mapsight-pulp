@@ -40,6 +40,22 @@ To run tests for all packages that have them, run the following command from the
 composer test
 ```
 
+GitHub Actions runs the full test suite on every pull request and push to `main` across the supported PHP versions: 8.2, 8.3, 8.4, and 8.5. It also runs a non-blocking `nightly` job so upcoming PHP compatibility issues show up early.
+
+PHPUnit is configured to fail on notices, warnings, deprecations, PHPUnit warnings, and PHPUnit deprecations from the package source. Indirect dependency deprecations are ignored, so third-party internals do not hide Pulp compatibility issues.
+
+To reproduce the supported PHP matrix locally with Docker, run:
+
+```bash
+bin/test-php-matrix
+```
+
+To run only selected versions, set `PHP_VERSIONS`:
+
+```bash
+PHP_VERSIONS="8.4 8.5" bin/test-php-matrix
+```
+
 Or run the PHP script directly:
 ```bash
 php test.php
