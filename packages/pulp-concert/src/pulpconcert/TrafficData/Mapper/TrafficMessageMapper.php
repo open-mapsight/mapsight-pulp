@@ -117,14 +117,14 @@ class TrafficMessageMapper
                 foreach ($coordinateDescription->co as $coordinatePair) {
                     $coordinate = [];
 
-                    if (($val = reset($coordinatePair->x)) !== false) {
-                        $coordinate['x'] = (string) $val;
+                    if (count($coordinatePair->x) > 0) {
+                        $coordinate['x'] = (string) $coordinatePair->x[0];
                     } else {
                         continue;
                     }
 
-                    if (($val = reset($coordinatePair->y)) !== false) {
-                        $coordinate['y'] = (string) $val;
+                    if (count($coordinatePair->y) > 0) {
+                        $coordinate['y'] = (string) $coordinatePair->y[0];
                     } else {
                         continue;
                     }
