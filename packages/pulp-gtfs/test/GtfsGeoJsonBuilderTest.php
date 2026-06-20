@@ -107,6 +107,51 @@ class GtfsGeoJsonBuilderTest extends TestCase
         $this->assertCount(4, $res[0]->content['features']);
     }
 
+    public function testBuildLinesCanFallbackToStopLineStringsWithoutShapes(): void
+    {
+        $gtfsDirectory = $this->createGtfsDirectory();
+        unlink($gtfsDirectory . '/shapes.txt');
+
+        $geoJson = $this->createBuilder(fallbackLineStringsFromStops: true)->build($gtfsDirectory, 'lines');
+
+        $this->assertCount(1, $geoJson['features']);
+        $busRoute = $this->featureById($geoJson, 'gtfs-route-R10');
+        $this->assertSame('LineString', $busRoute['geometry']['type']);
+        $this->assertSame([
+            [10.55, 52.25],
+            [10.57, 52.27],
+        ], $busRoute['geometry']['coordinates']);
+        $this->assertNull($busRoute['properties']['gtfsShapeId']);
+        $this->assertSame('stops', $busRoute['properties']['geometrySource']);
+    }
+
+    public function testGeoJsonHandlerCanFallbackToStopLineStringsWithoutShapesFile(): void
+    {
+        $gtfsDirectory = $this->createGtfsDirectory();
+        unlink($gtfsDirectory . '/shapes.txt');
+
+        $res = Pulp::start()
+            ->pipe(Pulp::src('.*\.txt', $gtfsDirectory))
+            ->pipe(PulpGTFS::geoJson(
+                'lines',
+                'https://internal.example/gtfs',
+                [10.4, 52.1, 10.7, 52.4],
+                null,
+                'Source GTFS',
+                'https://docs.example/gtfs',
+                'https://public.example/gtfs',
+                [
+                    'fallbackLineStringsFromStops' => true,
+                ]
+            ))
+            ->run();
+
+        $this->assertCount(1, $res);
+        $this->assertSame('gtfs-lines.geojson', $res[0]->fileName);
+        $this->assertCount(1, $res[0]->content['features']);
+        $this->assertSame('stops', $res[0]->content['features'][0]['properties']['geometrySource']);
+    }
+
     public function testGeoJsonHandlerSupportsCustomFileNames(): void
     {
         $gtfsDirectory = $this->createGtfsDirectory();
@@ -143,7 +188,7 @@ class GtfsGeoJsonBuilderTest extends TestCase
         $this->createBuilder()->buildFile($this->createGtfsDirectory(), 'stations');
     }
 
-    private function createBuilder(): GtfsGeoJsonBuilder
+    private function createBuilder(bool $fallbackLineStringsFromStops = false): GtfsGeoJsonBuilder
     {
         return new GtfsGeoJsonBuilder(
             'https://internal.example/gtfs',
@@ -151,7 +196,8 @@ class GtfsGeoJsonBuilderTest extends TestCase
             'https://live.example/departures?tenant=nds',
             'Source GTFS',
             'https://docs.example/gtfs',
-            'https://public.example/gtfs'
+            'https://public.example/gtfs',
+            $fallbackLineStringsFromStops
         );
     }
 
@@ -188,6 +234,7 @@ class GtfsGeoJsonBuilderTest extends TestCase
         $this->writeCsv($tmpDir, 'stop_times.txt', [
             ['trip_id', 'arrival_time', 'departure_time', 'stop_id', 'stop_sequence'],
             ['T_BUS_1', '08:00:00', '08:00:00', 'S:1', '1'],
+            ['T_BUS_1', '08:05:00', '08:05:00', 'S2', '2'],
             ['T_BUS_2', '09:00:00', '09:00:00', 'S2', '1'],
             ['T_BUS_ALT', '10:00:00', '10:00:00', 'S:1', '1'],
             ['T_TRAM', '11:00:00', '11:00:00', 'S:1', '1'],

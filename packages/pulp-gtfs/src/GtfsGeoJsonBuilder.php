@@ -18,6 +18,7 @@ class GtfsGeoJsonBuilder
         private readonly string $sourceName = 'GTFS',
         private readonly ?string $documentationUrl = null,
         private readonly ?string $publicSourceUrl = null,
+        private readonly bool $fallbackLineStringsFromStops = false,
     ) {
     }
 
@@ -44,13 +45,22 @@ class GtfsGeoJsonBuilder
         $stops = $this->loadTargetStops($gtfs);
         $needsStopRoutes = $type === 'stops' || $type === 'combined';
         $needsShapes = $type === 'lines' || $type === 'combined';
-        [$stopIdsByTrip, $targetTripIds] = $this->loadTargetTripIds($gtfs, $stops, $needsStopRoutes);
-        [$stopRoutes, $shapeIdsByRoute] = $this->loadTargetTripRouteData(
+        $needsFallbackLines = $needsShapes && $this->fallbackLineStringsFromStops;
+        [$stopIdsByTrip, $targetTripIds, $stopSequencesByTrip] = $this->loadTargetTripIds(
+            $gtfs,
+            $stops,
+            $needsStopRoutes,
+            $needsFallbackLines
+        );
+        [$stopRoutes, $shapeIdsByRoute, $fallbackCoordinatesByRoute] = $this->loadTargetTripRouteData(
             $gtfs,
             $stopIdsByTrip,
             $targetTripIds,
             $needsStopRoutes,
-            $needsShapes
+            $needsShapes,
+            $needsFallbackLines,
+            $stopSequencesByTrip,
+            $stops
         );
 
         $features = [];
@@ -58,7 +68,12 @@ class GtfsGeoJsonBuilder
             $features = array_merge($features, $this->buildStopFeatures($stops, $stopRoutes, $routes));
         }
         if ($type === 'lines' || $type === 'combined') {
-            $features = array_merge($features, $this->buildLineFeatures($gtfs, $routes, $shapeIdsByRoute));
+            $features = array_merge($features, $this->buildLineFeatures(
+                $gtfs,
+                $routes,
+                $shapeIdsByRoute,
+                $fallbackCoordinatesByRoute
+            ));
         }
 
         return [
@@ -130,9 +145,15 @@ class GtfsGeoJsonBuilder
         return $stops;
     }
 
-    private function loadTargetTripIds(GtfsReader $gtfs, array $stops, bool $keepStopIdsByTrip): array
+    private function loadTargetTripIds(
+        GtfsReader $gtfs,
+        array $stops,
+        bool $keepStopIdsByTrip,
+        bool $keepStopSequencesByTrip,
+    ): array
     {
         $stopIdsByTrip = [];
+        $stopSequencesByTrip = [];
         $targetTripIds = [];
 
         foreach ($gtfs->csvRows('stop_times.txt') as $stopTime) {
@@ -149,10 +170,17 @@ class GtfsGeoJsonBuilder
             if ($keepStopIdsByTrip) {
                 $stopIdsByTrip[$tripId][$stopId] = true;
             }
+            if ($keepStopSequencesByTrip) {
+                $sequence = (string)($stopTime['stop_sequence'] ?? '');
+                $sequenceKey = $sequence !== ''
+                    ? (int)$sequence
+                    : count($stopSequencesByTrip[$tripId] ?? []);
+                $stopSequencesByTrip[$tripId][$sequenceKey] = $stopId;
+            }
             $targetTripIds[$tripId] = true;
         }
 
-        return [$stopIdsByTrip, $targetTripIds];
+        return [$stopIdsByTrip, $targetTripIds, $stopSequencesByTrip];
     }
 
     private function loadTargetTripRouteData(
@@ -161,10 +189,14 @@ class GtfsGeoJsonBuilder
         array $targetTripIds,
         bool $buildStopRoutes,
         bool $buildShapeIds,
+        bool $buildFallbackLines,
+        array $stopSequencesByTrip,
+        array $stops,
     ): array
     {
         $stopRoutes = [];
         $shapeCountsByRoute = [];
+        $fallbackCoordinatesByRoute = [];
 
         foreach ($gtfs->csvRows('trips.txt') as $trip) {
             $tripId = (string)($trip['trip_id'] ?? '');
@@ -187,6 +219,13 @@ class GtfsGeoJsonBuilder
             if ($buildShapeIds && $shapeId !== '') {
                 $shapeCountsByRoute[$routeId][$shapeId] = ($shapeCountsByRoute[$routeId][$shapeId] ?? 0) + 1;
             }
+
+            if ($buildFallbackLines) {
+                $coordinates = $this->stopCoordinatesForTrip($stopSequencesByTrip[$tripId] ?? [], $stops);
+                if (count($coordinates) >= 2 && count($coordinates) > count($fallbackCoordinatesByRoute[$routeId] ?? [])) {
+                    $fallbackCoordinatesByRoute[$routeId] = $coordinates;
+                }
+            }
         }
 
         $shapeIdsByRoute = [];
@@ -195,7 +234,7 @@ class GtfsGeoJsonBuilder
             $shapeIdsByRoute[$routeId] = (string)array_key_first($shapeCounts);
         }
 
-        return [$stopRoutes, $shapeIdsByRoute];
+        return [$stopRoutes, $shapeIdsByRoute, $fallbackCoordinatesByRoute];
     }
 
     private function buildStopFeatures(array $stops, array $stopRoutes, array $routes): array
@@ -272,17 +311,30 @@ class GtfsGeoJsonBuilder
         return $features;
     }
 
-    private function buildLineFeatures(GtfsReader $gtfs, array $routes, array $shapeIdsByRoute): array
+    private function buildLineFeatures(
+        GtfsReader $gtfs,
+        array $routes,
+        array $shapeIdsByRoute,
+        array $fallbackCoordinatesByRoute,
+    ): array
     {
-        if ($shapeIdsByRoute === []) {
+        if ($shapeIdsByRoute === [] && $fallbackCoordinatesByRoute === []) {
             return [];
         }
 
-        $coordinatesByShape = $this->loadShapes($gtfs, $shapeIdsByRoute);
+        $coordinatesByShape = $this->loadShapesForLines($gtfs, $shapeIdsByRoute, $fallbackCoordinatesByRoute !== []);
         $features = [];
 
-        foreach ($shapeIdsByRoute as $routeId => $shapeId) {
-            if (!isset($routes[$routeId], $coordinatesByShape[$shapeId]) || count($coordinatesByShape[$shapeId]) < 2) {
+        $routeIds = array_unique(array_merge(array_keys($shapeIdsByRoute), array_keys($fallbackCoordinatesByRoute)));
+        foreach ($routeIds as $routeId) {
+            $shapeId = $shapeIdsByRoute[$routeId] ?? null;
+            $coordinates = $shapeId !== null ? ($coordinatesByShape[$shapeId] ?? []) : [];
+            $usesFallbackGeometry = count($coordinates) < 2;
+            if ($usesFallbackGeometry) {
+                $coordinates = $fallbackCoordinatesByRoute[$routeId] ?? [];
+            }
+
+            if (!isset($routes[$routeId]) || count($coordinates) < 2) {
                 continue;
             }
 
@@ -295,7 +347,8 @@ class GtfsGeoJsonBuilder
             $properties = [
                 'id' => $featureId,
                 'gtfsRouteId' => (string)$routeId,
-                'gtfsShapeId' => $shapeId,
+                'gtfsShapeId' => $usesFallbackGeometry ? null : $shapeId,
+                'geometrySource' => $usesFallbackGeometry ? 'stops' : 'shapes',
                 'name' => $name,
                 'line' => (string)($route['lineLabel'] ?? ''),
                 'mode' => $mode,
@@ -317,7 +370,7 @@ class GtfsGeoJsonBuilder
                 'id' => $featureId,
                 'geometry' => [
                     'type' => 'LineString',
-                    'coordinates' => $coordinatesByShape[$shapeId],
+                    'coordinates' => $coordinates,
                 ],
                 'properties' => $properties,
             ];
@@ -326,6 +379,23 @@ class GtfsGeoJsonBuilder
         usort($features, static fn(array $a, array $b): int => strnatcmp($a['properties']['line'], $b['properties']['line']));
 
         return $features;
+    }
+
+    private function loadShapesForLines(GtfsReader $gtfs, array $shapeIdsByRoute, bool $allowMissingShapes): array
+    {
+        if ($shapeIdsByRoute === []) {
+            return [];
+        }
+
+        try {
+            return $this->loadShapes($gtfs, $shapeIdsByRoute);
+        } catch (RuntimeException $exception) {
+            if ($allowMissingShapes) {
+                return [];
+            }
+
+            throw $exception;
+        }
     }
 
     private function loadShapes(GtfsReader $gtfs, array $shapeIdsByRoute): array
@@ -352,6 +422,31 @@ class GtfsGeoJsonBuilder
         }
 
         return $coordinatesByShape;
+    }
+
+    private function stopCoordinatesForTrip(array $stopIdsBySequence, array $stops): array
+    {
+        ksort($stopIdsBySequence, SORT_NUMERIC);
+
+        $coordinates = [];
+        foreach ($stopIdsBySequence as $stopId) {
+            if (!isset($stops[$stopId])) {
+                continue;
+            }
+
+            $coordinate = [
+                (float)$stops[$stopId]['stop_lon_float'],
+                (float)$stops[$stopId]['stop_lat_float'],
+            ];
+
+            if ($coordinates !== [] && $coordinate === $coordinates[array_key_last($coordinates)]) {
+                continue;
+            }
+
+            $coordinates[] = $coordinate;
+        }
+
+        return $coordinates;
     }
 
     private function isInBbox(float $lon, float $lat): bool
