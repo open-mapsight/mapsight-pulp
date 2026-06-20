@@ -43,6 +43,27 @@ class ParseParkingDataHandler extends AbstractHandler
     }
 
     /**
+     * @param SubTypeOccupancyParkingData[] $subTypeOccupancyData
+     */
+    private static function selectTrendSource(array $subTypeOccupancyData): ?SubTypeOccupancyParkingData
+    {
+        return array_reduce(
+            $subTypeOccupancyData,
+            static function (
+                ?SubTypeOccupancyParkingData $carry,
+                SubTypeOccupancyParkingData $occupancyParkingData
+            ): SubTypeOccupancyParkingData {
+                if (!$carry instanceof SubTypeOccupancyParkingData || $carry->getCapacity() < $occupancyParkingData->getOccupancy()) {
+                    return $occupancyParkingData;
+                }
+
+                return $carry;
+            },
+            null
+        );
+    }
+
+    /**
      * @param SimpleXMLElement $e
      * @param ParkingData $parkingData
      * @return ParkingData
@@ -87,14 +108,7 @@ class ParseParkingDataHandler extends AbstractHandler
         $parkingData->setCapacity($shortTermCapacity);
         $parkingData->setDriveIn($shortTermDriveIn);
         $parkingData->setDriveOut($shortTermDriveOut);
-        $parkingData->setTrend(array_reduce($subTypeOccupancyData, static function (SubTypeOccupancyParkingData $carry, SubTypeOccupancyParkingData $occupancyParkingData): SubTypeOccupancyParkingData {
-            /** @var SubTypeOccupancyParkingData|null $carry */
-            if (!$carry instanceof SubTypeOccupancyParkingData || $carry->getCapacity() < $occupancyParkingData->getOccupancy()) {
-                return $occupancyParkingData;
-            }
-
-            return $carry;
-        })->getTrend());
+        $parkingData->setTrend(self::selectTrendSource($subTypeOccupancyData)?->getTrend());
         $parkingData->setSubTypeOccupancyData($subTypeOccupancyData);
 
         return $parkingData;
@@ -149,14 +163,7 @@ class ParseParkingDataHandler extends AbstractHandler
         $parkingData->setCapacity($shortTermCapacity);
         $parkingData->setDriveIn($shortTermDriveIn);
         $parkingData->setDriveOut($shortTermDriveOut);
-        $parkingData->setTrend(array_reduce($subTypeOccupancyData, static function (SubTypeOccupancyParkingData $carry, SubTypeOccupancyParkingData $occupancyParkingData): SubTypeOccupancyParkingData {
-            /** @var SubTypeOccupancyParkingData|null $carry */
-            if (!$carry instanceof SubTypeOccupancyParkingData || $carry->getCapacity() < $occupancyParkingData->getOccupancy()) {
-                return $occupancyParkingData;
-            }
-
-            return $carry;
-        })->getTrend());
+        $parkingData->setTrend(self::selectTrendSource($subTypeOccupancyData)?->getTrend());
         $parkingData->setSubTypeOccupancyData($subTypeOccupancyData);
 
         return $parkingData;
