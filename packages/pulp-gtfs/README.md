@@ -6,7 +6,7 @@ GTFS helpers for Pulp pipelines, currently focused on generating clean GeoJSON f
 
 - **Static GTFS input:** Reads standard extracted GTFS `.txt` files from a directory.
 - **Stops GeoJSON:** Creates point features from `stops.txt`.
-- **Lines GeoJSON:** Creates representative route geometries from `routes.txt`, `trips.txt`, and `shapes.txt`.
+- **Lines GeoJSON:** Creates representative route geometries from `routes.txt`, `trips.txt`, and `shapes.txt`, with an optional stop-based fallback.
 - **Bounding box filtering:** Limits output to stops inside a configured `[minLon, minLat, maxLon, maxLat]` bbox.
 - **Line enrichment:** Adds served lines and modes to stop features.
 - **Accessibility enrichment:** Maps `wheelchair_boarding` into normalized and legacy properties.
@@ -81,6 +81,16 @@ PulpGTFS::geoJson('combined', $sourceUrl, $bbox, options: [
 ])
 ```
 
+If a feed does not provide shapes, opt into simple stop-to-stop line strings:
+
+```php
+PulpGTFS::geoJson('lines', $sourceUrl, $bbox, options: [
+    'fallbackLineStringsFromStops' => true,
+])
+```
+
+When this option is enabled, `shapes.txt` is no longer required for `lines` or `combined` output. If shapes are present, they are still preferred; the fallback is only used for routes without usable shape coordinates.
+
 ## Handler Arguments
 
 `PulpGTFS::geoJson(...)` accepts:
@@ -92,6 +102,7 @@ PulpGTFS::geoJson('combined', $sourceUrl, $bbox, options: [
 - `sourceName`: Human-readable source name in feature properties and collection metadata.
 - `documentationUrl`: Public documentation URL in collection metadata.
 - `publicSourceUrl`: Public source URL written to feature properties and collection metadata. Use this when the actual `sourceUrl` contains a private token.
+- `options`: Optional handler settings. Use `fallbackLineStringsFromStops` to derive simple route geometries from ordered stops when shapes are unavailable, and `files` to map non-standard GTFS file names.
 
 ## Stop Properties
 
@@ -116,6 +127,7 @@ Line features include:
 
 - `gtfsRouteId`
 - `gtfsShapeId`
+- `geometrySource`: `shapes` for shape geometries, `stops` for fallback line strings
 - `name`
 - `line`
 - `mode`

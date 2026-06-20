@@ -38,6 +38,7 @@ class PulpGTFS
         string $sourceName = 'GTFS',
         ?string $documentationUrl = null,
         ?string $publicSourceUrl = null,
+        array $options = [],
     ): GtfsGeoJsonBuilder {
         return new GtfsGeoJsonBuilder(
             $sourceUrl,
@@ -45,7 +46,8 @@ class PulpGTFS
             $departuresBaseUrl,
             $sourceName,
             $documentationUrl,
-            $publicSourceUrl
+            $publicSourceUrl,
+            (bool)($options['fallbackLineStringsFromStops'] ?? false)
         );
     }
 }

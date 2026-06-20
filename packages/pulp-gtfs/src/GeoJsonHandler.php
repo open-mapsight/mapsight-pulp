@@ -45,7 +45,8 @@ class GeoJsonHandler extends AbstractHandler
             $this->cp->departuresBaseUrl,
             $this->cp->sourceName ?? 'GTFS',
             $this->cp->documentationUrl,
-            $this->cp->publicSourceUrl
+            $this->cp->publicSourceUrl,
+            $this->fallbackLineStringsFromStops()
         );
 
         $file = new File('gtfs-' . $type . '.geojson');
@@ -72,7 +73,8 @@ class GeoJsonHandler extends AbstractHandler
         }
 
         $required = ['routes', 'stops', 'stopTimes', 'trips'];
-        if ($type === 'lines' || $type === 'combined') {
+        $needsLines = $type === 'lines' || $type === 'combined';
+        if ($needsLines && !$this->fallbackLineStringsFromStops()) {
             $required[] = 'shapes';
         }
 
@@ -86,7 +88,15 @@ class GeoJsonHandler extends AbstractHandler
 
             $files[self::DEFAULT_FILES[$gtfsName]] = $file;
         }
+        if ($needsLines && isset($this->filesByGtfsName['shapes'])) {
+            $files[self::DEFAULT_FILES['shapes']] = $this->filesByGtfsName['shapes'];
+        }
 
         return $files;
+    }
+
+    private function fallbackLineStringsFromStops(): bool
+    {
+        return (bool)($this->cp->options['fallbackLineStringsFromStops'] ?? false);
     }
 }
