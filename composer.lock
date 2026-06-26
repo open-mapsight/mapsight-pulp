@@ -341,7 +341,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
-                "reference": "7dde84a4b57699bcad1e7892f37eebbc7004fd41"
+                "reference": "09e73efea0500b959a401cd9d772824a9b586c4e"
             },
             "require": {
                 "php": "^8.2",
@@ -364,7 +364,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -398,7 +398,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
-                "reference": "3b672c65ebcdbc8df5503367fbe02c90deb47ff8"
+                "reference": "2ed87633b09a702aaaa26a61fd489b37b34cade0"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -436,7 +436,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -469,7 +469,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-cache",
-                "reference": "f2d9209c609c7e7dc9dc2d37336eb51b9c0e1c09"
+                "reference": "ababc6cb76a55c4e11bf80c25110c39b99a059b1"
             },
             "require": {
                 "mapsight/pulp": "*",
@@ -495,7 +495,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -526,7 +526,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
-                "reference": "a616852544a727a9ef3e57f6d7f1ad8d86e0bda4"
+                "reference": "f83066eb614ef983d41a420cb684a8ac17c042f8"
             },
             "require": {
                 "ext-dom": "*",
@@ -574,7 +574,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -609,7 +609,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
-                "reference": "b43f432977fba7f399c7cb88ed51f666bfa57084"
+                "reference": "aa6b4b9c8d3c74d5a0266ab8b8fb873da17e720e"
             },
             "require": {
                 "ext-json": "*",
@@ -648,7 +648,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -682,7 +682,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
-                "reference": "5848a4e15b54af64c9aaed6069ea2291a212d271"
+                "reference": "48c9af60f0e4021ddb7919493519ed0b26dd73b2"
             },
             "require": {
                 "ext-json": "*",
@@ -729,7 +729,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -762,7 +762,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-gtfs",
-                "reference": "860a0b2dae8c2f0550a5447798833d12856f45e1"
+                "reference": "7da25b1a3056e40109d066fa0378d9b0435d2a19"
             },
             "require": {
                 "mapsight/pulp": "*",
@@ -788,7 +788,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -816,7 +816,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
-                "reference": "bbd699f54b392c7ad783dc5f36dca72a5077e37c"
+                "reference": "d3456d85c0af8b343a2b39f79c7291e9e10710c5"
             },
             "require": {
                 "ext-json": "*",
@@ -854,7 +854,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -887,7 +887,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
-                "reference": "1a644a78a16a75f9652ddc52d4a0c1766a916b26"
+                "reference": "7db08587baa1e5e762c2011cca6daf2b65275082"
             },
             "require": {
                 "ext-soap": "*",
@@ -915,7 +915,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -947,7 +947,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
-                "reference": "aa95def8a4010ef230f181916b130118738eaf6a"
+                "reference": "db73e7877e5803e3e21ddcfddcc0a9693d24f83d"
             },
             "require": {
                 "mapsight/pulp": "*",
@@ -988,7 +988,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1022,7 +1022,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
-                "reference": "30f49333682447e9a449467bc59193994f8dbd3f"
+                "reference": "aab008cfea62d1321f913500bacb0db4ffedbd89"
             },
             "require": {
                 "ext-libxml": "*",
@@ -1054,7 +1054,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1086,7 +1086,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-zip",
-                "reference": "c31f6e0dc77cf0e8ac502872b385addafa05c662"
+                "reference": "61f85205790afe341b66bb1ce8f5ec9857e9addf"
             },
             "require": {
                 "ext-zip": "*",
@@ -1113,7 +1113,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
