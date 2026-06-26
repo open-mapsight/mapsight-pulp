@@ -9,7 +9,7 @@
         "public-transport"
     ],
     "homepage": "https://github.com/open-mapsight/mapsight-pulp",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Paul Golmann",

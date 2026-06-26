@@ -115,3 +115,20 @@ When adding a package under `packages/`, make sure the split release target is r
 3. **Create and initialize the target repository:** Create `open-mapsight/<package-name>` and make sure it has an initialized `main` branch. An empty initial commit is enough; the split action cannot push to a completely empty repository with no `main` ref.
 4. **Grant token access:** Make sure the `ACCESS_TOKEN` PAT used by this monorepo can write to the new target repository.
 5. **Set up Packagist:** Add the package on Packagist so the release workflow's update notification can refresh it after each split.
+
+## License
+
+Pulp is released under the **[MIT License](LICENSE)**.
+
+For licensing questions, contact [contact@open-mapsight.org](mailto:contact@open-mapsight.org). For code and integration questions, use [GitHub issues](https://github.com/open-mapsight/mapsight-pulp/issues).
+
+## Community
+
+Participation in Mapsight community spaces is governed by our
+[Code of Conduct](CODE_OF_CONDUCT.md) (Contributor Covenant 3.0).
+
+## Security
+
+To report a security vulnerability, see the
+[Open Mapsight security policy](https://github.com/open-mapsight/.github/blob/main/SECURITY.md)
+or email [security@open-mapsight.org](mailto:security@open-mapsight.org).
