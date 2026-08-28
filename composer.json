@@ -36,6 +36,7 @@
         "mapsight/pulp": "@dev",
         "mapsight/pulp-cache": "@dev",
         "mapsight/pulp-concert": "@dev",
+        "mapsight/pulp-datex-energy": "@dev",
         "mapsight/pulp-geocsv": "@dev",
         "mapsight/pulp-geojson": "@dev",
         "mapsight/pulp-gtfs": "@dev",

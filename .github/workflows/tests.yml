@@ -44,7 +44,7 @@ jobs:
         uses: shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401 # 2.32.0
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: mbstring, xml, soap, zip
+          extensions: mbstring, xml, soap, zip, curl, json
           coverage: none
 
       - name: Validate Composer files

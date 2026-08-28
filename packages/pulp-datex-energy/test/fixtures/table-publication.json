@@ -1,0 +1,258 @@
+{
+  "payload": {
+    "aegiEnergyInfrastructureTablePublication": {
+      "energyInfrastructureTable": [
+        {
+          "energyInfrastructureSite": [
+            {
+              "idG": "site-ac-in-bbox",
+              "lastUpdated": "2026-06-28T06:15:15.000Z",
+              "name": {
+                "values": [
+                  {"lang": "de", "value": "B&B Braunschweig Nord"},
+                  {"lang": "en", "value": "B&B Brunswick North"}
+                ]
+              },
+              "operator": {
+                "afacAnOrganisation": {
+                  "name": {
+                    "values": [
+                      {"lang": "de", "value": "Example Operator"}
+                    ]
+                  }
+                }
+              },
+              "locationReference": {
+                "locAreaLocation": {
+                  "coordinatesForDisplay": {
+                    "latitude": 52.309392,
+                    "longitude": 10.510378
+                  },
+                  "locLocationExtensionG": {
+                    "facilityLocation": {
+                      "address": {
+                        "postcode": "38112",
+                        "countryCode": "DE",
+                        "city": {
+                          "values": [
+                            {"lang": "de", "value": "Braunschweig"}
+                          ]
+                        },
+                        "addressLine": [
+                          {
+                            "text": {
+                              "values": [
+                                {"lang": "de", "value": "Hansestrasse 90A"}
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "energyInfrastructureStation": [
+                {
+                  "idG": "station-ac-1",
+                  "refillPoint": [
+                    {
+                      "aegiElectricChargingPoint": {
+                        "idG": "DE*MUC*E*CO110897",
+                        "currentType": {"value": "ac"},
+                        "availableChargingPower": [11000],
+                        "connector": [
+                          {
+                            "connectorType": {"value": "iec62196T2"},
+                            "maxPowerAtSocket": 11000
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "idG": "station-ac-2",
+                  "refillPoint": [
+                    {
+                      "aegiElectricChargingPoint": {
+                        "idG": "DE*MUC*E*CO110898",
+                        "currentType": {"value": "ac"},
+                        "availableChargingPower": [11000],
+                        "connector": [
+                          {
+                            "connectorType": {"value": "iec62196T2"},
+                            "maxPowerAtSocket": 11000
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "idG": "9619ab5b-967f-4ad2-9d10-ee6be49cabce",
+              "lastUpdated": "2026-08-28T04:07:03.658Z",
+              "name": {
+                "values": [
+                  {"lang": "de", "value": "BS|ENERGY Petritorwall"}
+                ]
+              },
+              "operator": {
+                "afacAnOrganisation": {
+                  "name": {
+                    "values": [
+                      {"lang": "de", "value": "Braunschweiger Versorgungs-Aktiengesellschaft & Co. KG"}
+                    ]
+                  }
+                }
+              },
+              "locationReference": {
+                "locPointLocation": {
+                  "coordinatesForDisplay": {
+                    "latitude": 52.267955,
+                    "longitude": 10.513932
+                  },
+                  "locLocationExtensionG": {
+                    "facilityLocation": {
+                      "address": {
+                        "postcode": "38114",
+                        "countryCode": "DE",
+                        "city": {
+                          "values": [
+                            {"lang": "de", "value": "Braunschweig"}
+                          ]
+                        },
+                        "addressLine": [
+                          {
+                            "text": {
+                              "values": [
+                                {"lang": "de", "value": "Petritorwall 4"}
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "energyInfrastructureStation": [
+                {
+                  "idG": "536a5b95-cfa8-4d09-a2b6-fb8e7ad2736d",
+                  "refillPoint": [
+                    {
+                      "aegiElectricChargingPoint": {
+                        "idG": "DE*LDK*E00122",
+                        "currentType": {"value": "dc"},
+                        "availableChargingPower": [50000],
+                        "connector": [
+                          {
+                            "connectorType": {"value": "iec62196T2COMBO"},
+                            "maxPowerAtSocket": 50000
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "aegiElectricChargingPoint": {
+                        "idG": "DE*LDK*E00121",
+                        "currentType": {"value": "ac"},
+                        "availableChargingPower": [22000],
+                        "connector": [
+                          {
+                            "connectorType": {"value": "iec62196T2"},
+                            "maxPowerAtSocket": 22000
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "idG": "site-outside-bbox",
+              "name": {
+                "values": [
+                  {"lang": "de", "value": "Outside City"}
+                ]
+              },
+              "locationReference": {
+                "locAreaLocation": {
+                  "coordinatesForDisplay": {
+                    "latitude": 53.55,
+                    "longitude": 10.0
+                  }
+                }
+              },
+              "energyInfrastructureStation": [
+                {
+                  "idG": "station-outside",
+                  "refillPoint": [
+                    {
+                      "aegiElectricChargingPoint": {
+                        "idG": "DE*OUT*E00001",
+                        "currentType": {"value": "ac"},
+                        "availableChargingPower": [11000],
+                        "connector": [
+                          {"connectorType": {"value": "iec62196T2"}}
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "idG": "site-zero-coords",
+              "name": {
+                "values": [
+                  {"lang": "de", "value": "Null Island"}
+                ]
+              },
+              "locationReference": {
+                "locAreaLocation": {
+                  "coordinatesForDisplay": {
+                    "latitude": 0,
+                    "longitude": 0
+                  }
+                }
+              },
+              "energyInfrastructureStation": [
+                {
+                  "refillPoint": [
+                    {
+                      "aegiElectricChargingPoint": {
+                        "idG": "DE*ZERO*E00001",
+                        "currentType": {"value": "ac"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "idG": "site-no-points",
+              "name": {
+                "values": [
+                  {"lang": "de", "value": "No Charging Points"}
+                ]
+              },
+              "locationReference": {
+                "locAreaLocation": {
+                  "coordinatesForDisplay": {
+                    "latitude": 52.25,
+                    "longitude": 10.52
+                  }
+                }
+              },
+              "energyInfrastructureStation": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

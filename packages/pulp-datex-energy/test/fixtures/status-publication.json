@@ -1,0 +1,123 @@
+{
+  "messageContainer": {
+    "payload": [
+      {
+        "modelBaseVersionG": "3",
+        "aegiEnergyInfrastructureStatusPublication": {
+          "publicationTime": "2026-08-28T10:15:10.298Z",
+          "energyInfrastructureSiteStatus": [
+            {
+              "reference": {"idG": "site-ac-in-bbox"},
+              "energyInfrastructureStationStatus": [
+                {
+                  "reference": {"idG": "station-ac-1"},
+                  "lastUpdated": "2026-08-28T10:15:10.298Z",
+                  "refillPointStatus": [
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*MUC*E*CO110897"},
+                        "status": {"value": "available"}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "reference": {"idG": "station-ac-2"},
+                  "lastUpdated": "2026-08-28T10:14:00.000Z",
+                  "refillPointStatus": [
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*MUC*E*CO110898"},
+                        "status": {"value": "charging"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "reference": {"idG": "9619ab5b-967f-4ad2-9d10-ee6be49cabce"},
+              "energyInfrastructureStationStatus": [
+                {
+                  "reference": {"idG": "536a5b95-cfa8-4d09-a2b6-fb8e7ad2736d"},
+                  "lastUpdated": "2026-08-28T10:15:10.298Z",
+                  "refillPointStatus": [
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*LDK*E00122"},
+                        "status": {"value": "occupied"}
+                      }
+                    },
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*LDK*E00121"},
+                        "status": {"value": "reserved"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "reference": {"idG": "site-inoperative"},
+              "energyInfrastructureStationStatus": [
+                {
+                  "reference": {"idG": "station-inoperative"},
+                  "lastUpdated": "2026-08-28T10:15:10.298Z",
+                  "refillPointStatus": [
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*NMS*E510488*002"},
+                        "status": {"value": "inoperative"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "reference": {"idG": "site-out-of-order"},
+              "energyInfrastructureStationStatus": [
+                {
+                  "reference": {"idG": "station-out-of-order"},
+                  "lastUpdated": "2026-08-28T10:15:10.298Z",
+                  "refillPointStatus": [
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*OUT*E00099"},
+                        "status": {"value": "outOfOrder"}
+                      }
+                    },
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": ""},
+                        "status": {"value": "available"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "reference": {"idG": "site-unknown"},
+              "energyInfrastructureStationStatus": [
+                {
+                  "reference": {"idG": "station-unknown"},
+                  "lastUpdated": "2026-08-28T10:15:10.298Z",
+                  "refillPointStatus": [
+                    {
+                      "aegiElectricChargingPointStatus": {
+                        "reference": {"idG": "DE*UNK*E00001"},
+                        "status": {"value": ""}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
