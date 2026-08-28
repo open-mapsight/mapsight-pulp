@@ -39,6 +39,9 @@
         <testsuite name="pulp-concert">
             <directory>packages/pulp-concert/test</directory>
         </testsuite>
+        <testsuite name="pulp-datex-energy">
+            <directory>packages/pulp-datex-energy/test</directory>
+        </testsuite>
         <testsuite name="pulp-geocsv">
             <directory>packages/pulp-geocsv/test</directory>
         </testsuite>

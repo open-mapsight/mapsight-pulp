@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "177689a417e17b9dd2250c9dbbbb1677",
+    "content-hash": "217bd0021b5f41ac4c75cfe5b623361c",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -600,6 +600,64 @@
                 "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
                 "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-concert"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "mapsight/pulp-datex-energy",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-datex-energy",
+                "reference": "d582bd6065f4dcef61183b9d4104216a6cee6393"
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpDatexEnergy.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpdatexenergy\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpDatexEnergy.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "AFIR DATEX II energy-infrastructure helpers for Pulp pipelines.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "afir",
+                "charging",
+                "datex",
+                "energy",
+                "mapsight",
+                "pulp"
+            ],
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6342,6 +6400,7 @@
         "mapsight/pulp": 20,
         "mapsight/pulp-cache": 20,
         "mapsight/pulp-concert": 20,
+        "mapsight/pulp-datex-energy": 20,
         "mapsight/pulp-geocsv": 20,
         "mapsight/pulp-geojson": 20,
         "mapsight/pulp-gtfs": 20,
