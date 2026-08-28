@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://mtskInformation/schema/01-01-00"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://mtskInformation/schema/01-01-00 PetrolStationPublication_v01-01-00.xsd" modelBaseVersion="2" extensionName="PetrolStationPublication" extensionVersion="01-01-00">
+    <payloadPublication xsi:type="PetrolStationPublication" lang="de" id="G-EDGE">
+        <publicationCreator>
+            <country>de</country>
+            <nationalIdentifier>DE-MDM-XXXXXX</nationalIdentifier>
+        </publicationCreator>
+        <genericPublicationName>PetrolStationPublication</genericPublicationName>
+        <petrolStation id="OUTSIDE-BBBOX-0000-0000-000000000001" version="1">
+            <petrolStationVersionTime>2013-05-01T10:00:00+02:00</petrolStationVersionTime>
+            <petrolStationName>Outside BBox</petrolStationName>
+            <petrolStationLocation>
+                <latitude>52.520008</latitude>
+                <longitude>13.404954</longitude>
+            </petrolStationLocation>
+        </petrolStation>
+        <petrolStation id="MISSING-COORD-0000-0000-000000000002" version="1">
+            <petrolStationVersionTime>2013-05-01T10:00:00+02:00</petrolStationVersionTime>
+            <petrolStationName>Missing Coord</petrolStationName>
+        </petrolStation>
+        <petrolStation id="ZERO-COORD-0000-0000-000000000003" version="1">
+            <petrolStationVersionTime>2013-05-01T10:00:00+02:00</petrolStationVersionTime>
+            <petrolStationName>Zero Coord</petrolStationName>
+            <petrolStationLocation>
+                <latitude>0</latitude>
+                <longitude>0</longitude>
+            </petrolStationLocation>
+        </petrolStation>
+    </payloadPublication>
+</d2LogicalModel>

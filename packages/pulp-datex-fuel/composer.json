@@ -1,0 +1,52 @@
+{
+    "name": "mapsight/pulp-datex-fuel",
+    "description": "MTS-K DATEX II fuel-station helpers for Pulp pipelines.",
+    "type": "library",
+    "keywords": [
+        "mapsight",
+        "pulp",
+        "datex",
+        "mts-k",
+        "fuel",
+        "petrol"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-curl": "*",
+        "ext-libxml": "*",
+        "ext-simplexml": "*",
+        "mapsight/pulp": "*"
+    },
+    "suggest": {
+        "mapsight/pulp-cache": "Cache Mobilithek subscription responses",
+        "mapsight/pulp-json": "Encode GeoJSON output",
+        "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpDatexFuel.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpdatexfuel\\": "src"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpDatexFuel.php",
+            "!/README.md",
+            "!/CHANGELOG.md"
+        ]
+    }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "217bd0021b5f41ac4c75cfe5b623361c",
+    "content-hash": "23d4eaf980ad308ec6100b90b0e3d5b0",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -339,7 +339,7 @@
         },
         {
             "name": "mapsight/geojson-reproject",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
@@ -396,7 +396,7 @@
         },
         {
             "name": "mapsight/pulp",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
@@ -467,7 +467,7 @@
         },
         {
             "name": "mapsight/pulp-cache",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-cache",
@@ -524,7 +524,7 @@
         },
         {
             "name": "mapsight/pulp-concert",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
@@ -607,7 +607,7 @@
         },
         {
             "name": "mapsight/pulp-datex-energy",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-energy",
@@ -664,8 +664,72 @@
             }
         },
         {
+            "name": "mapsight/pulp-datex-fuel",
+            "version": "dev-add-pulp-datex-fuel",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-datex-fuel",
+                "reference": "ae5b27fec8b4acea6f611e2dee8bbeb98792f57e"
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "suggest": {
+                "mapsight/pulp-cache": "Cache Mobilithek subscription responses",
+                "mapsight/pulp-json": "Encode GeoJSON output",
+                "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpDatexFuel.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpdatexfuel\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpDatexFuel.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MTS-K DATEX II fuel-station helpers for Pulp pipelines.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "datex",
+                "fuel",
+                "mapsight",
+                "mts-k",
+                "petrol",
+                "pulp"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "mapsight/pulp-geocsv",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
@@ -738,7 +802,7 @@
         },
         {
             "name": "mapsight/pulp-geojson",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
@@ -818,7 +882,7 @@
         },
         {
             "name": "mapsight/pulp-gtfs",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-gtfs",
@@ -872,7 +936,7 @@
         },
         {
             "name": "mapsight/pulp-json",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
@@ -943,7 +1007,7 @@
         },
         {
             "name": "mapsight/pulp-soap",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
@@ -1003,7 +1067,7 @@
         },
         {
             "name": "mapsight/pulp-tic",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
@@ -1078,7 +1142,7 @@
         },
         {
             "name": "mapsight/pulp-xml",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
@@ -1142,7 +1206,7 @@
         },
         {
             "name": "mapsight/pulp-zip",
-            "version": "dev-main",
+            "version": "dev-add-pulp-datex-fuel",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-zip",
@@ -6401,6 +6465,7 @@
         "mapsight/pulp-cache": 20,
         "mapsight/pulp-concert": 20,
         "mapsight/pulp-datex-energy": 20,
+        "mapsight/pulp-datex-fuel": 20,
         "mapsight/pulp-geocsv": 20,
         "mapsight/pulp-geojson": 20,
         "mapsight/pulp-gtfs": 20,

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://mtskInformation/schema/01-01-00"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://mtskInformation/schema/01-01-00 FuelPricePublication_v01-01-00.xsd" modelBaseVersion="2" extensionName="FuelPricePublication" extensionVersion="01-01-00">
+    <payloadPublication xsi:type="FuelPricePublication" lang="de" id="P-2013-2460">
+        <publicationCreator>
+            <country>de</country>
+            <nationalIdentifier>DE-MDM-XXXXXX</nationalIdentifier>
+        </publicationCreator>
+        <genericPublicationName>FuelPricePublication</genericPublicationName>
+        <petrolStationInformation>
+            <petrolStationReference targetClass="PetrolStation" id="69C7386C-F20D-4872-96A6-B30DE28C852D" version="5"/>
+            <fuelPriceE5>
+                <price>1.60</price>
+                <dateOfPrice>2013-05-04T18:00:00+02:00</dateOfPrice>
+            </fuelPriceE5>
+            <fuelPriceE10>
+                <price>1.235</price>
+                <dateOfPrice>2013-05-04T18:00:00+02:00</dateOfPrice>
+            </fuelPriceE10>
+            <fuelPriceDiesel>
+                <price>1.40</price>
+                <dateOfPrice>2013-05-04T18:00:00+02:00</dateOfPrice>
+            </fuelPriceDiesel>
+            <overrideOpen>
+                <startOfPeriod>2013-04-24T00:00:00+02:00</startOfPeriod>
+                <endOfPeriod>2013-04-24T18:30:00+02:00</endOfPeriod>
+            </overrideOpen> 
+            <overrideClosed>
+                <startOfPeriod>2013-05-27T00:00:00+02:00</startOfPeriod>
+                <endOfPeriod>2013-05-28T00:00:00+02:00</endOfPeriod>
+            </overrideClosed> 
+            <overrideClosed>
+                <startOfPeriod>2013-06-27T00:00:00+02:00</startOfPeriod>
+                <endOfPeriod>2013-06-28T00:00:00+02:00</endOfPeriod>
+            </overrideClosed>
+            <overrideClosed>
+                <startOfPeriod>2013-07-27T00:00:00+02:00</startOfPeriod>
+                <endOfPeriod>2013-07-28T00:00:00+02:00</endOfPeriod>
+            </overrideClosed>
+          </petrolStationInformation>
+        <petrolStationInformation>
+            <petrolStationReference targetClass="PetrolStation" id="110326DC-269E-4042-9588-6248BB610394" version="1"/>
+            <fuelPriceE5>
+                <price>1.609</price>
+            </fuelPriceE5>
+            <fuelPriceDiesel>
+                <price>1.419</price>
+            </fuelPriceDiesel>
+        </petrolStationInformation>
+    </payloadPublication>
+</d2LogicalModel>
