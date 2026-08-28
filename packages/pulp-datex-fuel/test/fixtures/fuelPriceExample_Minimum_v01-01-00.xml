@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://mtskInformation/schema/01-01-00"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://mtskInformation/schema/01-01-00 FuelPricePublication_v01-01-00.xsd" modelBaseVersion="2" extensionName="FuelPricePublication" extensionVersion="01-01-00">
+    <payloadPublication xsi:type="FuelPricePublication" lang="de" id="P-2013-2457">
+        <publicationCreator>
+            <country>de</country>
+            <nationalIdentifier>DE-MDM-XXXXXX</nationalIdentifier>
+        </publicationCreator>
+        <genericPublicationName>FuelPricePublication</genericPublicationName>
+        <petrolStationInformation>
+            <petrolStationReference targetClass="PetrolStation" id="69C7386C-F20D-4872-96A6-B30DE28C852D" version="5"/>
+            <fuelPriceE5>
+                <price>1.609</price>
+            </fuelPriceE5>
+        </petrolStationInformation>
+    </payloadPublication>
+</d2LogicalModel>

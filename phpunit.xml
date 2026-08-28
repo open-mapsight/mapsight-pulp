@@ -42,6 +42,9 @@
         <testsuite name="pulp-datex-energy">
             <directory>packages/pulp-datex-energy/test</directory>
         </testsuite>
+        <testsuite name="pulp-datex-fuel">
+            <directory>packages/pulp-datex-fuel/test</directory>
+        </testsuite>
         <testsuite name="pulp-geocsv">
             <directory>packages/pulp-geocsv/test</directory>
         </testsuite>

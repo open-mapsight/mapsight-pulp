@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://mtskInformation/schema/01-01-00"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://mtskInformation/schema/01-01-00 PetrolStationPublication_v01-01-00.xsd" modelBaseVersion="2" extensionName="PetrolStationPublication" extensionVersion="01-01-00">
+    <payloadPublication xsi:type="PetrolStationPublication" lang="de" id="G-2013-22">
+        <publicationCreator>
+            <country>de</country>
+            <nationalIdentifier>DE-MDM-XXXXXX</nationalIdentifier>
+        </publicationCreator>
+        <genericPublicationName>PetrolStationPublication</genericPublicationName>
+        <petrolStation id="69C7386C-F20D-4872-96A6-B30DE28C852D" version="5">
+            <petrolStationVersionTime>2013-05-03T09:00:00+02:00</petrolStationVersionTime>
+            <petrolStationName>Mustertankstelle</petrolStationName>
+            <petrolStationBrand>Mustermarke</petrolStationBrand>
+            <petrolStationStreet>Musterstraße</petrolStationStreet>
+            <petrolStationHouseNumber>1</petrolStationHouseNumber>
+            <petrolStationPostcode>12345</petrolStationPostcode>
+            <petrolStationPlace>Musterort</petrolStationPlace>
+            <petrolStationPublicHolidayIdentifier>deBW</petrolStationPublicHolidayIdentifier>
+            <openingTimes>
+                <recurringTimePeriodOfDay xsi:type="TimePeriodByHour">
+                    <startTimeOfPeriod>06:00:00</startTimeOfPeriod>
+                    <endTimeOfPeriod>12:00:00</endTimeOfPeriod>
+                </recurringTimePeriodOfDay>
+                <recurringTimePeriodOfDay xsi:type="TimePeriodByHour">
+                    <startTimeOfPeriod>13:00:00</startTimeOfPeriod>
+                    <endTimeOfPeriod>20:00:00</endTimeOfPeriod>
+                </recurringTimePeriodOfDay>
+                <recurringDayWeekMonthPeriod>
+                    <applicableDay>monday</applicableDay>
+                    <applicableDay>tuesday</applicableDay>
+                    <applicableDay>wednesday</applicableDay>
+                    <applicableDay>thursday</applicableDay>
+                    <applicableDay>friday</applicableDay>
+                </recurringDayWeekMonthPeriod>
+            </openingTimes>
+            <openingTimes>
+                <recurringTimePeriodOfDay xsi:type="TimePeriodByHour">
+                    <startTimeOfPeriod>08:00:00</startTimeOfPeriod>
+                    <endTimeOfPeriod>12:00:00</endTimeOfPeriod>
+                </recurringTimePeriodOfDay>
+                <recurringDayWeekMonthPeriod>
+                    <applicableDay>saturday</applicableDay>
+                    <applicableDay>sunday</applicableDay>
+                    <applicableDay>publicHoliday</applicableDay>
+                </recurringDayWeekMonthPeriod>
+            </openingTimes>
+            <petrolStationLocation>
+                <latitude>50.807374</latitude>
+                <longitude>6.062009</longitude>
+            </petrolStationLocation>
+        </petrolStation>
+        <petrolStation id="110326DC-269E-4042-9588-6248BB610394" version="1">
+            <petrolStationVersionTime>2013-05-01T10:45:30+02:00</petrolStationVersionTime>
+            <petrolStationName>Beispieltankstelle2</petrolStationName>
+            <petrolStationBrand>Beispielmarke2</petrolStationBrand>
+            <petrolStationStreet>Beispielweg</petrolStationStreet>
+            <petrolStationHouseNumber>2</petrolStationHouseNumber>
+            <petrolStationPostcode>22222</petrolStationPostcode>
+            <petrolStationPlace>Beispielort</petrolStationPlace>
+            <openingTimes>
+                <recurringTimePeriodOfDay xsi:type="TimePeriodByHour">
+                    <startTimeOfPeriod>06:00:00</startTimeOfPeriod>
+                    <endTimeOfPeriod>22:30:00</endTimeOfPeriod>
+                </recurringTimePeriodOfDay>
+                <recurringDayWeekMonthPeriod>
+                    <applicableDay>monday</applicableDay>
+                    <applicableDay>tuesday</applicableDay>
+                    <applicableDay>wednesday</applicableDay>
+                    <applicableDay>thursday</applicableDay>
+                    <applicableDay>friday</applicableDay>
+                    <applicableDay>saturday</applicableDay>
+                    <applicableDay>sunday</applicableDay>
+                </recurringDayWeekMonthPeriod>
+            </openingTimes>
+             <petrolStationLocation>
+                <latitude>50.772529</latitude>
+                <longitude>6.072466</longitude>
+            </petrolStationLocation>
+        </petrolStation>
+    </payloadPublication>
+</d2LogicalModel>
