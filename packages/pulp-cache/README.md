@@ -64,6 +64,8 @@ Pulp::start()
 - `ttl < 0`: Cache never expires.
 - `ttl = 0`: Always refresh/write the cache.
 - `fallbackToStale` (`bool`): For `remember()`, return stale cached files if the wrapped source fails. Defaults to `true`.
+- `keepCacheOnNotModified` (`bool`): For `remember()`, keep the previous cache when every source file has `httpStatus` 304 or 204. Defaults to `false`.
+- `keepCacheWhenEmpty` (`bool`): For `remember()`, keep the previous cache when the wrapped source emits no files (for example after filtering out a 304). Defaults to `false`.
 
 ## Cache Layout
 

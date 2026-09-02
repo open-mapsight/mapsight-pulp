@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OpenMapsight;
 
 use OpenMapsight\pulp\SrcHttpHandler;
+use OpenMapsight\pulpdatexfuel\AccumulatePricesHandler;
 use OpenMapsight\pulpdatexfuel\DatexFuelPrices;
 use OpenMapsight\pulpdatexfuel\DatexFuelStationsBuilder;
 use OpenMapsight\pulpdatexfuel\GeoJsonHandler;
@@ -114,6 +115,15 @@ class PulpDatexFuel
     public static function priceRecords(): PricesHandler
     {
         return new PricesHandler();
+    }
+
+    /**
+     * SNAPSHOT/DELTA accumulator that reads and writes `$cachePath`.
+     * HTTP 304/204 files leave the cache as-is; 200 files apply the packet.
+     */
+    public static function accumulatePrices(string $cachePath): AccumulatePricesHandler
+    {
+        return new AccumulatePricesHandler($cachePath);
     }
 
     /**

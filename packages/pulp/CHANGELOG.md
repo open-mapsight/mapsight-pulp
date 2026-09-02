@@ -4,6 +4,15 @@ All notable changes to `mapsight/pulp` are documented here.
 
 ## Unreleased
 
+## 1.2.0 - 2026-09-02
+
+### Added
+
+- Add `Pulp::ensureDirectory()` for the race-free mkdir used by dest and cache jobs.
+- Add `srcHttp` disk sink (`sink => true` or a path) so large responses stay path-backed `File`s.
+- Attach `httpStatus`, `httpLastModified`, `httpEtag`, and `httpType` on files from `srcHttp`.
+- Add `srcHttp` options `client` (injectable Guzzle client) and `successStatuses`.
+
 ## 1.1.0 - 2026-06-18
 
 ### Added

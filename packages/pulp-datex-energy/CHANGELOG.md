@@ -4,6 +4,16 @@ All notable changes to `mapsight/pulp-datex-energy` are documented here.
 
 ## Unreleased
 
+## 1.1.0 - 2026-09-02
+
+### Added
+
+- Add `PulpDatexEnergy::accumulateStatus()` to apply SNAPSHOT/DELTA packets to an on-disk EVSE cache, leaving the cache unchanged on HTTP 304/204.
+
+### Changed
+
+- Document `srcMobilithek(..., options: ['sink' => true])` now that core pulp can disk-sink large responses.
+
 ## 1.0.0 - 2026-08-28
 
 ### Added

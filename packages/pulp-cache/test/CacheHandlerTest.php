@@ -66,6 +66,65 @@ class CacheHandlerTest extends TestCase
         $this->assertSame(['value' => 42], $result[0]->content);
     }
 
+    public function testRememberKeepsCacheOnNotModified(): void
+    {
+        $cacheDirectory = $this->createTemporaryDirectory();
+
+        $fresh = new File('sites.geojson');
+        $fresh->content = ['type' => 'FeatureCollection', 'features' => [['id' => 'a']]];
+        $fresh->httpStatus = 200;
+
+        Pulp::start()
+            ->pipe(PulpCache::remember(
+                Pulp::start()->pipe(Pulp::src($fresh)),
+                $cacheDirectory,
+                ['key' => 'static', 'ttl' => 0, 'keepCacheOnNotModified' => true]
+            ))
+            ->run();
+
+        $notModified = new File('sites.geojson');
+        $notModified->content = '';
+        $notModified->httpStatus = 304;
+
+        $result = Pulp::start()
+            ->pipe(PulpCache::remember(
+                Pulp::start()->pipe(Pulp::src($notModified)),
+                $cacheDirectory,
+                ['key' => 'static', 'ttl' => 0, 'keepCacheOnNotModified' => true]
+            ))
+            ->run();
+
+        $this->assertSame(['type' => 'FeatureCollection', 'features' => [['id' => 'a']]], $result[0]->content);
+    }
+
+    public function testRememberKeepsCacheWhenSourceIsEmpty(): void
+    {
+        $cacheDirectory = $this->createTemporaryDirectory();
+
+        $fresh = new File('sites.geojson');
+        $fresh->content = ['kept' => true];
+
+        Pulp::start()
+            ->pipe(PulpCache::remember(
+                Pulp::start()->pipe(Pulp::src($fresh)),
+                $cacheDirectory,
+                ['key' => 'static', 'ttl' => 0, 'keepCacheWhenEmpty' => true]
+            ))
+            ->run();
+
+        $result = Pulp::start()
+            ->pipe(PulpCache::remember(
+                Pulp::start()
+                    ->pipe(Pulp::src($fresh))
+                    ->pipe(Pulp::filter(static fn (): bool => false)),
+                $cacheDirectory,
+                ['key' => 'static', 'ttl' => 0, 'keepCacheWhenEmpty' => true]
+            ))
+            ->run();
+
+        $this->assertSame(['kept' => true], $result[0]->content);
+    }
+
     private function createTemporaryDirectory(): string
     {
         $directory = sys_get_temp_dir() . '/pulp-cache-test-' . bin2hex(random_bytes(8));

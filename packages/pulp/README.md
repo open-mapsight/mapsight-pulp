@@ -100,6 +100,31 @@ Creates one file from a path. If `$aliasFileName` is provided, it becomes the vi
 
 Creates one file from an HTTP response body.
 
+```php
+Pulp::start()
+    ->pipe(Pulp::srcHttp(
+        'GET',
+        'https://example.com/large.json',
+        ['timeout' => 180],
+        'large.json',
+        ['sink' => true, 'successStatuses' => [200, 304, 204]]
+    ))
+    ->run();
+```
+
+- `sink => true` writes the body to a temp file and emits a path-backed `File`, so a ~100 MB response does not have to live as a PHP string. Pass a path string to choose the file.
+- `client` injects a Guzzle `Client` (tests use a mock handler).
+- `successStatuses` throws unless the status is in the list. Pair with Guzzle `http_errors => false` when 304/204 are first-class.
+- The file also carries `httpStatus`, `httpLastModified`, `httpEtag`, and `httpType`.
+
+### Pulp::ensureDirectory($directory, $permissions = 0775)
+
+Create `$directory` and its parents if needed, then return the path. Jobs use this for `pulp/cache` before writing sidecar files; `dest` uses the same helper internally.
+
+```php
+$cacheDir = Pulp::ensureDirectory(__DIR__ . '/cache');
+```
+
 ### Pulp::dest($directory, array $options = [])
 
 Writes incoming files into `$directory` using each file's `fileName`.

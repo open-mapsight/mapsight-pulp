@@ -190,6 +190,49 @@ class DatexFuelPricesTest extends TestCase
         $this->assertEqualsWithDelta(1.60, $muster['properties']['e5'], 0.0001);
     }
 
+    public function testAccumulatePricesAppliesPacketAndIgnoresNotModified(): void
+    {
+        $cachePath = sys_get_temp_dir() . '/pulp-datex-prices-' . bin2hex(random_bytes(8)) . '.json';
+
+        try {
+            $packet = new File('prices.xml');
+            $packet->content = $this->officialPricesXml();
+            $packet->httpStatus = 200;
+            $packet->httpType = 'SNAPSHOT';
+            $packet->httpLastModified = 'Wed, 01 Jan 2026 00:00:00 GMT';
+
+            $first = Pulp::start()
+                ->pipe(Pulp::src($packet))
+                ->pipe(PulpDatexFuel::accumulatePrices($cachePath))
+                ->run();
+
+            $this->assertSame(2, $first[0]->content['stationCount']);
+            $this->assertEqualsWithDelta(
+                1.60,
+                $first[0]->content['prices']['69C7386C-F20D-4872-96A6-B30DE28C852D']['e5'],
+                0.0001
+            );
+
+            $notModified = new File('prices.xml');
+            $notModified->content = '';
+            $notModified->httpStatus = 304;
+
+            $second = Pulp::start()
+                ->pipe(Pulp::src($notModified))
+                ->pipe(PulpDatexFuel::accumulatePrices($cachePath))
+                ->run();
+
+            $this->assertSame(2, $second[0]->content['stationCount']);
+            $this->assertEqualsWithDelta(
+                1.60,
+                $second[0]->content['prices']['69C7386C-F20D-4872-96A6-B30DE28C852D']['e5'],
+                0.0001
+            );
+        } finally {
+            @unlink($cachePath);
+        }
+    }
+
     /**
      * @param array<string, mixed> $geoJson
      * @return array<string, mixed>
