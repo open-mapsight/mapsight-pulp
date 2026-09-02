@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OpenMapsight;
 
 use OpenMapsight\pulp\SrcHttpHandler;
+use OpenMapsight\pulpdatexenergy\AccumulateStatusHandler;
 use OpenMapsight\pulpdatexenergy\DatexEnergySitesBuilder;
 use OpenMapsight\pulpdatexenergy\DatexEnergyStatus;
 use OpenMapsight\pulpdatexenergy\GeoJsonHandler;
@@ -115,6 +116,15 @@ class PulpDatexEnergy
     public static function statusRecords(): StatusHandler
     {
         return new StatusHandler();
+    }
+
+    /**
+     * SNAPSHOT/DELTA accumulator that reads and writes `$cachePath`.
+     * HTTP 304/204 files leave the cache as-is; 200 files apply the packet.
+     */
+    public static function accumulateStatus(string $cachePath): AccumulateStatusHandler
+    {
+        return new AccumulateStatusHandler($cachePath);
     }
 
     /**

@@ -4,6 +4,12 @@ All notable changes to `mapsight/pulp-datex-fuel` are documented here.
 
 ## Unreleased
 
+## 1.1.0 - 2026-09-02
+
+### Added
+
+- Add `PulpDatexFuel::accumulatePrices()` to apply SNAPSHOT/DELTA packets to an on-disk station-price cache, leaving the cache unchanged on HTTP 304/204.
+
 ## 1.0.0 - 2026-08-28
 
 ### Added

@@ -38,12 +38,7 @@ class DestHandler extends AbstractHandler
     private function writeFile(File $file): void
     {
         $dest = $this->cp->directory . '/' . $file->fileName;
-        $path = dirname($dest);
-        /** @noinspection NestedPositiveIfStatementsInspection */
-        // pattern for race condition free mkdir
-        if (!is_dir($path) && (!mkdir($path, 0o777, true) && !is_dir($path))) {
-            throw new RuntimeException(sprintf('Directory "%s" was not created', $path));
-        }
+        Utils::ensureDirectory(dirname($dest), 0o777);
 
         // we need to open the file to lock it.
         // using "c" instead of "w", "w" would truncate the file

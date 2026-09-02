@@ -137,6 +137,41 @@ class DatexEnergyStatusTest extends TestCase
     /**
      * @return array<string, mixed>
      */
+    public function testAccumulateStatusAppliesPacketAndIgnoresNotModified(): void
+    {
+        $cachePath = sys_get_temp_dir() . '/pulp-datex-status-' . bin2hex(random_bytes(8)) . '.json';
+
+        try {
+            $packet = new File('status.json');
+            $packet->content = $this->statusPublication();
+            $packet->httpStatus = 200;
+            $packet->httpType = 'DELTA';
+            $packet->httpLastModified = 'Wed, 01 Jan 2026 00:00:00 GMT';
+
+            $first = Pulp::start()
+                ->pipe(Pulp::src($packet))
+                ->pipe(PulpDatexEnergy::accumulateStatus($cachePath))
+                ->run();
+
+            $this->assertSame(7, $first[0]->content['pointCount']);
+            $this->assertSame('available', $first[0]->content['points']['DE*MUC*E*CO110897']['status']);
+
+            $notModified = new File('status.json');
+            $notModified->content = '';
+            $notModified->httpStatus = 304;
+
+            $second = Pulp::start()
+                ->pipe(Pulp::src($notModified))
+                ->pipe(PulpDatexEnergy::accumulateStatus($cachePath))
+                ->run();
+
+            $this->assertSame(7, $second[0]->content['pointCount']);
+            $this->assertSame('available', $second[0]->content['points']['DE*MUC*E*CO110897']['status']);
+        } finally {
+            @unlink($cachePath);
+        }
+    }
+
     private function statusPublication(): array
     {
         $decoded = json_decode($this->statusPublicationJson(), true, 512, JSON_THROW_ON_ERROR);

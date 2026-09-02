@@ -38,6 +38,9 @@ $source = Pulp::start()
         $certPath,
         $certPassword,
         $ifModifiedSince,
+        'mobilithek.json',
+        ['timeout' => 180, 'http_errors' => false],
+        ['sink' => true, 'successStatuses' => [200, 304]],
     ));
 
 $files = Pulp::start()
@@ -57,9 +60,8 @@ $files = Pulp::start()
     ->run();
 ```
 
-`Pulp::srcHttp` still loads the full response body as a string. That OOMs on the
-~103 MB nationwide static table. A disk sink belongs in core pulp, not this
-package.
+Pass `sink => true` on `srcMobilithek()` (a core `Pulp::srcHttp` option) so the
+~103 MB nationwide static table stays a path-backed file instead of a PHP string.
 
 ## Sites GeoJSON
 
@@ -108,6 +110,15 @@ Pulp::start()
 ```
 
 A `SNAPSHOT` packet replaces the EVSE cache. A `DELTA` packet upserts by EVSE ID.
+
+To keep an on-disk accumulator across runs (and to ignore 304/204 packets):
+
+```php
+Pulp::start()
+    ->pipe(Pulp::src('status.json', __DIR__ . '/input'))
+    ->pipe(PulpDatexEnergy::accumulateStatus(__DIR__ . '/cache/charging-status.json'))
+    ->run();
+```
 
 ## Site properties
 

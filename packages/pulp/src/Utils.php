@@ -9,6 +9,24 @@ use Throwable;
 
 class Utils
 {
+    /**
+     * Create `$directory` (and parents) if needed, then return the path.
+     *
+     * @throws RuntimeException
+     */
+    public static function ensureDirectory(string $directory, int $permissions = 0775): string
+    {
+        if ($directory === '') {
+            throw new RuntimeException('Directory must not be empty');
+        }
+
+        if (!is_dir($directory) && !mkdir($directory, $permissions, true) && !is_dir($directory)) {
+            throw new RuntimeException(sprintf('Cannot create directory "%s"', $directory));
+        }
+
+        return $directory;
+    }
+
     public static function matchFileName($pattern, $fileName): int|false
     {
         $pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';

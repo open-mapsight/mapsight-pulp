@@ -59,12 +59,22 @@ class Pulp implements Handler
 
     /**
      * ## Options
+     * * `sink`: `true` writes the body to a temp file and emits a path-backed
+     *   `File` (use this for large responses). A string path writes there.
+     *   (default: `null` — load the body as a string)
+     * * `client`: Guzzle `Client` instance. Tests inject a mock handler here.
+     *   (default: `new Client()`)
+     * * `successStatuses`: when set, any other HTTP status throws.
+     *   Useful for `http_errors => false` plus 200/304/204.
      * * `skipExceptions`: Skips file (no virtual file is emitted) on exception, and logs.
      *   (default: `false`)
      * * `logSkipExceptions`: (default: `"stderr"`)
      *   * `false`: no logging
      *   * `"stdout"`: log to stdout
      *   * `"stderr"`: log to stderr
+     *
+     * The emitted file also has `httpStatus`, `httpLastModified`, `httpEtag`,
+     * and `httpType` (the Mobilithek `Type` header).
      */
     public static function srcHttp(
         $method,
@@ -117,6 +127,14 @@ class Pulp implements Handler
     public static function dest($directory, array $options = []): DestHandler
     {
         return new DestHandler($directory, $options);
+    }
+
+    /**
+     * Create `$directory` (and parents) if needed, then return the path.
+     */
+    public static function ensureDirectory(string $directory, int $permissions = 0775): string
+    {
+        return pulp\Utils::ensureDirectory($directory, $permissions);
     }
 
     public static function delete(): DeleteHandler

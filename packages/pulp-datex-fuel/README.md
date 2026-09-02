@@ -117,6 +117,15 @@ Pulp::start()
     ->run();
 ```
 
+To keep an on-disk accumulator across runs (and to ignore 304/204 packets):
+
+```php
+Pulp::start()
+    ->pipe(Pulp::src('prices.xml', __DIR__ . '/input'))
+    ->pipe(PulpDatexFuel::accumulatePrices(__DIR__ . '/cache/tanken-prices.json'))
+    ->run();
+```
+
 A `SNAPSHOT` packet replaces the station-price cache. A `DELTA` packet upserts
 by station GUID. Published MTS-K examples are snapshots; the DELTA path is the
 hook if a collector later sends increments.

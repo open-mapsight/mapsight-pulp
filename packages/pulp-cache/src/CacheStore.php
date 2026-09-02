@@ -67,10 +67,7 @@ class CacheStore
      */
     public function write(array $files): void
     {
-        $directory = $this->cachePath('');
-        if (!is_dir($directory) && (!mkdir($directory, 0o777, true) && !is_dir($directory))) {
-            throw new RuntimeException(sprintf('Cache directory "%s" was not created', $directory));
-        }
+        $directory = \OpenMapsight\Pulp::ensureDirectory($this->cachePath(''), 0o777);
 
         $manifest = [
             'createdAt' => time(),
