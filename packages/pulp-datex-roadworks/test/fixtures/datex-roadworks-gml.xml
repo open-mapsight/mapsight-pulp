@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://datex2.eu/schema/2/2_0" modelBaseVersion="2">
+  <payloadPublication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SituationPublication" lang="de">
+    <publicationTime>2026-09-03T12:16:17+02:00</publicationTime>
+    <publicationCreator>
+      <country>de</country>
+      <nationalIdentifier>Autobahn</nationalIdentifier>
+    </publicationCreator>
+    <situation id="SIT-GML-IN">
+      <situationRecord xsi:type="Roadworks" id="REC-A2-GML" version="1">
+        <situationRecordCreationTime>2026-08-01T08:00:00+02:00</situationRecordCreationTime>
+        <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+        <validity>
+          <validityTimeSpecification>
+            <overallStartTime>2026-08-20T00:00:00+02:00</overallStartTime>
+            <overallEndTime>2026-09-10T23:59:00+02:00</overallEndTime>
+          </validityTimeSpecification>
+        </validity>
+        <groupOfLocations xsi:type="Linear">
+          <locationName>
+            <values>
+              <value lang="de">A2 AS Braunschweig-Nord</value>
+            </values>
+          </locationName>
+          <alertCLinear xsi:type="AlertCMethod4Linear">
+            <alertCLocationCountryCode>D</alertCLocationCountryCode>
+            <alertCLocationTableNumber>1</alertCLocationTableNumber>
+            <alertCLocationTableVersion>22.0</alertCLocationTableVersion>
+            <alertCMethod4PrimaryPointLocation>
+              <alertCLocation>
+                <specificLocation>33765</specificLocation>
+              </alertCLocation>
+            </alertCMethod4PrimaryPointLocation>
+          </alertCLinear>
+          <linearWithinLinearElement>
+            <linearElement>
+              <roadNumber>A2</roadNumber>
+            </linearElement>
+          </linearWithinLinearElement>
+          <linearExtension>
+            <linearExtended>
+              <gmlLineString>
+                <srsName>WGS84 EPSG 4326</srsName>
+                <posList>52.312300 10.523400 52.313100 10.531200 52.313800 10.538900</posList>
+              </gmlLineString>
+            </linearExtended>
+          </linearExtension>
+        </groupOfLocations>
+        <generalPublicComment>
+          <comment>
+            <values>
+              <value lang="de">Fahrbahninstandsetzung A2, eine Spur gesperrt.</value>
+            </values>
+          </comment>
+        </generalPublicComment>
+        <roadMaintenanceType>repair</roadMaintenanceType>
+        <underTraffic>true</underTraffic>
+        <roadworksDuration>longTerm</roadworksDuration>
+      </situationRecord>
+    </situation>
+    <situation id="SIT-GML-OUT">
+      <situationRecord xsi:type="Roadworks" id="REC-A10-BER" version="1">
+        <situationRecordCreationTime>2026-08-01T08:00:00+02:00</situationRecordCreationTime>
+        <validity>
+          <validityTimeSpecification>
+            <overallStartTime>2026-08-20T00:00:00+02:00</overallStartTime>
+          </validityTimeSpecification>
+        </validity>
+        <groupOfLocations xsi:type="Linear">
+          <linearWithinLinearElement>
+            <linearElement>
+              <roadNumber>A10</roadNumber>
+            </linearElement>
+          </linearWithinLinearElement>
+          <linearExtension>
+            <linearExtended>
+              <gmlLineString>
+                <srsName>WGS84 EPSG 4326</srsName>
+                <posList>52.318815 13.524637 52.319214 13.517794 52.319422 13.514148</posList>
+              </gmlLineString>
+            </linearExtended>
+          </linearExtension>
+        </groupOfLocations>
+      </situationRecord>
+    </situation>
+  </payloadPublication>
+</d2LogicalModel>

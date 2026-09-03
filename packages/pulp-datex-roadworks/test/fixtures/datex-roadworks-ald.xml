@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://datex2.eu/schema/2/2_0" modelBaseVersion="2">
+  <payloadPublication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SituationPublication" lang="de">
+    <publicationTime>2026-08-28T18:00:00+02:00</publicationTime>
+    <publicationCreator>
+      <country>de</country>
+      <nationalIdentifier>Autobahn</nationalIdentifier>
+    </publicationCreator>
+    <situation id="SIT-IN">
+      <situationRecord xsi:type="Roadworks" id="REC-A2-BS" version="1">
+        <situationRecordCreationTime>2026-08-01T08:00:00+02:00</situationRecordCreationTime>
+        <situationRecordVersionTime>2026-08-28T12:00:00+02:00</situationRecordVersionTime>
+        <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+        <validity>
+          <validityStatus>definedByValidityTimeSpec</validityStatus>
+          <validityTimeSpecification>
+            <overallStartTime>2026-08-20T00:00:00+02:00</overallStartTime>
+            <overallEndTime>2026-09-10T23:59:00+02:00</overallEndTime>
+          </validityTimeSpecification>
+        </validity>
+        <groupOfLocations xsi:type="Linear">
+          <locationForDisplay>
+            <latitude>52.3123</latitude>
+            <longitude>10.5234</longitude>
+          </locationForDisplay>
+          <locationName>
+            <values>
+              <value lang="de">A2 AS Braunschweig-Nord</value>
+            </values>
+          </locationName>
+        </groupOfLocations>
+        <generalPublicComment>
+          <comment>
+            <values>
+              <value lang="de">Fahrbahninstandsetzung A2, eine Spur gesperrt.</value>
+            </values>
+          </comment>
+        </generalPublicComment>
+        <roadMaintenanceType>repair</roadMaintenanceType>
+        <underTraffic>true</underTraffic>
+        <roadworksDuration>longTerm</roadworksDuration>
+      </situationRecord>
+    </situation>
+    <situation id="SIT-OUT">
+      <situationRecord xsi:type="Roadworks" id="REC-A7-HH" version="1">
+        <situationRecordCreationTime>2026-08-01T08:00:00+02:00</situationRecordCreationTime>
+        <validity>
+          <validityTimeSpecification>
+            <overallStartTime>2026-08-20T00:00:00+02:00</overallStartTime>
+          </validityTimeSpecification>
+        </validity>
+        <groupOfLocations>
+          <locationForDisplay>
+            <latitude>53.55</latitude>
+            <longitude>10.00</longitude>
+          </locationForDisplay>
+        </groupOfLocations>
+        <generalPublicComment>
+          <comment>
+            <values>
+              <value>Hamburg, should be dropped</value>
+            </values>
+          </comment>
+        </generalPublicComment>
+      </situationRecord>
+    </situation>
+  </payloadPublication>
+</d2LogicalModel>
