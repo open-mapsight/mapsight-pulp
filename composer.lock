@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23d4eaf980ad308ec6100b90b0e3d5b0",
+    "content-hash": "ee4d1d2eb32c6d0b59f664b091479b38",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -339,7 +339,7 @@
         },
         {
             "name": "mapsight/geojson-reproject",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
@@ -396,7 +396,7 @@
         },
         {
             "name": "mapsight/pulp",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
@@ -467,7 +467,7 @@
         },
         {
             "name": "mapsight/pulp-cache",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-cache",
@@ -524,7 +524,7 @@
         },
         {
             "name": "mapsight/pulp-concert",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
@@ -607,7 +607,7 @@
         },
         {
             "name": "mapsight/pulp-datex-energy",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-energy",
@@ -665,7 +665,7 @@
         },
         {
             "name": "mapsight/pulp-datex-fuel",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-fuel",
@@ -728,8 +728,70 @@
             }
         },
         {
+            "name": "mapsight/pulp-datex-roadworks",
+            "version": "dev-pulp-datex-roadworks",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-datex-roadworks",
+                "reference": "5b9d944d9157705ba7efa2cd062034b610a63194"
+            },
+            "require": {
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "suggest": {
+                "mapsight/pulp-datex-energy": "Reuse PulpDatexEnergy::srcMobilithek() for Mobilithek subscription GETs",
+                "mapsight/pulp-json": "Encode GeoJSON output",
+                "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpDatexRoadworks.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpdatexroadworks\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpDatexRoadworks.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "DATEX II SituationPublication roadworks helpers for Pulp pipelines.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "autobahn",
+                "datex",
+                "mapsight",
+                "pulp",
+                "roadworks"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "mapsight/pulp-geocsv",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
@@ -802,7 +864,7 @@
         },
         {
             "name": "mapsight/pulp-geojson",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
@@ -882,7 +944,7 @@
         },
         {
             "name": "mapsight/pulp-gtfs",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-gtfs",
@@ -936,7 +998,7 @@
         },
         {
             "name": "mapsight/pulp-json",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
@@ -1007,7 +1069,7 @@
         },
         {
             "name": "mapsight/pulp-soap",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
@@ -1067,7 +1129,7 @@
         },
         {
             "name": "mapsight/pulp-tic",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
@@ -1142,7 +1204,7 @@
         },
         {
             "name": "mapsight/pulp-xml",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
@@ -1206,7 +1268,7 @@
         },
         {
             "name": "mapsight/pulp-zip",
-            "version": "dev-add-pulp-datex-fuel",
+            "version": "dev-pulp-datex-roadworks",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-zip",
@@ -6466,6 +6528,7 @@
         "mapsight/pulp-concert": 20,
         "mapsight/pulp-datex-energy": 20,
         "mapsight/pulp-datex-fuel": 20,
+        "mapsight/pulp-datex-roadworks": 20,
         "mapsight/pulp-geocsv": 20,
         "mapsight/pulp-geojson": 20,
         "mapsight/pulp-gtfs": 20,

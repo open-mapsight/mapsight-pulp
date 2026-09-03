@@ -1,0 +1,50 @@
+{
+    "name": "mapsight/pulp-datex-roadworks",
+    "description": "DATEX II SituationPublication roadworks helpers for Pulp pipelines.",
+    "type": "library",
+    "keywords": [
+        "mapsight",
+        "pulp",
+        "datex",
+        "roadworks",
+        "autobahn"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-libxml": "*",
+        "ext-simplexml": "*",
+        "mapsight/pulp": "*"
+    },
+    "suggest": {
+        "mapsight/pulp-datex-energy": "Reuse PulpDatexEnergy::srcMobilithek() for Mobilithek subscription GETs",
+        "mapsight/pulp-json": "Encode GeoJSON output",
+        "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpDatexRoadworks.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulpdatexroadworks\\": "src"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpDatexRoadworks.php",
+            "!/README.md",
+            "!/CHANGELOG.md"
+        ]
+    }
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d2LogicalModel xmlns="http://datex2.eu/schema/2/2_0" modelBaseVersion="2">
+  <payloadPublication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SituationPublication" lang="de">
+    <publicationTime>2026-08-28T18:00:00+02:00</publicationTime>
+    <publicationCreator>
+      <country>de</country>
+      <nationalIdentifier>Autobahn</nationalIdentifier>
+    </publicationCreator>
+    <situation id="SIT-AKD">
+      <situationRecord xsi:type="Roadworks" id="REC-A39-BS" version="1">
+        <situationRecordCreationTime>2026-08-01T08:00:00+02:00</situationRecordCreationTime>
+        <situationRecordVersionTime>2026-08-28T12:00:00+02:00</situationRecordVersionTime>
+        <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+        <validity>
+          <validityStatus>definedByValidityTimeSpec</validityStatus>
+          <validityTimeSpecification>
+            <overallStartTime>2026-09-04T21:00:00+02:00</overallStartTime>
+            <overallEndTime>2026-09-05T05:00:00+02:00</overallEndTime>
+          </validityTimeSpecification>
+        </validity>
+        <groupOfLocations xsi:type="Linear">
+          <locationForDisplay>
+            <latitude>52.2201</latitude>
+            <longitude>10.5402</longitude>
+          </locationForDisplay>
+          <locationName>
+            <values>
+              <value lang="de">A39 AS Braunschweig-Süd</value>
+            </values>
+          </locationName>
+        </groupOfLocations>
+        <generalPublicComment>
+          <comment>
+            <values>
+              <value lang="de">Markierungsarbeiten nachts, eine Spur gesperrt.</value>
+            </values>
+          </comment>
+        </generalPublicComment>
+        <roadMaintenanceType>roadMarkingWork</roadMaintenanceType>
+        <underTraffic>true</underTraffic>
+        <roadworksDuration>shortTerm</roadworksDuration>
+      </situationRecord>
+    </situation>
+  </payloadPublication>
+</d2LogicalModel>

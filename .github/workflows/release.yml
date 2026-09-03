@@ -49,6 +49,7 @@ jobs:
           - pulp-concert
           - pulp-datex-energy
           - pulp-datex-fuel
+          - pulp-datex-roadworks
           - pulp-geocsv
           - pulp-geojson
           - pulp-gtfs
