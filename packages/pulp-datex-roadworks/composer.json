@@ -22,10 +22,11 @@
         "php": "^8.2",
         "ext-libxml": "*",
         "ext-simplexml": "*",
-        "mapsight/pulp": "*"
+        "mapsight/pulp": "*",
+        "mapsight/pulp-mobilithek": "*"
     },
     "suggest": {
-        "mapsight/pulp-datex-energy": "Reuse PulpDatexEnergy::srcMobilithek() for Mobilithek subscription GETs",
+        "mapsight/pulp-cache": "Cache Mobilithek subscription responses",
         "mapsight/pulp-json": "Encode GeoJSON output",
         "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
     },

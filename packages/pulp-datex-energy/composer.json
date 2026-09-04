@@ -21,9 +21,9 @@
     ],
     "require": {
         "php": "^8.2",
-        "ext-curl": "*",
         "ext-json": "*",
-        "mapsight/pulp": "*"
+        "mapsight/pulp": "*",
+        "mapsight/pulp-mobilithek": "*"
     },
     "autoload": {
         "classmap": [

@@ -3,8 +3,7 @@
 MTS-K DATEX II v2 petrol-station helpers for Pulp pipelines. Two layers:
 Mobilithek source defaults, then presentation-neutral XML → GeoJSON.
 
-This is the parse / bbox / GeoJSON layer only. It is not a city job and it is
-not AFIR charging (`mapsight/pulp-datex-energy`).
+This package is not AFIR charging (`mapsight/pulp-datex-energy`).
 
 ## Features
 
@@ -41,7 +40,7 @@ at runtime.
 composer require mapsight/pulp-datex-fuel
 ```
 
-This package depends on `mapsight/pulp`.
+This package depends on `mapsight/pulp` and `mapsight/pulp-mobilithek`.
 
 ## Fetch a subscription
 
@@ -150,7 +149,8 @@ After a price merge, matched features also include:
 
 ## Notes
 
-- Do not put a `.p12` or city-specific subscription IDs in this package.
-- Keep German copy, Mapsight icons, “cheapest nearby” text, and VID application
-  flow in the consuming city job.
+- Certificate path, password, and subscription ID stay caller-supplied.
+- Presentation (icons, localized copy, price comparison) belongs in the
+  consuming application.
 - `srcMobilithek()` only configures `Pulp::srcHttp`. Cache with `PulpCache::remember`.
+  The same helper is also available as `PulpMobilithek::srcMobilithek()`.

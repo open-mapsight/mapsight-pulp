@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace OpenMapsight\pulpdatexfuel\dev\test;
+namespace OpenMapsight\pulpmobilithek\dev\test;
 
 use OpenMapsight\pulp\SrcHttpHandler;
-use OpenMapsight\PulpDatexFuel;
 use OpenMapsight\PulpMobilithek;
+use OpenMapsight\pulpmobilithek\MobilithekRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionObject;
 use RuntimeException;
@@ -15,15 +15,15 @@ class MobilithekRequestTest extends TestCase
 {
     public function testDefaultUrlAndP12CurlOptions(): void
     {
-        $options = PulpDatexFuel::mobilithekGuzzleOptions(
+        $options = PulpMobilithek::mobilithekGuzzleOptions(
             'caller-subscription-id',
             '/tmp/client.p12',
             'caller-password',
             'Wed, 01 Jan 2025 00:00:00 GMT'
         );
 
-        $this->assertSame(PulpDatexFuel::SUBSCRIPTION_URL, PulpMobilithek::SUBSCRIPTION_URL);
-        $this->assertSame('https://mobilithek.info:8443/mobilithek/api/v1.0/subscription', PulpDatexFuel::SUBSCRIPTION_URL);
+        $this->assertSame(PulpMobilithek::SUBSCRIPTION_URL, MobilithekRequest::SUBSCRIPTION_URL);
+        $this->assertSame('https://mobilithek.info:8443/mobilithek/api/v1.0/subscription', PulpMobilithek::SUBSCRIPTION_URL);
         $this->assertSame('gzip', $options['headers']['Accept-Encoding']);
         $this->assertSame('Wed, 01 Jan 2025 00:00:00 GMT', $options['headers']['If-Modified-Since']);
         $this->assertSame(['subscriptionID' => 'caller-subscription-id'], $options['query']);
@@ -36,7 +36,7 @@ class MobilithekRequestTest extends TestCase
 
     public function testSrcMobilithekReturnsConfiguredSrcHttpHandler(): void
     {
-        $handler = PulpDatexFuel::srcMobilithek(
+        $handler = PulpMobilithek::srcMobilithek(
             'sub-1',
             '/tmp/client.p12',
             'secret',
@@ -49,7 +49,7 @@ class MobilithekRequestTest extends TestCase
         $reflection = new ReflectionObject($handler);
         $cp = $reflection->getProperty('cp');
         $this->assertSame('GET', $cp->getValue($handler)->method);
-        $this->assertSame(PulpDatexFuel::SUBSCRIPTION_URL, $cp->getValue($handler)->uri);
+        $this->assertSame(PulpMobilithek::SUBSCRIPTION_URL, $cp->getValue($handler)->uri);
         $this->assertSame('static.xml', $cp->getValue($handler)->aliasFileName);
         $this->assertSame('P12', $cp->getValue($handler)->guzzleOptions['curl'][CURLOPT_SSLCERTTYPE]);
     }
@@ -59,6 +59,6 @@ class MobilithekRequestTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Mobilithek client certificate path and password must be supplied');
 
-        PulpDatexFuel::mobilithekGuzzleOptions('sub-1', '', 'password');
+        PulpMobilithek::mobilithekGuzzleOptions('sub-1', '', 'password');
     }
 }

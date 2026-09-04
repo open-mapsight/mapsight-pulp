@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee4d1d2eb32c6d0b59f664b091479b38",
+    "content-hash": "ce7be80e3b4570ca3b5e9f6c0386dd1b",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -339,7 +339,7 @@
         },
         {
             "name": "mapsight/geojson-reproject",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
@@ -396,7 +396,7 @@
         },
         {
             "name": "mapsight/pulp",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
@@ -467,7 +467,7 @@
         },
         {
             "name": "mapsight/pulp-cache",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-cache",
@@ -524,7 +524,7 @@
         },
         {
             "name": "mapsight/pulp-concert",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
@@ -607,16 +607,16 @@
         },
         {
             "name": "mapsight/pulp-datex-energy",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-energy",
-                "reference": "d582bd6065f4dcef61183b9d4104216a6cee6393"
+                "reference": "b0d4669fd9eb51f14fda234632231e5d54c412ae"
             },
             "require": {
-                "ext-curl": "*",
                 "ext-json": "*",
                 "mapsight/pulp": "*",
+                "mapsight/pulp-mobilithek": "*",
                 "php": "^8.2"
             },
             "type": "library",
@@ -665,17 +665,18 @@
         },
         {
             "name": "mapsight/pulp-datex-fuel",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-fuel",
-                "reference": "ae5b27fec8b4acea6f611e2dee8bbeb98792f57e"
+                "reference": "a3977ac2c91d8bf5758574b634448db0937153a9"
             },
             "require": {
                 "ext-curl": "*",
                 "ext-libxml": "*",
                 "ext-simplexml": "*",
                 "mapsight/pulp": "*",
+                "mapsight/pulp-mobilithek": "*",
                 "php": "^8.2"
             },
             "suggest": {
@@ -729,20 +730,21 @@
         },
         {
             "name": "mapsight/pulp-datex-roadworks",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-roadworks",
-                "reference": "5b9d944d9157705ba7efa2cd062034b610a63194"
+                "reference": "e9edf17b9a3f1c8663c7e37537fcca58f441fdc8"
             },
             "require": {
                 "ext-libxml": "*",
                 "ext-simplexml": "*",
                 "mapsight/pulp": "*",
+                "mapsight/pulp-mobilithek": "*",
                 "php": "^8.2"
             },
             "suggest": {
-                "mapsight/pulp-datex-energy": "Reuse PulpDatexEnergy::srcMobilithek() for Mobilithek subscription GETs",
+                "mapsight/pulp-cache": "Cache Mobilithek subscription responses",
                 "mapsight/pulp-json": "Encode GeoJSON output",
                 "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
             },
@@ -791,7 +793,7 @@
         },
         {
             "name": "mapsight/pulp-geocsv",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
@@ -864,7 +866,7 @@
         },
         {
             "name": "mapsight/pulp-geojson",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
@@ -944,7 +946,7 @@
         },
         {
             "name": "mapsight/pulp-gtfs",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-gtfs",
@@ -998,7 +1000,7 @@
         },
         {
             "name": "mapsight/pulp-json",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
@@ -1068,8 +1070,69 @@
             }
         },
         {
+            "name": "mapsight/pulp-mobilithek",
+            "version": "dev-pulp-mobilithek",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-mobilithek",
+                "reference": "896e8a6ab60bd31f6fc5997ed7dbdeccf7984736"
+            },
+            "require": {
+                "ext-curl": "*",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "suggest": {
+                "mapsight/pulp-cache": "Cache Mobilithek subscription responses"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpMobilithek.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpmobilithek\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpMobilithek.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobilithek subscription source helper for Pulp pipelines.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "mapsight",
+                "mobilithek",
+                "pulp"
+            ],
+            "support": {
+                "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+                "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-mobilithek"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "mapsight/pulp-soap",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
@@ -1129,7 +1192,7 @@
         },
         {
             "name": "mapsight/pulp-tic",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
@@ -1204,7 +1267,7 @@
         },
         {
             "name": "mapsight/pulp-xml",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
@@ -1268,7 +1331,7 @@
         },
         {
             "name": "mapsight/pulp-zip",
-            "version": "dev-main",
+            "version": "dev-pulp-mobilithek",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-zip",
@@ -6533,6 +6596,7 @@
         "mapsight/pulp-geojson": 20,
         "mapsight/pulp-gtfs": 20,
         "mapsight/pulp-json": 20,
+        "mapsight/pulp-mobilithek": 20,
         "mapsight/pulp-soap": 20,
         "mapsight/pulp-tic": 20,
         "mapsight/pulp-xml": 20,
