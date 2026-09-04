@@ -28,6 +28,62 @@ class CsvHandlerTest extends TestCase
         $this->assertSame("name;x;y\nBerlin;13.4;52.5\n", $result[0]->content);
     }
 
+    public function testTrailingEmptyLineIsDropped(): void
+    {
+        $file = new File('places.csv');
+        $file->content = "name;x;y\nBerlin;13.4;52.5\n";
+
+        $result = Pulp::start()
+            ->pipe(Pulp::src($file))
+            ->pipe(PulpGeoCSV::fromCsv())
+            ->run();
+
+        $this->assertSame(['name', 'x', 'y'], $result[0]->content['columns']);
+        $this->assertSame([['Berlin', '13.4', '52.5']], $result[0]->content['rows']);
+    }
+
+    public function testReprojectSkipsRowsMissingCoordinateColumns(): void
+    {
+        $file = new File('places.csv');
+        $file->content = [
+            'type' => 'text/csv',
+            'columns' => ['x', 'y'],
+            'rows' => [
+                ['13,4', '52,5'],
+                [''],
+            ],
+        ];
+
+        $input = ProjectionInfo::build(
+            ProjectionInfo::TYPE_X_Y,
+            'x',
+            'y',
+            null,
+            null,
+            'EPSG:4326',
+            ',',
+            ','
+        );
+        $output = ProjectionInfo::build(
+            ProjectionInfo::TYPE_XY,
+            null,
+            null,
+            'coords',
+            null,
+            'EPSG:4326',
+            ',',
+            '|'
+        );
+
+        $result = Pulp::start()
+            ->pipe(Pulp::src($file))
+            ->pipe(PulpGeoCSV::reproject($input, $output))
+            ->run();
+
+        $this->assertSame('13,4|52,5', $result[0]->content['rows'][0][2]);
+        $this->assertSame('', $result[0]->content['rows'][1][2] ?? '');
+    }
+
     public function testReprojectAddsConfiguredOutputColumn(): void
     {
         $file = new File('places.csv');

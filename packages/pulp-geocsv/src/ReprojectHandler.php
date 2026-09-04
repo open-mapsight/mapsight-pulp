@@ -120,13 +120,18 @@ class ReprojectHandler extends AbstractHandler
             case ProjectionInfo::TYPE_X_Y:
                 $xIndex = $this->getColumnIndexOrThrow($columns, $input->getColumnNameX());
                 $yIndex = $this->getColumnIndexOrThrow($columns, $input->getColumnNameY());
-                $coords = array_map($parseFloat, [$row[$xIndex], $row[$yIndex]]);
+                $x = $row[$xIndex] ?? null;
+                $y = $row[$yIndex] ?? null;
+                if ($x === null || $x === '' || $y === null || $y === '') {
+                    return null;
+                }
+                $coords = array_map($parseFloat, [$x, $y]);
                 return ['type' => 'Point', 'coordinates' => $coords];
 
             case ProjectionInfo::TYPE_XY:
                 $coordinateSeparator = $input->getCoordinateSeparator();
                 $index = $this->getColumnIndexOrThrow($columns, $input->getColumnNameXY());
-                $parts = explode($coordinateSeparator, (string) $row[$index]);
+                $parts = explode($coordinateSeparator, (string) ($row[$index] ?? ''));
                 [$x, $y] = array_chunk($parts, ceil(count($parts) / 2));
                 $coords = array_map(static fn($arr): string => implode($coordinateSeparator, $arr), [$x, $y]);
                 $coords = array_map($parseFloat, $coords);
@@ -134,7 +139,7 @@ class ReprojectHandler extends AbstractHandler
 
             case ProjectionInfo::TYPE_WKT:
                 $index = $this->getColumnIndexOrThrow($columns, $input->getColumnNameWKT());
-                $wktString = $row[$index];
+                $wktString = $row[$index] ?? null;
                 try {
                     $geometry = geoPHP::load($wktString, 'wkt');
                     if ($geometry !== null) {
@@ -149,8 +154,12 @@ class ReprojectHandler extends AbstractHandler
         }
     }
 
-    protected function reproject(array $inputGeometry, array &$errors): ?array
+    protected function reproject(?array $inputGeometry, array &$errors): ?array
     {
+        if ($inputGeometry === null) {
+            return null;
+        }
+
         /** @var ProjectionInfo $input */
         $input = $this->cp->input;
 

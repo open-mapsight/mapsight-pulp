@@ -22,12 +22,13 @@ class FromCsvHandler extends AbstractHandler
         $qc = $this->cp->quoteChar;
 
         $rows = explode($ls, $csv);
+        $rows = array_values(array_filter($rows, static fn(string $row): bool => $row !== ''));
         $rows = array_map(static function ($row) use ($fs, $qc): array {
             $items = str_getcsv($row, $fs, $qc, '');
-            return array_map(stripslashes(...), $items);
+            return array_map(static fn($item) => stripslashes((string) ($item ?? '')), $items);
         }, $rows);
 
-        $firstRow = array_shift($rows);
+        $firstRow = array_shift($rows) ?? [];
 
         $columnCounter = 0;
         $columns = array_map(static function ($columnName) use ($columnCounter): string {

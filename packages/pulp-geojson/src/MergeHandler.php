@@ -68,7 +68,9 @@ class MergeHandler extends AbstractHandler
             'type' => 'FeatureCollection',
             'features' => $this->features,
         ];
-        $data = GeoJsonReproject::setProjection($data, $this->projection);
+        if ($this->projection !== null) {
+            $data = GeoJsonReproject::setProjection($data, $this->projection);
+        }
 
         $file = new File($this->cp->fileName);
         $file->content = $data;

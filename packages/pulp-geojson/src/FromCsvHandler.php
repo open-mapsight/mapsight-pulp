@@ -97,23 +97,26 @@ class FromCsvHandler extends AbstractHandler
     public function onFile(File $file): void
     {
         $csv = $file->content;
-        $csv = mb_convert_encoding($csv, 'UTF-8', 'ISO-8859-1'); // TODO: make conversion optional
+        if (is_string($csv) && $csv !== '' && !mb_check_encoding($csv, 'UTF-8')) {
+            $csv = mb_convert_encoding($csv, 'UTF-8', 'ISO-8859-1');
+        }
 
         $rows = explode($this->cp->lineSeparator, $csv);
+        $rows = array_values(array_filter($rows, static fn(string $row): bool => $row !== ''));
         $rows = array_map(function ($row): array {
-            $items = str_getcsv($row, $this->cp->fieldSeparator, $this->cp->quoteChar);
-            return array_map(stripslashes(...), $items);
+            $items = str_getcsv($row, $this->cp->fieldSeparator, $this->cp->quoteChar, '');
+            return array_map(static fn($item) => stripslashes((string) ($item ?? '')), $items);
         }, $rows);
 
         $columnCounter = 0;
         $columns = array_map(static function ($columnName) use ($columnCounter): string {
             $columnCounter++;
             return $columnName === '' || $columnName === '0' ? '_' . $columnCounter : $columnName;
-        }, array_shift($rows));
+        }, array_shift($rows) ?? []);
 
         $rowToFeatureMapper = $this->cp->rowToFeatureMapper ?? self::defaultRowToFeatureMapper(...);
 
-        $features = array_map(fn($row) => $rowToFeatureMapper($row, $columns), $rows, $columns);
+        $features = array_map(fn($row) => $rowToFeatureMapper($row, $columns), $rows);
 
         // using array_values to fix holes in array, see https://stackoverflow.com/a/2653022
         $features = array_values(array_filter($features, static fn($feature): bool => !empty($feature)));
