@@ -10,19 +10,17 @@ use OpenMapsight\pulpdatexenergy\DatexEnergySitesBuilder;
 use OpenMapsight\pulpdatexenergy\DatexEnergyStatus;
 use OpenMapsight\pulpdatexenergy\GeoJsonHandler;
 use OpenMapsight\pulpdatexenergy\MergeStatusHandler;
-use OpenMapsight\pulpdatexenergy\MobilithekRequest;
 use OpenMapsight\pulpdatexenergy\StatusHandler;
 
 class PulpDatexEnergy
 {
-    public const SUBSCRIPTION_URL = MobilithekRequest::SUBSCRIPTION_URL;
+    public const SUBSCRIPTION_URL = PulpMobilithek::SUBSCRIPTION_URL;
 
     /**
      * Configures `Pulp::srcHttp` for a Mobilithek subscription GET.
      *
-     * Certificate path and password stay caller-supplied. Subscription IDs are
-     * not packaged. `Pulp::srcHttp` still loads the response body as a string;
-     * a disk sink for the ~103 MB static table belongs in core pulp.
+     * Same helper as `PulpMobilithek::srcMobilithek()`. Certificate path,
+     * password, and subscription ID stay caller-supplied.
      *
      * @param array<string, mixed> $guzzleOptions
      * @param array<string, mixed> $options
@@ -36,7 +34,7 @@ class PulpDatexEnergy
         array $guzzleOptions = [],
         array $options = [],
     ): SrcHttpHandler {
-        return MobilithekRequest::srcHttp(
+        return PulpMobilithek::srcMobilithek(
             $subscriptionId,
             $certPath,
             $certPassword,
@@ -60,7 +58,7 @@ class PulpDatexEnergy
         ?string $ifModifiedSince = null,
         array $guzzleOptions = [],
     ): array {
-        return MobilithekRequest::guzzleOptions(
+        return PulpMobilithek::mobilithekGuzzleOptions(
             $subscriptionId,
             $certPath,
             $certPassword,

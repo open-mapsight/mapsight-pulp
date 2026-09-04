@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OpenMapsight\pulpdatexenergy;
+namespace OpenMapsight\pulpmobilithek;
 
 use OpenMapsight\Pulp;
 use OpenMapsight\pulp\SrcHttpHandler;
@@ -65,7 +65,7 @@ class MobilithekRequest
         string $certPath,
         string $certPassword,
         ?string $ifModifiedSince = null,
-        string $aliasFileName = 'mobilithek.json',
+        string $aliasFileName = 'mobilithek.bin',
         array $guzzleOptions = [],
         array $options = [],
     ): SrcHttpHandler {

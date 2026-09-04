@@ -22,7 +22,7 @@ Mobilithek source defaults, then presentation-neutral JSON → GeoJSON.
 composer require mapsight/pulp-datex-energy
 ```
 
-This package depends on `mapsight/pulp`.
+This package depends on `mapsight/pulp` and `mapsight/pulp-mobilithek`.
 
 ## Fetch a subscription
 
@@ -147,6 +147,8 @@ After a status merge, matched features also include:
 
 ## Notes
 
-- Do not put a `.p12` or city-specific subscription IDs in this package.
-- Keep German copy, Mapsight icons, and CSV spatial merge in the consuming city job.
+- Certificate path, password, and subscription ID stay caller-supplied.
+- Presentation (icons, localized copy, spatial joins) belongs in the
+  consuming application.
 - `srcMobilithek()` only configures `Pulp::srcHttp`. Cache with `PulpCache::remember`.
+  The same helper is also available as `PulpMobilithek::srcMobilithek()`.

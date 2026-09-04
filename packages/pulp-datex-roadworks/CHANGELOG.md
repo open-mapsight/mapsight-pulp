@@ -4,6 +4,10 @@ All notable changes to `mapsight/pulp-datex-roadworks` are documented here.
 
 ## Unreleased
 
+### Added
+
+- Add `PulpDatexRoadworks::srcMobilithek()` and `mobilithekGuzzleOptions()`, the same Mobilithek helper as the other DATEX packages.
+
 ## 1.0.0 - 2026-09-03
 
 ### Added

@@ -48,6 +48,9 @@
         <testsuite name="pulp-datex-roadworks">
             <directory>packages/pulp-datex-roadworks/test</directory>
         </testsuite>
+        <testsuite name="pulp-mobilithek">
+            <directory>packages/pulp-mobilithek/test</directory>
+        </testsuite>
         <testsuite name="pulp-geocsv">
             <directory>packages/pulp-geocsv/test</directory>
         </testsuite>

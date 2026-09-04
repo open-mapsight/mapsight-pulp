@@ -1,14 +1,11 @@
 {
-    "name": "mapsight/pulp-datex-fuel",
-    "description": "MTS-K DATEX II fuel-station helpers for Pulp pipelines.",
+    "name": "mapsight/pulp-mobilithek",
+    "description": "Mobilithek subscription source helper for Pulp pipelines.",
     "type": "library",
     "keywords": [
         "mapsight",
         "pulp",
-        "datex",
-        "mts-k",
-        "fuel",
-        "petrol"
+        "mobilithek"
     ],
     "homepage": "https://github.com/open-mapsight/mapsight-pulp",
     "license": "MIT",
@@ -19,25 +16,24 @@
             "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-mobilithek"
+    },
     "require": {
         "php": "^8.2",
         "ext-curl": "*",
-        "ext-libxml": "*",
-        "ext-simplexml": "*",
-        "mapsight/pulp": "*",
-        "mapsight/pulp-mobilithek": "*"
+        "mapsight/pulp": "*"
     },
     "suggest": {
-        "mapsight/pulp-cache": "Cache Mobilithek subscription responses",
-        "mapsight/pulp-json": "Encode GeoJSON output",
-        "mapsight/pulp-xml": "Parse DATEX II v2 XML in a Pulp pipeline before this package"
+        "mapsight/pulp-cache": "Cache Mobilithek subscription responses"
     },
     "autoload": {
         "classmap": [
-            "PulpDatexFuel.php"
+            "PulpMobilithek.php"
         ],
         "psr-4": {
-            "OpenMapsight\\pulpdatexfuel\\": "src"
+            "OpenMapsight\\pulpmobilithek\\": "src"
         }
     },
     "archive": {
@@ -45,7 +41,7 @@
             "*",
             ".*",
             "!/src/*",
-            "!/PulpDatexFuel.php",
+            "!/PulpMobilithek.php",
             "!/README.md",
             "!/CHANGELOG.md"
         ]

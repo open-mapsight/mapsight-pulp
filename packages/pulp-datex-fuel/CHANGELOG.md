@@ -4,6 +4,10 @@ All notable changes to `mapsight/pulp-datex-fuel` are documented here.
 
 ## Unreleased
 
+### Changed
+
+- Delegate `srcMobilithek()` and `mobilithekGuzzleOptions()` to `mapsight/pulp-mobilithek`.
+
 ## 1.1.0 - 2026-09-02
 
 ### Added
