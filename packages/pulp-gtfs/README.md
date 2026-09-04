@@ -42,22 +42,20 @@ Pulp::start()
     ->pipe(Pulp::src('.*\.txt', $gtfsDirectory))
     ->pipe(Pulp::split(
         static fn(Pulp $p): Pulp => $p->pipe(PulpGTFS::geoJson(
-            'stops',
-            'https://example.com/open-data-docs',
-            [10.42, 52.18, 10.65, 52.36],
-            null,
-            'GTFS',
-            'https://example.com/open-data-docs',
-            'https://example.com/open-data-docs',
+            type: 'stops',
+            sourceUrl: 'https://example.com/open-data-docs',
+            bbox: [10.42, 52.18, 10.65, 52.36],
+            sourceName: 'GTFS',
+            documentationUrl: 'https://example.com/open-data-docs',
+            publicSourceUrl: 'https://example.com/open-data-docs',
         )),
         static fn(Pulp $p): Pulp => $p->pipe(PulpGTFS::geoJson(
-            'lines',
-            'https://example.com/open-data-docs',
-            [10.42, 52.18, 10.65, 52.36],
-            null,
-            'GTFS',
-            'https://example.com/open-data-docs',
-            'https://example.com/open-data-docs',
+            type: 'lines',
+            sourceUrl: 'https://example.com/open-data-docs',
+            bbox: [10.42, 52.18, 10.65, 52.36],
+            sourceName: 'GTFS',
+            documentationUrl: 'https://example.com/open-data-docs',
+            publicSourceUrl: 'https://example.com/open-data-docs',
         )),
     ))
     ->pipe(PulpGeoJSON::calculateBBoxes())

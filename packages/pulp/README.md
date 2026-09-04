@@ -103,11 +103,11 @@ Creates one file from an HTTP response body.
 ```php
 Pulp::start()
     ->pipe(Pulp::srcHttp(
-        'GET',
-        'https://example.com/large.json',
-        ['timeout' => 180],
-        'large.json',
-        ['sink' => true, 'successStatuses' => [200, 304, 204]]
+        method: 'GET',
+        uri: 'https://example.com/large.json',
+        guzzleOptions: ['timeout' => 180],
+        aliasFileName: 'large.json',
+        options: ['sink' => true, 'successStatuses' => [200, 304, 204]],
     ))
     ->run();
 ```

@@ -26,10 +26,10 @@ use OpenMapsight\PulpCache;
 
 $source = Pulp::start()
     ->pipe(Pulp::srcHttp(
-        'GET',
-        'https://example.com/data.zip',
-        ['timeout' => 120],
-        'data.zip'
+        method: 'GET',
+        uri: 'https://example.com/data.zip',
+        guzzleOptions: ['timeout' => 120],
+        aliasFileName: 'data.zip',
     ));
 
 $files = Pulp::start()
