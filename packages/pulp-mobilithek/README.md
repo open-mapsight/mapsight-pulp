@@ -31,13 +31,13 @@ use OpenMapsight\PulpMobilithek;
 
 $source = Pulp::start()
     ->pipe(PulpMobilithek::srcMobilithek(
-        $subscriptionId,
-        $certPath,
-        $certPassword,
-        $ifModifiedSince,
-        'mobilithek.xml',
-        ['timeout' => 180, 'http_errors' => false],
-        ['sink' => true, 'successStatuses' => [200, 304]],
+        subscriptionId: $subscriptionId,
+        certPath: $certPath,
+        certPassword: $certPassword,
+        ifModifiedSince: $ifModifiedSince,
+        aliasFileName: 'mobilithek.xml',
+        guzzleOptions: ['timeout' => 180, 'http_errors' => false],
+        options: ['sink' => true, 'successStatuses' => [200, 304]],
     ));
 
 $files = Pulp::start()

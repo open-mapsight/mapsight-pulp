@@ -34,13 +34,13 @@ use OpenMapsight\PulpJSON;
 
 $source = Pulp::start()
     ->pipe(PulpDatexEnergy::srcMobilithek(
-        $subscriptionId,
-        $certPath,
-        $certPassword,
-        $ifModifiedSince,
-        'mobilithek.json',
-        ['timeout' => 180, 'http_errors' => false],
-        ['sink' => true, 'successStatuses' => [200, 304]],
+        subscriptionId: $subscriptionId,
+        certPath: $certPath,
+        certPassword: $certPassword,
+        ifModifiedSince: $ifModifiedSince,
+        aliasFileName: 'mobilithek.json',
+        guzzleOptions: ['timeout' => 180, 'http_errors' => false],
+        options: ['sink' => true, 'successStatuses' => [200, 304]],
     ));
 
 $files = Pulp::start()
@@ -51,11 +51,11 @@ $files = Pulp::start()
     ]))
     ->pipe(PulpJSON::decodeJSON())
     ->pipe(PulpDatexEnergy::sitesGeoJson(
-        [10.42, 52.18, 10.65, 52.36],
-        'https://example.com/open-data-docs',
-        'DATEX Energy',
-        'https://example.com/open-data-docs',
-        'https://example.com/open-data-docs',
+        bbox: [10.42, 52.18, 10.65, 52.36],
+        sourceUrl: 'https://example.com/open-data-docs',
+        sourceName: 'DATEX Energy',
+        documentationUrl: 'https://example.com/open-data-docs',
+        publicSourceUrl: 'https://example.com/open-data-docs',
     ))
     ->run();
 ```

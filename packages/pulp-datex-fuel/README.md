@@ -65,11 +65,11 @@ $files = Pulp::start()
         'fallbackToStale' => true,
     ]))
     ->pipe(PulpDatexFuel::stationsGeoJson(
-        [6.05, 50.76, 6.08, 50.82],
-        'https://example.com/open-data-docs',
-        'DATEX Fuel',
-        'https://example.com/open-data-docs',
-        'https://example.com/open-data-docs',
+        bbox: [6.05, 50.76, 6.08, 50.82],
+        sourceUrl: 'https://example.com/open-data-docs',
+        sourceName: 'DATEX Fuel',
+        documentationUrl: 'https://example.com/open-data-docs',
+        publicSourceUrl: 'https://example.com/open-data-docs',
     ))
     ->run();
 ```

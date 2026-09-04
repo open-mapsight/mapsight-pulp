@@ -38,19 +38,19 @@ use OpenMapsight\PulpJSON;
 
 Pulp::start()
     ->pipe(PulpDatexRoadworks::srcMobilithek(
-        $subscriptionId,
-        $certPath,
-        $certPassword,
-        $ifModifiedSince,
-        'mobilithek.xml',
+        subscriptionId: $subscriptionId,
+        certPath: $certPath,
+        certPassword: $certPassword,
+        ifModifiedSince: $ifModifiedSince,
+        aliasFileName: 'mobilithek.xml',
     ))
     ->pipe(PulpDatexRoadworks::roadworksGeoJson(
-        [10.30, 52.12, 10.80, 52.42],
-        'https://example.com/open-data-docs',
-        'DATEX Roadworks',
-        'https://example.com/open-data-docs',
-        'https://example.com/open-data-docs',
-        ['feedKind' => 'ald'],
+        bbox: [10.30, 52.12, 10.80, 52.42],
+        sourceUrl: 'https://example.com/open-data-docs',
+        sourceName: 'DATEX Roadworks',
+        documentationUrl: 'https://example.com/open-data-docs',
+        publicSourceUrl: 'https://example.com/open-data-docs',
+        options: ['feedKind' => 'ald'],
     ))
     ->pipe(PulpJSON::encodeJSON(JSON_PRETTY_PRINT))
     ->pipe(Pulp::dest(__DIR__ . '/result'))
@@ -66,12 +66,12 @@ already-decoded array. Records without a usable point or GML line are dropped.
 use OpenMapsight\PulpDatexRoadworks;
 
 $builder = PulpDatexRoadworks::roadworksBuilder(
-    [10.30, 52.12, 10.80, 52.42],
-    'https://example.com/open-data-docs',
-    'DATEX Roadworks',
-    'https://example.com/open-data-docs',
-    'https://example.com/open-data-docs',
-    ['feedKind' => 'akd'],
+    bbox: [10.30, 52.12, 10.80, 52.42],
+    sourceUrl: 'https://example.com/open-data-docs',
+    sourceName: 'DATEX Roadworks',
+    documentationUrl: 'https://example.com/open-data-docs',
+    publicSourceUrl: 'https://example.com/open-data-docs',
+    options: ['feedKind' => 'akd'],
 );
 
 $geoJson = $builder->build($xml);
