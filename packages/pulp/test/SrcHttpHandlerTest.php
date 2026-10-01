@@ -88,6 +88,42 @@ class SrcHttpHandlerTest extends TestCase
         $this->assertFileDoesNotExist($path);
     }
 
+    public function testEphemeralSinkSurvivesClonesUntilTheLastFileIsReleased(): void
+    {
+        $kept = [];
+        $result = Pulp::start()
+            ->pipe(Pulp::srcHttp(
+                'GET',
+                'https://example.test/large.json',
+                [],
+                'large.json',
+                [
+                    'client' => $this->client(new Response(200, [], '{"sites":true}')),
+                    'sink' => true,
+                ]
+            ))
+            ->pipe(Pulp::results(static function (array $files) use (&$kept): void {
+                $kept = $files;
+            }))
+            ->run();
+
+        $path = $result[0]->srcFileName;
+        $this->assertIsString($path);
+        $this->assertFileExists($path);
+
+        unset($result);
+        gc_collect_cycles();
+
+        $this->assertFileExists($path);
+        $this->assertSame('{"sites":true}', $kept[0]->content);
+        $this->assertFileExists($path);
+
+        unset($kept);
+        gc_collect_cycles();
+
+        $this->assertFileDoesNotExist($path);
+    }
+
     public function testEphemeralSinkIsRemovedWhenTheRequestFails(): void
     {
         $before = $this->ephemeralSinks();

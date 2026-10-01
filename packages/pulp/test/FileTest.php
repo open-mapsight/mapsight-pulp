@@ -92,6 +92,24 @@ class FileTest extends TestCase
         $this->assertFileDoesNotExist($tmpFile);
     }
 
+    public function testOwnedPathSurvivesUntilTheLastCloneIsReleased(): void
+    {
+        $tmpFile = tempnam(sys_get_temp_dir(), 'pulp-file-test-');
+        $this->assertIsString($tmpFile);
+        file_put_contents($tmpFile, 'owned');
+
+        $original = File::fromPath($tmpFile, 'file.txt', true);
+        $clone = clone $original;
+
+        unset($original);
+        $this->assertFileExists($tmpFile);
+        $this->assertSame('owned', $clone->content);
+
+        unset($clone);
+
+        $this->assertFileDoesNotExist($tmpFile);
+    }
+
     public function testStreamFromGeneratedContent(): void
     {
         $f = new File('file.txt');
