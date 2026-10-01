@@ -4,6 +4,10 @@ All notable changes to `mapsight/pulp` are documented here.
 
 ## Unreleased
 
+### Fixed
+
+- Remove the temp file created by `srcHttp` `sink => true` when the path-backed `File` is released. A failed request removes it immediately. A caller-supplied sink path is left in place.
+
 ## 1.2.0 - 2026-09-02
 
 ### Added

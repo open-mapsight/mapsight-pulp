@@ -77,6 +77,21 @@ class FileTest extends TestCase
         }
     }
 
+    public function testFromPathCanUnlinkWhenReleased(): void
+    {
+        $tmpFile = tempnam(sys_get_temp_dir(), 'pulp-file-test-');
+        $this->assertIsString($tmpFile);
+        file_put_contents($tmpFile, 'owned');
+
+        $f = File::fromPath($tmpFile, 'file.txt', true);
+        $this->assertSame('owned', $f->content);
+        $this->assertFileExists($tmpFile);
+
+        unset($f);
+
+        $this->assertFileDoesNotExist($tmpFile);
+    }
+
     public function testStreamFromGeneratedContent(): void
     {
         $f = new File('file.txt');
