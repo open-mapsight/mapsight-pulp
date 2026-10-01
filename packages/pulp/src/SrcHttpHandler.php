@@ -10,6 +10,9 @@ use Throwable;
 
 class SrcHttpHandler extends AbstractHandler
 {
+    /** Temp file created for `sink => true`. Null once a File owns it, or after it is removed. */
+    private ?string $ephemeralSinkPath = null;
+
     protected function getConstructorParamDefs(): array
     {
         return ['method', 'uri', 'guzzleOptions', 'aliasFileName', 'options'];
@@ -39,7 +42,13 @@ class SrcHttpHandler extends AbstractHandler
             $this->assertSuccessStatus($statusCode);
 
             if ($sinkPath !== null) {
-                $tmpFile = File::fromPath($sinkPath, $this->cp->aliasFileName);
+                $tmpFile = File::fromPath(
+                    $sinkPath,
+                    $this->cp->aliasFileName,
+                    $this->ephemeralSinkPath !== null,
+                );
+                // File removes this on release. A caller-supplied path is not ephemeral.
+                $this->ephemeralSinkPath = null;
             } else {
                 $tmpFile = new File($this->cp->aliasFileName);
                 $tmpFile->content = (string) $res->getBody();
@@ -64,6 +73,8 @@ class SrcHttpHandler extends AbstractHandler
             } else {
                 throw $err;
             }
+        } finally {
+            $this->discardEphemeralSink();
         }
 
         if ($file instanceof File) {
@@ -91,6 +102,8 @@ class SrcHttpHandler extends AbstractHandler
                 throw new RuntimeException('Unable to create HTTP sink temp file');
             }
 
+            $this->ephemeralSinkPath = $path;
+
             return $path;
         }
         if (is_string($sink) && $sink !== '') {
@@ -100,6 +113,17 @@ class SrcHttpHandler extends AbstractHandler
         $guzzleSink = $this->cp->guzzleOptions['sink'] ?? null;
 
         return is_string($guzzleSink) && $guzzleSink !== '' ? $guzzleSink : null;
+    }
+
+    private function discardEphemeralSink(): void
+    {
+        if ($this->ephemeralSinkPath === null) {
+            return;
+        }
+
+        $path = $this->ephemeralSinkPath;
+        $this->ephemeralSinkPath = null;
+        @unlink($path);
     }
 
     private function assertSuccessStatus(int $statusCode): void

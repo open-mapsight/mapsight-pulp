@@ -19,6 +19,11 @@ class File
     private ?string $___contentPath = null;
 
     /**
+     * Shared by clones. The path is removed when the last File releases it.
+     */
+    private ?SharedTempPath $___tempPath = null;
+
+    /**
      * File constructor.
      */
     public function __construct(public $fileName, ?string $srcFileName = null)
@@ -26,7 +31,11 @@ class File
         $this->srcFileName = empty($srcFileName) ? $this->fileName : $srcFileName;
     }
 
-    public static function fromPath(string $path, ?string $fileName = null): File
+    /**
+     * @param bool $unlinkOnDestruct Remove `$path` when the last File that shares
+     *        it is released, including clones. Caller-supplied paths stay.
+     */
+    public static function fromPath(string $path, ?string $fileName = null, bool $unlinkOnDestruct = false): File
     {
         $file = new File(
             $fileName ?: $path,
@@ -38,6 +47,9 @@ class File
         }
 
         $file->___contentPath = $path;
+        if ($unlinkOnDestruct) {
+            $file->___tempPath = new SharedTempPath($path);
+        }
 
         $stats = @stat($path);
         if ($stats !== false) {

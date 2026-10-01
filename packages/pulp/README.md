@@ -112,7 +112,7 @@ Pulp::start()
     ->run();
 ```
 
-- `sink => true` writes the body to a temp file and emits a path-backed `File`, so a ~100 MB response does not have to live as a PHP string. Pass a path string to choose the file.
+- `sink => true` writes the body to a temp file and emits a path-backed `File`, so a ~100 MB response does not have to live as a PHP string. The temp file is removed when the last `File` that shares it is released, including clones from `split`, `shadow`, and `results`. Pass a path string to keep the body at a path you manage.
 - `client` injects a Guzzle `Client` (tests use a mock handler).
 - `successStatuses` throws unless the status is in the list. Pair with Guzzle `http_errors => false` when 304/204 are first-class.
 - The file also carries `httpStatus`, `httpLastModified`, `httpEtag`, and `httpType`.

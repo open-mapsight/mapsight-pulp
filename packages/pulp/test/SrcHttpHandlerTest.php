@@ -60,6 +60,124 @@ class SrcHttpHandlerTest extends TestCase
         }
     }
 
+    public function testEphemeralSinkStaysUntilTheFileIsReleased(): void
+    {
+        $result = Pulp::start()
+            ->pipe(Pulp::srcHttp(
+                'GET',
+                'https://example.test/large.json',
+                [],
+                'large.json',
+                [
+                    'client' => $this->client(new Response(200, [], '{"sites":true}')),
+                    'sink' => true,
+                ]
+            ))
+            ->run();
+
+        $path = $result[0]->srcFileName;
+        $this->assertIsString($path);
+        $this->assertMatchesRegularExpression('#/pulp-http-[^/]+$#', $path);
+        $this->assertFileExists($path);
+        $this->assertSame('{"sites":true}', $result[0]->content);
+        $this->assertFileExists($path);
+
+        unset($result);
+        gc_collect_cycles();
+
+        $this->assertFileDoesNotExist($path);
+    }
+
+    public function testEphemeralSinkSurvivesClonesUntilTheLastFileIsReleased(): void
+    {
+        $kept = [];
+        $result = Pulp::start()
+            ->pipe(Pulp::srcHttp(
+                'GET',
+                'https://example.test/large.json',
+                [],
+                'large.json',
+                [
+                    'client' => $this->client(new Response(200, [], '{"sites":true}')),
+                    'sink' => true,
+                ]
+            ))
+            ->pipe(Pulp::results(static function (array $files) use (&$kept): void {
+                $kept = $files;
+            }))
+            ->run();
+
+        $path = $result[0]->srcFileName;
+        $this->assertIsString($path);
+        $this->assertFileExists($path);
+
+        unset($result);
+        gc_collect_cycles();
+
+        $this->assertFileExists($path);
+        $this->assertSame('{"sites":true}', $kept[0]->content);
+        $this->assertFileExists($path);
+
+        unset($kept);
+        gc_collect_cycles();
+
+        $this->assertFileDoesNotExist($path);
+    }
+
+    public function testEphemeralSinkIsRemovedWhenTheRequestFails(): void
+    {
+        $before = $this->ephemeralSinks();
+
+        try {
+            Pulp::start()
+                ->pipe(Pulp::srcHttp(
+                    'GET',
+                    'https://example.test/status',
+                    ['http_errors' => false],
+                    'status.json',
+                    [
+                        'client' => $this->client(new Response(500, [], 'nope')),
+                        'sink' => true,
+                        'successStatuses' => [200],
+                    ]
+                ))
+                ->run();
+            $this->fail('Expected the failed response to throw');
+        } catch (RuntimeException $err) {
+            $this->assertStringContainsString('returned 500', $err->getMessage());
+        }
+
+        $this->assertSame($before, $this->ephemeralSinks());
+    }
+
+    public function testCallerSinkPathIsKeptWhenTheRequestFails(): void
+    {
+        $sink = tempnam(sys_get_temp_dir(), 'pulp-http-sink-');
+        $this->assertIsString($sink);
+
+        try {
+            Pulp::start()
+                ->pipe(Pulp::srcHttp(
+                    'GET',
+                    'https://example.test/status',
+                    ['http_errors' => false],
+                    'status.json',
+                    [
+                        'client' => $this->client(new Response(500, [], 'nope')),
+                        'sink' => $sink,
+                        'successStatuses' => [200],
+                    ]
+                ))
+                ->run();
+            $this->fail('Expected the failed response to throw');
+        } catch (RuntimeException $err) {
+            $this->assertStringContainsString('returned 500', $err->getMessage());
+            $this->assertFileExists($sink);
+        } finally {
+            @unlink($sink);
+        }
+    }
+
     public function testSuccessStatusesRejectUnexpectedCodes(): void
     {
         $this->expectException(RuntimeException::class);
@@ -99,6 +217,16 @@ class SrcHttpHandlerTest extends TestCase
         $this->assertCount(1, $result);
         $this->assertSame(304, $result[0]->httpStatus);
         $this->assertSame('', $result[0]->content);
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function ephemeralSinks(): array
+    {
+        $paths = glob(sys_get_temp_dir() . '/pulp-http-*');
+
+        return is_array($paths) ? $paths : [];
     }
 
     private function client(Response $response): Client

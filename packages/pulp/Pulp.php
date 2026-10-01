@@ -60,7 +60,9 @@ class Pulp implements Handler
     /**
      * ## Options
      * * `sink`: `true` writes the body to a temp file and emits a path-backed
-     *   `File` (use this for large responses). A string path writes there.
+     *   `File` (use this for large responses). The temp file is removed when
+     *   the last `File` that shares it is released, including clones. A string
+     *   path writes there and is left in place.
      *   (default: `null` — load the body as a string)
      * * `client`: Guzzle `Client` instance. Tests inject a mock handler here.
      *   (default: `new Client()`)
