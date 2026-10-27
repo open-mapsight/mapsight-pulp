@@ -44,12 +44,23 @@ class WriteHandler extends AbstractHandler
         $quotedTable = $connection->quote((string) $table);
         $rows = $file->content;
         if (!is_array($rows) || !array_is_list($rows)) {
-            throw new RuntimeException('Expected a list of rows');
+            throw new RuntimeException('Expected the file content to be a list of rows');
         }
-        $columns = $rows === [] ? [] : array_keys($rows[0]);
-        foreach ($rows as $row) {
-            if (!is_array($row) || array_keys($row) !== $columns) {
-                throw new RuntimeException('Every row needs the same columns, in the same order');
+        $columns = $rows === [] || !is_array($rows[0]) ? [] : array_map('strval', array_keys($rows[0]));
+        foreach ($rows as $i => $row) {
+            if (!is_array($row) || $row === [] || array_is_list($row)) {
+                throw new RuntimeException('Row ' . $i . ' is not an array of column names to values');
+            }
+            $keys = array_map('strval', array_keys($row));
+            $missing = array_diff($columns, $keys);
+            $extra = array_diff($keys, $columns);
+            if ($missing !== [] || $extra !== []) {
+                throw new RuntimeException(sprintf(
+                    'Row %d has other columns than row 0 (missing: %s; extra: %s)',
+                    $i,
+                    implode(', ', $missing) ?: '-',
+                    implode(', ', $extra) ?: '-',
+                ));
             }
         }
 
@@ -79,7 +90,10 @@ class WriteHandler extends AbstractHandler
                 $pdo->prepare(
                     'INSERT INTO ' . $quotedTable . ' (' . $columnList . ') VALUES '
                     . implode(', ', array_fill(0, count($chunk), $placeholders))
-                )->execute(array_map(self::value(...), array_merge(...array_map(array_values(...), $chunk))));
+                )->execute(array_map(
+                    self::value(...),
+                    array_merge(...array_map(static fn(array $row): array => array_map(static fn(string $column): mixed => $row[$column], $columns), $chunk)),
+                ));
             }
         });
     }

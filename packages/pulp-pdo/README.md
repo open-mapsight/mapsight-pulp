@@ -17,7 +17,22 @@ composer require mapsight/pulp-pdo
 
 ## Write Rows
 
-Each file's content is a list of associative arrays with the same keys, in the same order. Array values are stored as JSON, booleans as `0`/`1`.
+`write()` inserts rows into a table that already exists. It does not create or change the table: create it beforehand, or in the `setUp` option.
+
+Each incoming file's content must be a list of rows, each an array of column names to values:
+
+```php
+[
+    ['source' => 'stops.json', 'id' => '1', 'name' => 'Main Station'],
+    ['source' => 'stops.json', 'id' => '2', 'name' => 'Town Hall'],
+]
+```
+
+- Every row of a file needs the same columns, in any order.
+- Values may be strings, numbers, `null`, booleans (stored as `0`/`1`) or arrays (stored as JSON).
+- Content that does not fit fails the file like a database error does: its transaction is rolled back and the run stops. With `skipExceptions`, the error is logged and the next file follows.
+
+A `Pulp::map()` usually turns decoded data into rows:
 
 ```php
 use OpenMapsight\Pulp;

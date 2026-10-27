@@ -29,9 +29,13 @@ class PulpPdo
     }
 
     /**
-     * Inserts each file's rows (a list of associative arrays with the same
-     * keys) into `$table`, one transaction per file. Array values are stored
-     * as JSON, booleans as 0/1.
+     * Inserts each file's rows into the existing `$table`, one transaction
+     * per file. It does not create or change the table (see `setUp`).
+     *
+     * Each file's content must be a list of rows, each an array of column
+     * names to values. Every row of a file needs the same columns, in any
+     * order. Values may be strings, numbers, null, booleans (stored as 0/1)
+     * or arrays (stored as JSON). Content that does not fit fails the file.
      *
      * ## Options
      * * `replace`: delete rows before inserting, in the same transaction (default: `false`)

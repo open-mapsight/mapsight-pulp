@@ -96,18 +96,30 @@ class PulpPdoTest extends TestCase
         $this->assertSame([['b', '1', 'Gut', null, null]], $this->stored());
     }
 
-    public function testRowsMustShareTheirColumnsAndNamesMustBeIdentifiers(): void
+    public function testColumnsMayComeInAnyOrder(): void
+    {
+        Pulp::start()
+            ->pipe(Pulp::src(self::rows('a', [['source' => 'a', 'id' => '1', 'name' => 'Eins'], ['name' => 'Zwei', 'id' => '2', 'source' => 'a']])))
+            ->pipe(PulpPdo::write($this->pdo, 'places'))
+            ->run();
+
+        $this->assertSame([['a', '1', 'Eins', null, null], ['a', '2', 'Zwei', null, null]], $this->stored());
+    }
+
+    public function testContentThatDoesNotFitFailsTheFile(): void
     {
         foreach ([
-            ['places', [['source' => 'a', 'id' => '1'], ['id' => '2', 'source' => 'a']]],
-            ['places; DROP TABLE places', [['source' => 'a', 'id' => '1']]],
-            ['places', [['source' => 'a', 'id' => '1', 'name"' => 'x']]],
-            ['places', ['not' => 'a list']],
-        ] as [$table, $rows]) {
+            'Row 1 has other columns than row 0 (missing: name; extra: tags)' => ['places', [['source' => 'a', 'id' => '1', 'name' => 'x'], ['source' => 'a', 'id' => '2', 'tags' => []]]],
+            'Row 0 is not an array of column names to values' => ['places', [['a', '1']]],
+            'Expected the file content to be a list of rows' => ['places', ['not' => 'a list']],
+            'Invalid identifier "places; DROP TABLE places"' => ['places; DROP TABLE places', [['source' => 'a', 'id' => '1']]],
+            'Invalid identifier "name""' => ['places', [['source' => 'a', 'id' => '1', 'name"' => 'x']]],
+        ] as $message => [$table, $rows]) {
             try {
                 Pulp::start()->pipe(Pulp::src(self::rows('x', $rows)))->pipe(PulpPdo::write($this->pdo, $table))->run();
                 $this->fail('Expected ' . json_encode([$table, $rows]) . ' to be rejected');
-            } catch (RuntimeException) {
+            } catch (RuntimeException $err) {
+                $this->assertSame($message, $err->getPrevious()?->getMessage());
                 $this->assertSame([], $this->stored());
             }
         }
