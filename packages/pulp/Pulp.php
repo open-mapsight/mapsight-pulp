@@ -202,7 +202,7 @@ class Pulp implements Handler
      * the file. The callback receives the file and returns the pipeline, which
      * runs without input files: use it for work that depends on a file, such
      * as fetching a URL it names. Start it with `Pulp::src($file)` to work on
-     * the file itself.
+     * the file itself. To change a file in plain PHP, `map()` is cheaper.
      *
      * ## Options
      * * `skipExceptions`: logs a failing pipeline and continues with the next file (default: `false`)

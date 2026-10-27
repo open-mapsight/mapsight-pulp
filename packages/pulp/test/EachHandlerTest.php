@@ -48,6 +48,17 @@ class EachHandlerTest extends TestCase
         $this->assertSame('a!', $res[0]->content);
     }
 
+    public function testThePipelineStartsWithoutTheFile(): void
+    {
+        $res = Pulp::start()
+            ->pipe(Pulp::src([self::file('a.txt', 'a')]))
+            ->pipe(Pulp::each(static fn(File $file): Pulp => Pulp::start()
+                ->pipe(Pulp::map(static fn(File $f): File => $f))))
+            ->run();
+
+        $this->assertSame([], $res);
+    }
+
     public function testAFailingPipelineFailsTheRun(): void
     {
         $this->expectException(RuntimeException::class);
