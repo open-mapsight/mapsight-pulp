@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ef3b32b4c6c89613d9f64cbb0ca0fc1",
+    "content-hash": "5912f42aecc88a652c0cdf6f49bf99a1",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -339,7 +339,7 @@
         },
         {
             "name": "mapsight/geojson-reproject",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/geojson-reproject",
@@ -396,7 +396,7 @@
         },
         {
             "name": "mapsight/pulp",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp",
@@ -467,7 +467,7 @@
         },
         {
             "name": "mapsight/pulp-cache",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-cache",
@@ -524,7 +524,7 @@
         },
         {
             "name": "mapsight/pulp-concert",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-concert",
@@ -607,7 +607,7 @@
         },
         {
             "name": "mapsight/pulp-datex-energy",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-energy",
@@ -665,7 +665,7 @@
         },
         {
             "name": "mapsight/pulp-datex-fuel",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-fuel",
@@ -730,7 +730,7 @@
         },
         {
             "name": "mapsight/pulp-datex-roadworks",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-datex-roadworks",
@@ -793,7 +793,7 @@
         },
         {
             "name": "mapsight/pulp-geocsv",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geocsv",
@@ -866,7 +866,7 @@
         },
         {
             "name": "mapsight/pulp-geojson",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-geojson",
@@ -946,7 +946,7 @@
         },
         {
             "name": "mapsight/pulp-gtfs",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-gtfs",
@@ -1000,7 +1000,7 @@
         },
         {
             "name": "mapsight/pulp-json",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-json",
@@ -1070,8 +1070,67 @@
             }
         },
         {
+            "name": "mapsight/pulp-mapsight",
+            "version": "dev-feat/pulp-mapsight",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-mapsight",
+                "reference": "84e24d2d429a4360c35b26b392c567bcba05b1ed"
+            },
+            "require": {
+                "ext-json": "*",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpMapsight.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpmapsight\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpMapsight.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mapsight helpers for Pulp pipelines: read the feature sources of Mapsight pages.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "feature-sources",
+                "geojson",
+                "mapsight",
+                "pulp"
+            ],
+            "support": {
+                "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+                "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-mapsight"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "mapsight/pulp-mobilithek",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-mobilithek",
@@ -1132,7 +1191,7 @@
         },
         {
             "name": "mapsight/pulp-pdo",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-pdo",
@@ -1191,7 +1250,7 @@
         },
         {
             "name": "mapsight/pulp-soap",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-soap",
@@ -1251,7 +1310,7 @@
         },
         {
             "name": "mapsight/pulp-tic",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-tic",
@@ -1326,7 +1385,7 @@
         },
         {
             "name": "mapsight/pulp-xml",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-xml",
@@ -1390,7 +1449,7 @@
         },
         {
             "name": "mapsight/pulp-zip",
-            "version": "dev-feat/pulp-pdo",
+            "version": "dev-feat/pulp-mapsight",
             "dist": {
                 "type": "path",
                 "url": "packages/pulp-zip",
@@ -6655,6 +6714,7 @@
         "mapsight/pulp-geojson": 20,
         "mapsight/pulp-gtfs": 20,
         "mapsight/pulp-json": 20,
+        "mapsight/pulp-mapsight": 20,
         "mapsight/pulp-mobilithek": 20,
         "mapsight/pulp-pdo": 20,
         "mapsight/pulp-soap": 20,
