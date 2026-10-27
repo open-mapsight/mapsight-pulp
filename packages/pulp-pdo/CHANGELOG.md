@@ -4,6 +4,8 @@ All notable changes to `mapsight/pulp-pdo` are documented here.
 
 ## Unreleased
 
+## 1.0.0 - 2026-10-27
+
 ### Added
 
 - Add `PulpPdo::write()` to insert each file's rows into a table, one transaction per file, optionally replacing all or matching rows first.
