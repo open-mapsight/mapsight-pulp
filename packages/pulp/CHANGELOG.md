@@ -4,6 +4,8 @@ All notable changes to `mapsight/pulp` are documented here.
 
 ## Unreleased
 
+## 1.3.0 - 2026-10-27
+
 ### Added
 
 - Add `Pulp::each()` to run a pipeline per incoming file, for work that depends on the file, such as fetching the URL it names.
