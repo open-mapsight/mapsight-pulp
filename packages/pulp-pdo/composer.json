@@ -1,0 +1,47 @@
+{
+    "name": "mapsight/pulp-pdo",
+    "description": "Database source and destination handlers for Pulp pipelines, via PDO.",
+    "type": "library",
+    "keywords": [
+        "mapsight",
+        "pulp",
+        "pdo",
+        "database"
+    ],
+    "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Golmann",
+            "email": "mail@pje-web.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+        "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-pdo"
+    },
+    "require": {
+        "php": "^8.2",
+        "ext-pdo": "*",
+        "mapsight/pulp": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "PulpPdo.php"
+        ],
+        "psr-4": {
+            "OpenMapsight\\pulppdo\\": "src"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "*",
+            ".*",
+            "!/src/*",
+            "!/PulpPdo.php",
+            "!/README.md",
+            "!/CHANGELOG.md"
+        ]
+    }
+}

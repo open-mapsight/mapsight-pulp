@@ -51,6 +51,9 @@
         <testsuite name="pulp-mobilithek">
             <directory>packages/pulp-mobilithek/test</directory>
         </testsuite>
+        <testsuite name="pulp-pdo">
+            <directory>packages/pulp-pdo/test</directory>
+        </testsuite>
         <testsuite name="pulp-geocsv">
             <directory>packages/pulp-geocsv/test</directory>
         </testsuite>

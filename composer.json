@@ -40,6 +40,7 @@
         "mapsight/pulp-datex-fuel": "@dev",
         "mapsight/pulp-datex-roadworks": "@dev",
         "mapsight/pulp-mobilithek": "@dev",
+        "mapsight/pulp-pdo": "@dev",
         "mapsight/pulp-geocsv": "@dev",
         "mapsight/pulp-geojson": "@dev",
         "mapsight/pulp-gtfs": "@dev",
