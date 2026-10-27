@@ -4,6 +4,8 @@ All notable changes to `mapsight/pulp-search-index` are documented here.
 
 ## Unreleased
 
+## 1.0.0 - 2026-10-27
+
 ### Added
 
 - Add `PulpSearchIndex::index()` to turn GeoJSON sources into one search index.
