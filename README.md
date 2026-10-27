@@ -11,6 +11,7 @@ Monorepo for Pulp packages - a stream-based file processing library for PHP, ins
 - **[pulp-datex-fuel](packages/pulp-datex-fuel):** MTS-K DATEX II helpers for petrol-station master data and live E5/E10/Diesel prices.
 - **[pulp-datex-roadworks](packages/pulp-datex-roadworks):** DATEX II SituationPublication helpers for Autobahn / Mobilithek roadworks.
 - **[pulp-mobilithek](packages/pulp-mobilithek):** Shared Mobilithek subscription source helper, re-exported by the DATEX packages.
+- **[pulp-pdo](packages/pulp-pdo):** Database source and destination handlers, via PDO.
 - **[pulp-zip](packages/pulp-zip):** ZIP archive helpers for Pulp pipelines.
 - **[pulp-geojson](packages/pulp-geojson):** Tools for handling, transforming, and converting GeoJSON data.
 - **[pulp-xml](packages/pulp-xml):** Handlers for parsing and manipulating XML data.
