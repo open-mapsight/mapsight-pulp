@@ -241,6 +241,34 @@ Routes files into different sub-pipelines by file name.
 ], static fn(Pulp $p): Pulp => $p))
 ```
 
+### Pulp::each($callback, array $options = [])
+
+Runs a pipeline for each incoming file and pushes its results instead of the file. The callback receives the file and returns the pipeline, which runs without input files. Use it when the work depends on the file, for example fetching a URL it names:
+
+```php
+Pulp::start()
+    ->pipe(Pulp::src('.*\.url', __DIR__ . '/feeds'))
+    ->pipe(Pulp::each(
+        static fn(File $feed): Pulp => Pulp::start()
+            ->pipe(Pulp::srcHttp(
+                method: 'GET',
+                uri: trim($feed->content),
+                guzzleOptions: ['timeout' => 30],
+                aliasFileName: basename($feed->fileName, '.url') . '.json',
+            )),
+        ['skipExceptions' => true],
+    ))
+    ->pipe(Pulp::dest(__DIR__ . '/result'))
+    ->run();
+```
+
+Start the pipeline with `Pulp::src($file)` to work on the file itself. Wrap a source in `PulpCache::remember()` inside the callback to keep the last good copy per file.
+
+Options:
+
+- `skipExceptions`: log a failing pipeline and continue with the next file.
+- `logSkipExceptions`: `stderr`, `stdout`, or `false`.
+
 ### Pulp::debug($length = 30)
 
 Prints a short preview for each file.
