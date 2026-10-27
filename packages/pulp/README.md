@@ -141,7 +141,7 @@ Common options:
 
 ### Pulp::map($callback)
 
-Transforms or drops files.
+Transforms or drops files in plain PHP: one file in, at most one file out. For work that needs other handlers per file, use [`Pulp::each`](#pulpeachcallback-array-options--).
 
 ```php
 ->pipe(Pulp::map(static function (File $file): ?File {
@@ -241,6 +241,41 @@ Routes files into different sub-pipelines by file name.
 ], static fn(Pulp $p): Pulp => $p))
 ```
 
+### Pulp::each($callback, array $options = [])
+
+Runs a pipeline for each incoming file and pushes its results instead of the file. The callback receives the file and returns the pipeline, which runs without input files. Use it when the work depends on the file, for example fetching a URL it names:
+
+```php
+Pulp::start()
+    ->pipe(Pulp::src('.*\.url', __DIR__ . '/feeds'))
+    ->pipe(Pulp::each(
+        static fn(File $feed): Pulp => Pulp::start()
+            ->pipe(Pulp::srcHttp(
+                method: 'GET',
+                uri: trim($feed->content),
+                guzzleOptions: ['timeout' => 30],
+                aliasFileName: basename($feed->fileName, '.url') . '.json',
+            )),
+        ['skipExceptions' => true],
+    ))
+    ->pipe(Pulp::dest(__DIR__ . '/result'))
+    ->run();
+```
+
+Start the pipeline with `Pulp::src($file)` to work on the file itself. Wrap a source in `PulpCache::remember()` inside the callback to keep the last good copy per file.
+
+`each` or `map`?
+
+- **`map`** changes a file with plain PHP and returns it, another file, or `null`. It is cheap and runs inline.
+- **`each`** builds and runs a whole pipeline per file. Use it when that work needs handlers (`srcHttp`, `PulpCache::remember`, package handlers), may emit several files, or should fail per file (`skipExceptions`). `map` has no `skipExceptions`; an exception stops the run.
+- The pipeline of `each` starts empty. Without a source handler or `Pulp::src($file)` it emits nothing.
+- Handlers that collect files (`results`, `PulpGeoJSON::merge`, …) inside `each` see one file's results only. Put them after `each` to collect across files.
+
+Options:
+
+- `skipExceptions`: log a failing pipeline and continue with the next file.
+- `logSkipExceptions`: `stderr`, `stdout`, or `false`.
+
 ### Pulp::debug($length = 30)
 
 Prints a short preview for each file.
@@ -285,6 +320,18 @@ Pulp::start()
     ->pipe(Pulp::dest(__DIR__ . '/output'))
     ->run();
 ```
+
+### Choose a Per-File Handler
+
+| Handler | The callback gets | It returns | Files out per file | Use it for |
+| --- | --- | --- | --- | --- |
+| `map` | the file | the file, another file, or `null` | 0 or 1 | changing content, name or properties in plain PHP |
+| `filter` | the file | `true` to keep it | 0 or 1 | dropping files |
+| `each` | the file | a pipeline, run without input | any | work that needs handlers per file, such as fetching what a file names |
+| `fileSwitch` | a pipeline with the file as input | the pipeline | any | different handlers by file name |
+| `split` | a pipeline with every file as input | the pipeline | any, per branch | several outputs from the same files |
+
+Prefer `map` and `filter` when plain PHP does the job. Reach for `each` when the work depends on the file and needs other handlers.
 
 ### Process Large Files With Streams
 

@@ -7,6 +7,7 @@ namespace OpenMapsight;
 use OpenMapsight\pulp\DebugHandler;
 use OpenMapsight\pulp\DeleteHandler;
 use OpenMapsight\pulp\DestHandler;
+use OpenMapsight\pulp\EachHandler;
 use OpenMapsight\pulp\File;
 use OpenMapsight\pulp\FileSwitchHandler;
 use OpenMapsight\pulp\FilterHandler;
@@ -194,6 +195,27 @@ class Pulp implements Handler
         }
 
         return new SplitHandler($pipelines);
+    }
+
+    /**
+     * Runs a pipeline for each incoming file and pushes its results instead of
+     * the file. The callback receives the file and returns the pipeline, which
+     * runs without input files: use it for work that depends on a file, such
+     * as fetching a URL it names. Start it with `Pulp::src($file)` to work on
+     * the file itself. To change a file in plain PHP, `map()` is cheaper.
+     *
+     * ## Options
+     * * `skipExceptions`: logs a failing pipeline and continues with the next file (default: `false`)
+     * * `logSkipExceptions`: (default: `"stderr"`)
+     *   * `false`: no logging
+     *   * `"stdout"`: log to stdout
+     *   * `"stderr"`: log to stderr
+     *
+     * @param callable(pulp\File): Pulp $cb
+     */
+    public static function each(callable $cb, array $options = []): EachHandler
+    {
+        return new EachHandler($cb, $options);
     }
 
     public static function results($cb): ResultsHandler

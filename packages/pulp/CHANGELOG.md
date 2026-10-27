@@ -4,6 +4,12 @@ All notable changes to `mapsight/pulp` are documented here.
 
 ## Unreleased
 
+## 1.3.0 - 2026-10-27
+
+### Added
+
+- Add `Pulp::each()` to run a pipeline per incoming file, for work that depends on the file, such as fetching the URL it names.
+
 ### Fixed
 
 - Remove the temp file created by `srcHttp` `sink => true` when the last path-backed `File` is released, including clones. A failed request removes it immediately. A caller-supplied sink path is left in place.

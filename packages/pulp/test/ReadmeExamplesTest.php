@@ -2,10 +2,15 @@
 
 declare(strict_types=1);
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use OpenMapsight\Pulp;
 use OpenMapsight\pulp\AbstractHandler;
 use OpenMapsight\pulp\File;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 class ReadmeUppercaseHandler extends AbstractHandler
 {
@@ -255,6 +260,42 @@ class ReadmeExamplesTest extends TestCase
 
         $this->assertSame('abcdef', $results[0]->content);
         $this->assertStringContainsString('example.txt', $output);
+    }
+
+    public function testEachExample(): void
+    {
+        $workspace = $this->createWorkspace();
+        mkdir($workspace . '/feeds');
+        mkdir($workspace . '/result');
+        file_put_contents($workspace . '/feeds/parks.url', "https://example.com/parks.json\n");
+        file_put_contents($workspace . '/feeds/broken.url', "https://example.com/broken.json\n");
+        $client = new Client(['handler' => HandlerStack::create(new MockHandler([
+            static fn(RequestInterface $request): Response => str_ends_with((string) $request->getUri(), '/parks.json')
+                ? new Response(200, [], '{"parks":[]}')
+                : new Response(500, [], 'nope'),
+            static fn(RequestInterface $request): Response => str_ends_with((string) $request->getUri(), '/parks.json')
+                ? new Response(200, [], '{"parks":[]}')
+                : new Response(500, [], 'nope'),
+        ]))]);
+
+        Pulp::start()
+            ->pipe(Pulp::src('.*\.url', $workspace . '/feeds'))
+            ->pipe(Pulp::each(
+                static fn(File $feed): Pulp => Pulp::start()
+                    ->pipe(Pulp::srcHttp(
+                        method: 'GET',
+                        uri: trim($feed->content),
+                        guzzleOptions: ['timeout' => 30],
+                        aliasFileName: basename($feed->fileName, '.url') . '.json',
+                        options: ['client' => $client],
+                    )),
+                ['skipExceptions' => true, 'logSkipExceptions' => false],
+            ))
+            ->pipe(Pulp::dest($workspace . '/result'))
+            ->run();
+
+        $this->assertSame('{"parks":[]}', file_get_contents($workspace . '/result/parks.json'));
+        $this->assertFileDoesNotExist($workspace . '/result/broken.json');
     }
 
     public function testFileSwitchExample(): void
