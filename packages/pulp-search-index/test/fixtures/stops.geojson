@@ -1,0 +1,94 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"id": "stop-hauptfriedhof",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.5631,
+					52.2486
+				]
+			},
+			"properties": {
+				"name": "Hauptfriedhof",
+				"listInformation": "Bus, Stadtbahn: 4, 412, 430"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "stop-fwp",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.5203,
+					52.2601
+				]
+			},
+			"properties": {
+				"name": "Friedrich-Wilhelm-Platz",
+				"listInformation": "Bus: 411, 413"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "stop-dom",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.5244,
+					52.2638
+				]
+			},
+			"properties": {
+				"name": "Dom/Burgplatz",
+				"listInformation": "Bus: 411"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "stop-10",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.51,
+					52.27
+				]
+			},
+			"properties": {
+				"name": "Haltestelle 10",
+				"number": 10
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "stop-2",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.52,
+					52.27
+				]
+			},
+			"properties": {
+				"name": "Haltestelle 2",
+				"number": 2
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "stand12",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.5234567,
+					52.2654321
+				]
+			},
+			"properties": {
+				"name": "<b>Müllers Glühwein &amp; Käse</b>"
+			}
+		}
+	]
+}
