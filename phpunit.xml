@@ -54,6 +54,9 @@
         <testsuite name="pulp-pdo">
             <directory>packages/pulp-pdo/test</directory>
         </testsuite>
+        <testsuite name="pulp-search-index">
+            <directory>packages/pulp-search-index/test</directory>
+        </testsuite>
         <testsuite name="pulp-geocsv">
             <directory>packages/pulp-geocsv/test</directory>
         </testsuite>

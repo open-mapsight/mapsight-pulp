@@ -1,0 +1,83 @@
+[
+	[
+		"stand12",
+		"Müllers Glühwein & Käse",
+		"Stand 12 · Imbiss, Süß-/Backwaren",
+		"mullers gluhwein kase stand12 crepes amp waffeln imbiss suss backwaren angebot tags susswaren alkoholfrei 12 stand",
+		[
+			"12"
+		],
+		[
+			10.5234567,
+			52.2654321
+		]
+	],
+	[
+		"Stand_7a",
+		"Stand 007",
+		"Stand 007",
+		"stand 007 7a",
+		[
+			"7",
+			"7a"
+		],
+		[
+			10,
+			52
+		]
+	],
+	[
+		"42",
+		"Parkhaus Am Dom",
+		"Stand 3 · © Foto: Stadt „BS“ Anschrift Friedrich-Seele-Straße 38122 Braunschweig. Weitere Informationen: Anschluss an die Stadtbahnlinie 5, Haltestelle An der Rothenburg, Taktzeit ",
+		"parkhaus am dom 42 foto stadt bs anschrift friedrich seele strasse 38122 braunschweig weitere informationen anschluss an die stadtbahnlinie 5 haltestelle der rothenburg taktzeit rund 15 minuten o von 6 bis 22 uhr gebuhren nach aushang vor ort 3 stand",
+		[
+			"3"
+		],
+		[
+			10.1,
+			52.1
+		]
+	],
+	[
+		"duplicate",
+		"Erster Treffer",
+		"",
+		"erster treffer duplicate strasse der einheit 1",
+		[],
+		null
+	],
+	[
+		"collection",
+		"collection",
+		"",
+		"collection",
+		[],
+		[
+			10.25,
+			52.25
+		]
+	],
+	[
+		"keywords",
+		"Ärztehaus Öffnungszeiten Übersicht",
+		"",
+		"arztehaus offnungszeiten ubersicht keywords listen name tooltip sstrasse gesundheit praxis fach hno notdienst 5",
+		[],
+		[
+			10.75,
+			52.5
+		]
+	],
+	[
+		"deep",
+		"Tief",
+		"",
+		"tief deep flach 1 eins 2 zwei art ordnung",
+		[],
+		[
+			10.5,
+			52.25
+		]
+	]
+]

@@ -1,0 +1,208 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"id": "stand12",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.5234567,
+					52.2654321
+				]
+			},
+			"properties": {
+				"name": "<b>Müllers Glühwein &amp; Käse</b>",
+				"description": "<script>secretTerm</script><p>Cr&#232;pes &AMP; Waffeln&nbsp;&#x110000;&#55296;</p>",
+				"tagGroups": {
+					"Angebot": {
+						"tags": [
+							"Süßwaren",
+							"alkoholfrei"
+						]
+					}
+				},
+				"categories": [
+					"Imbiss",
+					"Süß-/Backwaren"
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "Stand_7a",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10,
+					52
+				]
+			},
+			"properties": {
+				"standNummer": "007"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 42,
+			"geometry": {
+				"type": "MultiPolygon",
+				"coordinates": [
+					[
+						[
+							[
+								10.1,
+								52.1
+							],
+							[
+								10.2,
+								52.1
+							],
+							[
+								10.2,
+								52.2
+							],
+							[
+								10.1,
+								52.1
+							]
+						]
+					]
+				]
+			},
+			"properties": {
+				"title": "Parkhaus Am Dom",
+				"listInformation": "&copy; Foto: Stadt &bdquo;BS&ldquo; Anschrift Friedrich-Seele-Straße 38122 Braunschweig. Weitere Informationen: Anschluss an die Stadtbahnlinie 5, Haltestelle An der Rothenburg, Taktzeit rund 15 Minuten. Ö🚲 von 6 bis 22 Uhr, Gebühren nach Aushang vor Ort.",
+				"number": 3,
+				"capacity": 1.5,
+				"open": true,
+				"closed": null
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "duplicate",
+			"geometry": null,
+			"properties": {
+				"name": "Erster Treffer",
+				"address": "Straße der Einheit 1"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "duplicate",
+			"geometry": null,
+			"properties": {
+				"name": "Zweiter Treffer"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": null,
+			"properties": {
+				"name": "Ohne ID"
+			}
+		},
+		{
+			"type": "Point",
+			"id": "not-a-feature",
+			"geometry": null,
+			"properties": {
+				"name": "Kein Feature"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "",
+			"geometry": null,
+			"properties": {
+				"name": "Leere ID"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "collection",
+			"geometry": {
+				"type": "GeometryCollection",
+				"geometries": [
+					{
+						"type": "Point",
+						"coordinates": []
+					},
+					{
+						"type": "LineString",
+						"coordinates": [
+							[
+								10.25,
+								52.25
+							],
+							[
+								10.3,
+								52.3
+							]
+						]
+					}
+				]
+			},
+			"properties": null
+		},
+		{
+			"type": "Feature",
+			"id": "keywords",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.75,
+					52.5
+				]
+			},
+			"properties": {
+				"name": "  Ärztehaus Öffnungszeiten Übersicht  ",
+				"category": "",
+				"categories": "Gesundheit",
+				"keywords": [
+					"Praxis",
+					{
+						"Fach": "HNO",
+						"Notdienst": 5.0
+					}
+				],
+				"tooltip": "<style>.x{}</style>Tooltip &hellip; ẞtraße 🎄",
+				"listName": "Listen-Name"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "deep",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					10.5,
+					52.25
+				]
+			},
+			"properties": {
+				"name": "Tief",
+				"tags": [
+					[
+						[
+							[
+								[
+									[
+										"zu tief"
+									]
+								]
+							]
+						]
+					],
+					"flach"
+				],
+				"tagGroups": {
+					"2": "zwei",
+					"1": "eins",
+					"Art": "Ordnung"
+				}
+			}
+		}
+	]
+}
