@@ -4,6 +4,8 @@ All notable changes to `mapsight/pulp-datex-energy` are documented here.
 
 ## Unreleased
 
+## 1.1.1 - 2026-10-29
+
 ### Changed
 
 - Delegate `srcMobilithek()` and `mobilithekGuzzleOptions()` to `mapsight/pulp-mobilithek`.
