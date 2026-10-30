@@ -48,6 +48,18 @@ class DatexEnergyStatus
         return '';
     }
 
+    /** @param array<string, mixed> $publication */
+    public static function publicationTime(array $publication): string
+    {
+        foreach (DatexEnergySitesBuilder::payloadItems($publication) as $payload) {
+            $status = $payload['aegiEnergyInfrastructureStatusPublication'] ?? $payload;
+            if (is_string($status['publicationTime'] ?? null)) {
+                return $status['publicationTime'];
+            }
+        }
+        return '';
+    }
+
     /**
      * @param array<string, mixed> $publication
      * @return list<array{evseId: string, status: string, lastUpdated: string, siteId: string, stationId: string}>
@@ -99,20 +111,38 @@ class DatexEnergyStatus
      * @param list<array{evseId: string, status: string, lastUpdated: string, siteId: string, stationId: string}> $points
      * @return array<string, mixed>
      */
-    public static function applyPacketToCache(array $cache, array $points, string $packetType, string $lastModified): array
+    public static function applyPacketToCache(array $cache, array $points, string $packetType, string $lastModified, string $publicationTime = ''): array
     {
         $previous = is_array($cache['points'] ?? null) ? $cache['points'] : [];
         $byEvse = $previous;
-        if (strcasecmp($packetType, 'SNAPSHOT') === 0) {
-            $byEvse = [];
-        }
-        foreach ($points as $point) {
-            $existing = $byEvse[$point['evseId']] ?? $previous[$point['evseId']] ?? null;
-            $byEvse[$point['evseId']] = is_array($existing) && self::isOlder($point['lastUpdated'], $existing['lastUpdated'])
-                ? $existing
-                : $point;
+        $snapshot = strcasecmp($packetType, 'SNAPSHOT') === 0;
+        // A late retry from before the latest baseline must not resurrect removals.
+        $stale = $publicationTime !== '' && self::isOlder($publicationTime, (string) ($cache['snapshotTime'] ?? ''));
+        if (!$stale) {
+            if ($snapshot) {
+                $byEvse = [];
+                if ($publicationTime !== '') {
+                    // Preserve even newly added EVSEs when a delayed snapshot is
+                    // older than point updates already received by push or pull.
+                    foreach ($previous as $id => $point) {
+                        if (self::isOlder($publicationTime, $point['lastUpdated'])) {
+                            $byEvse[$id] = $point;
+                        }
+                    }
+                    $cache['snapshotTime'] = $publicationTime;
+                }
+            }
+            foreach ($points as $point) {
+                $existing = $byEvse[$point['evseId']] ?? $previous[$point['evseId']] ?? null;
+                $byEvse[$point['evseId']] = is_array($existing) && self::isOlder($point['lastUpdated'], $existing['lastUpdated'])
+                    ? $existing
+                    : $point;
+            }
         }
 
+        if ($publicationTime !== '' && !self::isOlder($publicationTime, (string) ($cache['latestPublicationTime'] ?? ''))) {
+            $cache['latestPublicationTime'] = $publicationTime;
+        }
         $cache['points'] = $byEvse;
         $cache['packetType'] = $packetType;
         $cache['lastModified'] = $lastModified;

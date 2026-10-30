@@ -26,6 +26,7 @@
         "mapsight/pulp": "*"
     },
     "suggest": {
+        "ext-pdo_sqlite": "Durable SQLite push inbox support",
         "mapsight/pulp-cache": "Cache Mobilithek subscription responses"
     },
     "autoload": {

@@ -150,9 +150,9 @@ class PulpDatexEnergy
      * @param list<array{evseId: string, status: string, lastUpdated: string, siteId: string, stationId: string}> $points
      * @return array<string, mixed>
      */
-    public static function applyPacketToCache(array $cache, array $points, string $packetType, string $lastModified): array
+    public static function applyPacketToCache(array $cache, array $points, string $packetType, string $lastModified, string $publicationTime = ''): array
     {
-        return DatexEnergyStatus::applyPacketToCache($cache, $points, $packetType, $lastModified);
+        return DatexEnergyStatus::applyPacketToCache($cache, $points, $packetType, $lastModified, $publicationTime);
     }
 
     /**
