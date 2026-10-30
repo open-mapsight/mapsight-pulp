@@ -4,6 +4,8 @@ All notable changes to `mapsight/pulp-datex-energy` are documented here.
 
 ## Unreleased
 
+## 1.1.2 - 2026-10-30
+
 ### Fixed
 
 - Apply each status packet in order, including snapshots in the middle of a run.
