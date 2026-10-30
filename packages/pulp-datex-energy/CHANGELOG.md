@@ -4,6 +4,15 @@ All notable changes to `mapsight/pulp-datex-energy` are documented here.
 
 ## Unreleased
 
+### Fixed
+
+- Apply each status packet in order, including snapshots in the middle of a run.
+- Detect snapshots from DATEX `codedExchangeProtocol`, even without an HTTP Type header.
+- Reject older point timestamps and malformed/non-success packets.
+- Commit the cache atomically after a successful run, preserving file permissions.
+- Honor `mobilithekAdvanceCursor = false` on head probes; expose `accumulatorVersion = 2`
+  so consumers can bootstrap legacy caches that missed snapshot resets.
+
 ## 1.1.1 - 2026-10-29
 
 ### Changed

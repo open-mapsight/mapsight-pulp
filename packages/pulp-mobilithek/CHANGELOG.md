@@ -4,6 +4,12 @@ All notable changes to `mapsight/pulp-mobilithek` are documented here.
 
 ## Unreleased
 
+### Added
+
+- Add `PulpMobilithek::drainMobilithek()` for bounded, ordered delta-buffer draining,
+  baseline bootstrap, and an optional ETag-deduplicated head probe that does not skip the cursor.
+- Document the remaining same-second pull limitation and durable push reception.
+
 ## 1.0.0 - 2026-09-04
 
 ### Added
