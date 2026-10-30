@@ -4,6 +4,8 @@ All notable changes to `mapsight/pulp-mobilithek` are documented here.
 
 ## Unreleased
 
+## 1.1.0 - 2026-10-30
+
 ### Added
 
 - Add `PulpMobilithek::drainMobilithek()` for bounded, ordered delta-buffer draining,
