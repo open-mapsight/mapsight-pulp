@@ -118,7 +118,10 @@ class PulpDatexEnergy
 
     /**
      * SNAPSHOT/DELTA accumulator that reads and writes `$cachePath`.
-     * HTTP 304/204 files leave the cache as-is; 200 files apply the packet.
+     * Applies files in order; HTTP 304/204 leave the cache as-is.
+     * Detects snapshots from DATEX metadata, guards against older point updates,
+     * and atomically commits after the source completes. Serialize cache writers.
+     * Head probes marked mobilithekAdvanceCursor=false do not advance the cursor.
      */
     public static function accumulateStatus(string $cachePath): AccumulateStatusHandler
     {

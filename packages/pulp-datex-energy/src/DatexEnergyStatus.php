@@ -7,6 +7,48 @@ namespace OpenMapsight\pulpdatexenergy;
 class DatexEnergyStatus
 {
     /**
+     * DATEX exchange metadata takes precedence over the optional HTTP Type header.
+     * Both snapshotPull and snapshotPush describe full replacements.
+     *
+     * @param array<string, mixed> $publication
+     */
+    public static function packetType(array $publication, string $httpType = ''): string
+    {
+        $protocol = self::exchangeProtocol($publication);
+        if (str_starts_with(strtolower($protocol), 'snapshot')) {
+            return 'SNAPSHOT';
+        }
+        if (str_starts_with(strtolower($protocol), 'delta')) {
+            return 'DELTA';
+        }
+
+        return $httpType !== '' ? $httpType : 'DELTA';
+    }
+
+    /** @param array<string, mixed> $node */
+    private static function exchangeProtocol(array $node): string
+    {
+        $protocol = $node['codedExchangeProtocol'] ?? null;
+        if (is_string($protocol)) {
+            return $protocol;
+        }
+        if (is_array($protocol) && is_string($protocol['value'] ?? null)) {
+            return $protocol['value'];
+        }
+        foreach ($node as $key => $child) {
+            // The payload can be large and is unrelated to exchange metadata.
+            if ($key !== 'payload' && is_array($child)) {
+                $protocol = self::exchangeProtocol($child);
+                if ($protocol !== '') {
+                    return $protocol;
+                }
+            }
+        }
+
+        return '';
+    }
+
+    /**
      * @param array<string, mixed> $publication
      * @return list<array{evseId: string, status: string, lastUpdated: string, siteId: string, stationId: string}>
      */
@@ -59,12 +101,16 @@ class DatexEnergyStatus
      */
     public static function applyPacketToCache(array $cache, array $points, string $packetType, string $lastModified): array
     {
-        $byEvse = is_array($cache['points'] ?? null) ? $cache['points'] : [];
+        $previous = is_array($cache['points'] ?? null) ? $cache['points'] : [];
+        $byEvse = $previous;
         if (strcasecmp($packetType, 'SNAPSHOT') === 0) {
             $byEvse = [];
         }
         foreach ($points as $point) {
-            $byEvse[$point['evseId']] = $point;
+            $existing = $byEvse[$point['evseId']] ?? $previous[$point['evseId']] ?? null;
+            $byEvse[$point['evseId']] = is_array($existing) && self::isOlder($point['lastUpdated'], $existing['lastUpdated'])
+                ? $existing
+                : $point;
         }
 
         $cache['points'] = $byEvse;
@@ -74,6 +120,24 @@ class DatexEnergyStatus
         $cache['pointCount'] = count($byEvse);
 
         return $cache;
+    }
+
+    private static function isOlder(string $incoming, string $existing): bool
+    {
+        try {
+            if ($existing === '') {
+                return false;
+            }
+            $existingTime = new \DateTimeImmutable($existing);
+            if ($incoming === '') {
+                return true;
+            }
+
+            return new \DateTimeImmutable($incoming) < $existingTime;
+        } catch (\Exception) {
+            // Older callers can supply opaque timestamps; preserve packet order.
+            return false;
+        }
     }
 
     /**
