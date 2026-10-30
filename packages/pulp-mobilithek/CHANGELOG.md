@@ -4,6 +4,11 @@ All notable changes to `mapsight/pulp-mobilithek` are documented here.
 
 ## Unreleased
 
+### Added
+
+- Add an optional PDO SQLite `PushInbox`: bounded durable reception, retry receipts,
+  exclusive at-least-once batch processing, and safe queue health metadata.
+
 ## 1.1.0 - 2026-10-30
 
 ### Added

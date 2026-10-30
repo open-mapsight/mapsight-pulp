@@ -50,7 +50,8 @@ class AccumulateStatusHandler extends AbstractHandler
             $this->cache,
             DatexEnergyStatus::extractPointStatuses($publication),
             DatexEnergyStatus::packetType($publication, (string) ($file->httpType ?? '')),
-            $lastModified
+            $lastModified,
+            DatexEnergyStatus::publicationTime($publication)
         );
         $this->hasPacket = true;
     }
@@ -110,8 +111,35 @@ class AccumulateStatusHandler extends AbstractHandler
                 throw new RuntimeException('Unable to set DATEX Energy status cache permissions');
             }
             $json = json_encode($cache, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
-            if (file_put_contents($temporary, $json) !== strlen($json) || !rename($temporary, $path)) {
+            if (file_put_contents($temporary, $json) !== strlen($json)) {
                 throw new RuntimeException('Unable to write DATEX Energy status cache');
+            }
+            $stream = fopen($temporary, 'rb');
+            if ($stream === false) {
+                throw new RuntimeException('Unable to open DATEX Energy status cache for sync');
+            }
+            try {
+                if (!fsync($stream)) {
+                    throw new RuntimeException('Unable to sync DATEX Energy status cache');
+                }
+            } finally {
+                fclose($stream);
+            }
+            if (!rename($temporary, $path)) {
+                throw new RuntimeException('Unable to write DATEX Energy status cache');
+            }
+            if (PHP_OS_FAMILY !== 'Windows') {
+                $directory = fopen(dirname($path), 'r');
+                if ($directory === false) {
+                    throw new RuntimeException('Unable to open DATEX Energy cache directory for sync');
+                }
+                try {
+                    if (!fsync($directory)) {
+                        throw new RuntimeException('Unable to sync DATEX Energy cache directory');
+                    }
+                } finally {
+                    fclose($directory);
+                }
             }
         } finally {
             if (is_file($temporary)) {

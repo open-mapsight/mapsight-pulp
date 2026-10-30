@@ -71,6 +71,21 @@ class AccumulateStatusHandlerTest extends TestCase
         self::assertSame('charging', $files[0]->content['points']['a']['status']);
     }
 
+    public function testLateSnapshotPreservesNewPointsAndLatePreSnapshotDeltaCannotResurrectRemovedPoints(): void
+    {
+        $files = $this->accumulate([
+            $this->packet('removed', 'available', '2026-10-30T05:00:00Z', 'snapshotPush'),
+            $this->packet('newer', 'charging', '2026-10-30T05:00:03Z'),
+            $this->packet('baseline', 'available', '2026-10-30T05:00:02Z', 'snapshotPush'),
+            $this->packet('removed', 'available', '2026-10-30T05:00:01Z'),
+            $this->packet('removed', 'available', '2026-10-30T05:00:00Z', 'snapshotPush'),
+        ]);
+        $cache = $files[0]->content;
+        self::assertSame(['newer', 'baseline'], array_keys($cache['points']));
+        self::assertSame('2026-10-30T05:00:02Z', $cache['snapshotTime']);
+        self::assertSame('charging', $cache['points']['newer']['status']);
+    }
+
     public function testDrainAndAccumulatorProcessSnapshotDeltasAndHeadCollisionTogether(): void
     {
         $responses = [];
@@ -173,7 +188,7 @@ class AccumulateStatusHandlerTest extends TestCase
         $file->httpType = '';
         $file->content = ['messageContainer' => [
             'exchangeInformation' => ['dynamicInformation' => ['exchangeContext' => ['codedExchangeProtocol' => $protocol]]],
-            'payload' => [['aegiEnergyInfrastructureStatusPublication' => ['energyInfrastructureSiteStatus' => [[
+            'payload' => [['aegiEnergyInfrastructureStatusPublication' => ['publicationTime' => $updated, 'energyInfrastructureSiteStatus' => [[
                 'reference' => ['idG' => 'site'],
                 'energyInfrastructureStationStatus' => [[
                     'reference' => ['idG' => 'station'], 'lastUpdated' => $updated,

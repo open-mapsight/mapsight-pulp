@@ -4,6 +4,13 @@ All notable changes to `mapsight/pulp-datex-energy` are documented here.
 
 ## Unreleased
 
+### Fixed
+
+- Preserve newer/newly added points across delayed snapshots and ignore packets
+  older than the latest snapshot publication watermark when publication times exist.
+- Expose latest publication time separately from a transport's pull cursor.
+- Sync cache file and directory replacements before a push worker acknowledges work.
+
 ## 1.1.2 - 2026-10-30
 
 ### Fixed
