@@ -3,8 +3,7 @@
 Read OGC Web Feature Services (WFS) as GeoJSON in Pulp pipelines. The client pages
 through a feature type and only returns a collection once every page has arrived
 and the server's reported feature count matches. It reports server exceptions with
-their OGC code and enforces request limits. It can also refuse output that the
-server has rounded to too few decimal places. Requires PHP 8.2 or later.
+their OGC code and enforces request limits. Requires PHP 8.2 or later.
 
 ## Installation
 
@@ -31,7 +30,6 @@ Pulp::start()
         'srsName' => 'EPSG:25832',
         'sortBy' => 'district_no',
         'pageSize' => 1000,
-        'minCoordinateDecimals' => 2,
     ]))
     ->pipe(PulpGeoJSON::reproject('EPSG:4326', ['includeZCoordinate' => false]))
     ->pipe(PulpGeoJSON::map(static fn(array $feature): array => [
@@ -70,8 +68,6 @@ ids and extra members such as `geometry_name`. Server metadata such as
 | `pageSize` | Read in pages of this size using `COUNT` and `STARTINDEX`. WFS 2.0.0 only. |
 | `limit` | Read at most this many features. If the server reports its matched count, exactly the smaller of the two must arrive. |
 | `params` | Vendor parameters such as `CQL_FILTER` or `FILTER`. They cannot override parameters the client sets. |
-| `minCoordinateDecimals` | Fail if no coordinate has at least this many decimal places. See [Coordinate precision](#coordinate-precision). |
-| `repairDoubleEncodedUtf8` | Repair property text that the server encoded as UTF-8 twice. See [Text repair](#text-repair). |
 
 Unknown request keys and client options throw, so a typo cannot silently drop a
 filter.
@@ -95,34 +91,24 @@ complete read needs no trailing empty request. If the server reports no count,
 paging continues until a short page arrives. Paging is not a snapshot: data
 changed during a read can still produce a consistent-looking result.
 
-## Coordinate precision
+## Coordinate precision and axis order
 
 Servers often round output coordinates. GeoServer, for example, writes a fixed
 number of decimals per layer. In a projected CRS in metres, four decimals are
 sub-millimetre. In EPSG:4326, four decimals are 7 to 11 metres, enough to move
-a boundary that runs along a street to the other side.
-
-Prefer requesting the feature type's native projected CRS and reprojecting in the
-pipeline. `minCoordinateDecimals` guards against a server that rounds more than
-the data allows; the check uses the largest number of decimals found, so
-coordinates that happen to be round do not trigger it. `CoordinatePrecision::decimals($collection)`
-returns that number for your own checks.
+a boundary that runs along a street to the other side. Prefer requesting the
+feature type's native projected CRS and reprojecting in the pipeline.
 
 Axis order is passed through unchanged. GeoJSON output from common servers is
 east/north (longitude/latitude). A server that follows the formal latitude-first
 axis order of EPSG:4326 in its GeoJSON is another reason to request a projected
 CRS instead.
 
-## Text repair
+## Text encoding
 
-A data store that reads UTF-8 attributes as ISO-8859-1 and writes them out as
-UTF-8 again turns `ö` into `Ã¶`. With `repairDoubleEncodedUtf8`, every string
-property value is converted back. A value is only changed if the whole string
-converts back losslessly and the result is valid UTF-8. Text that is already
-correct, ASCII text and strings mixing both forms stay unchanged. Ids and
-property names are not touched. `TextRepair::doubleEncodedUtf8($string)` is
-available on its own. Fix the encoding in the server's data store when you can;
-this option is a workaround.
+Some data stores read UTF-8 attributes as ISO-8859-1 and emit them as UTF-8 again
+(`Ã¶` instead of `ö`). Fix the store's charset where possible; otherwise add
+`Pulp::repairDoubleEncodedUtf8()` from `mapsight/pulp` after `srcWfs()`.
 
 ## Client options
 

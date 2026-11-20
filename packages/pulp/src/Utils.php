@@ -27,6 +27,32 @@ class Utils
         return $directory;
     }
 
+    /**
+     * Undo UTF-8 text that was encoded twice.
+     *
+     * A source that reads UTF-8 as ISO-8859-1 and writes UTF-8 again turns "ö" into "Ã¶"
+     * and "ß" into "Ã" followed by U+009F. The string is converted back only when all of
+     * it converts losslessly and the result is valid UTF-8, so correct text, ASCII and
+     * strings that mix both forms stay unchanged.
+     */
+    public static function repairDoubleEncodedUtf8(string $value): string
+    {
+        // A lead byte (U+00C2–U+00F4) followed by a continuation byte (U+0080–U+00BF),
+        // each read as one Latin-1 character.
+        if (preg_match('/[\x{00C2}-\x{00F4}][\x{0080}-\x{00BF}]/u', $value) !== 1) {
+            return $value;
+        }
+        if (preg_match('/[^\x{0000}-\x{00FF}]/u', $value) === 1) {
+            return $value;
+        }
+        $bytes = mb_convert_encoding($value, 'ISO-8859-1', 'UTF-8');
+        if (!mb_check_encoding($bytes, 'UTF-8')) {
+            return $value;
+        }
+
+        return $bytes;
+    }
+
     public static function matchFileName($pattern, $fileName): int|false
     {
         $pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';

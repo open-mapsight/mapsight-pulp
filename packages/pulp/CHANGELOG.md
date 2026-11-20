@@ -4,6 +4,10 @@ All notable changes to `mapsight/pulp` are documented here.
 
 ## Unreleased
 
+### Added
+
+- Add `Pulp::repairDoubleEncodedUtf8()` and `Utils::repairDoubleEncodedUtf8()` to repair text a source encoded as UTF-8 twice (`Ã¶` → `ö`). Only strings that convert back losslessly change.
+
 ## 1.3.0 - 2026-10-27
 
 ### Added

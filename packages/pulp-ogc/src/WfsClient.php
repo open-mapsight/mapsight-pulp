@@ -34,7 +34,6 @@ class WfsClient
 
     private const REQUEST_KEYS = [
         'srsName', 'bbox', 'bboxCrs', 'propertyNames', 'sortBy', 'pageSize', 'limit', 'params',
-        'minCoordinateDecimals', 'repairDoubleEncodedUtf8',
     ];
 
     private const MAX_ERROR_TEXT = 500;
@@ -135,9 +134,7 @@ class WfsClient
      *     sortBy?: string,
      *     pageSize?: int,
      *     limit?: int,
-     *     params?: array<string, string|int|float|bool>,
-     *     minCoordinateDecimals?: int,
-     *     repairDoubleEncodedUtf8?: bool
+     *     params?: array<string, string|int|float|bool>
      * } $request
      */
     public function getFeature(string $typeName, array $request = []): array
@@ -149,11 +146,6 @@ class WfsClient
         $params = $this->baseParams($typeName, $request);
         $pageSize = $this->optionalInt($request, 'pageSize', $this->maxFeatures);
         $limit = $this->optionalInt($request, 'limit', $this->maxFeatures);
-        $minDecimals = $this->optionalInt($request, 'minCoordinateDecimals', 17, 0);
-        $repairText = $request['repairDoubleEncodedUtf8'] ?? false;
-        if (!is_bool($repairText)) {
-            throw new InvalidArgumentException('repairDoubleEncodedUtf8 must be a boolean.');
-        }
         if ($pageSize !== null && $this->version !== '2.0.0') {
             throw new InvalidArgumentException('Paging (pageSize) requires WFS 2.0.0.');
         }
@@ -248,18 +240,6 @@ class WfsClient
             $collection['crs'] = ['type' => 'name', 'properties' => ['name' => $crs]];
         }
         $collection['features'] = $features;
-
-        if ($minDecimals !== null) {
-            $decimals = CoordinatePrecision::decimals($collection);
-            if ($decimals !== null && $decimals < $minDecimals) {
-                throw new RuntimeException('WFS coordinates for "' . $typeName . '" have at most ' . $decimals
-                    . ' decimal places, fewer than the required ' . $minDecimals . '. The server rounds its output;'
-                    . ' request a projected CRS or raise the server\'s decimal setting.');
-            }
-        }
-        if ($repairText) {
-            $collection = TextRepair::featureProperties($collection);
-        }
 
         return $collection;
     }
@@ -530,14 +510,14 @@ class WfsClient
         return $text === '-0' ? '0' : $text;
     }
 
-    private function optionalInt(array $request, string $key, int $maximum, int $minimum = 1): ?int
+    private function optionalInt(array $request, string $key, int $maximum): ?int
     {
         if (!array_key_exists($key, $request)) {
             return null;
         }
         $value = $request[$key];
-        if (!is_int($value) || $value < $minimum || $value > $maximum) {
-            throw new InvalidArgumentException($key . ' must be an integer between ' . $minimum . ' and ' . $maximum . '.');
+        if (!is_int($value) || $value < 1 || $value > $maximum) {
+            throw new InvalidArgumentException($key . ' must be an integer between 1 and ' . $maximum . '.');
         }
 
         return $value;

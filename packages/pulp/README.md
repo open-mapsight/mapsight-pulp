@@ -288,6 +288,26 @@ Deletes each file's `srcFileName` from disk.
 
 Converts string content between ISO-8859-1 and UTF-8.
 
+### Pulp::repairDoubleEncodedUtf8()
+
+Repairs text that a source encoded as UTF-8 twice, such as `Ã¶` for `ö`. This happens
+when a server reads UTF-8 data as ISO-8859-1 and writes it out as UTF-8 again. String
+content is repaired as a whole; array content, such as decoded JSON, has every string
+value repaired at any depth, while keys stay unchanged.
+
+A string is only changed if all of it converts back losslessly and the result is valid
+UTF-8. Correct text, ASCII and strings mixing both forms stay as they are.
+`Utils::repairDoubleEncodedUtf8($string)` repairs a single string.
+
+```php
+Pulp::start()
+    ->pipe(Pulp::srcHttp('GET', $url, [], 'places.json'))
+    ->pipe(PulpJSON::decodeJSON())
+    ->pipe(Pulp::repairDoubleEncodedUtf8())
+    ->pipe(Pulp::dest($outputDirectory))
+    ->run();
+```
+
 ### Pulp::serveHttp()
 
 Sends file content as an HTTP response.

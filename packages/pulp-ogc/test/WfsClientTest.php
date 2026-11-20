@@ -314,39 +314,6 @@ class WfsClientTest extends TestCase
         self::assertSame('EPSG:3035', $collection['crs']['properties']['name']);
     }
 
-    public function testRejectsCoordinatesRoundedBelowTheRequiredPrecision(): void
-    {
-        $rounded = $this->feature('d.1', [[[8.1234, 50.4321], [8.1233, 50.4320], [8.1232, 50.4322], [8.1234, 50.4321]]]);
-        $client = $this->client([
-            $this->page([$rounded], 1, ['crs' => ['type' => 'name', 'properties' => ['name' => 'urn:ogc:def:crs:EPSG::4326']]]),
-        ]);
-
-        $this->expectExceptionMessage('at most 4 decimal places, fewer than the required 6');
-        $client->getFeature(self::TYPE, ['srsName' => 'EPSG:4326', 'minCoordinateDecimals' => 6]);
-    }
-
-    public function testAcceptsCoordinatesWithTheRequiredPrecision(): void
-    {
-        $client = $this->client([$this->page([$this->feature('d.1')], 1)]);
-
-        self::assertCount(1, $client->getFeature(self::TYPE, ['minCoordinateDecimals' => 3])['features']);
-    }
-
-    public function testRepairsDoubleEncodedPropertiesOnRequest(): void
-    {
-        $feature = $this->feature('d.1');
-        $feature['properties'] = ['name' => "Au\u{00C3}\u{009F}enstelle", 'nested' => ['label' => "M\u{00C3}\u{00BC}hle"], 'number' => 7];
-        $client = $this->client([$this->page([$feature], 1), $this->page([$feature], 1)]);
-
-        $raw = $client->getFeature(self::TYPE);
-        $repaired = $client->getFeature(self::TYPE, ['repairDoubleEncodedUtf8' => true]);
-
-        self::assertSame("Au\u{00C3}\u{009F}enstelle", $raw['features'][0]['properties']['name']);
-        self::assertSame('Außenstelle', $repaired['features'][0]['properties']['name']);
-        self::assertSame('Mühle', $repaired['features'][0]['properties']['nested']['label']);
-        self::assertSame(7, $repaired['features'][0]['properties']['number']);
-    }
-
     #[DataProvider('invalidRequests')]
     public function testRejectsInvalidRequests(array $request, string $message, array $options = []): void
     {
@@ -371,8 +338,6 @@ class WfsClientTest extends TestCase
             'bbox crs alone' => [['bboxCrs' => 'EPSG:4326'], 'requires bbox'],
             'empty property names' => [['propertyNames' => []], 'nonempty list'],
             'zero page size' => [['pageSize' => 0], 'pageSize must be an integer'],
-            'precision too high' => [['minCoordinateDecimals' => 18], 'minCoordinateDecimals must be an integer between 0 and 17'],
-            'repair flag' => [['repairDoubleEncodedUtf8' => 'yes'], 'must be a boolean'],
         ];
     }
 
@@ -438,14 +403,14 @@ class WfsClientTest extends TestCase
         return new Response(200, ['Content-Type' => 'application/json;charset=UTF-8'], json_encode($document, JSON_THROW_ON_ERROR));
     }
 
-    private function feature(string $id, ?array $ring = null): array
+    private function feature(string $id): array
     {
         return [
             'type' => 'Feature',
             'id' => $id,
             'geometry' => [
                 'type' => 'Polygon',
-                'coordinates' => $ring ?? [[[500000.125, 5700000.25], [500010.5, 5700000.25], [500010.5, 5700010.75], [500000.125, 5700000.25]]],
+                'coordinates' => [[[500000.125, 5700000.25], [500010.5, 5700000.25], [500010.5, 5700010.75], [500000.125, 5700000.25]]],
             ],
             'geometry_name' => 'geom',
             'properties' => ['district_no' => substr($id, 2)],
