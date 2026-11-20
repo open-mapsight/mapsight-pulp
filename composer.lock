@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3aa4c70b549ee0dd161ca526112d7475",
+    "content-hash": "22599ae92c6d2122bb83377c9da5621d",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1124,6 +1124,68 @@
             "support": {
                 "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
                 "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-mobilithek"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "mapsight/pulp-ogc",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/pulp-ogc",
+                "reference": "4b2ffb86df5131795cbbabaacbcddc869b910de0"
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^7.8",
+                "mapsight/pulp": "*",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "PulpOgc.php"
+                ],
+                "psr-4": {
+                    "OpenMapsight\\pulpogc\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "*",
+                    ".*",
+                    "!/src/*",
+                    "!/PulpOgc.php",
+                    "!/README.md",
+                    "!/CHANGELOG.md"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Golmann",
+                    "email": "mail@pje-web.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Read OGC Web Feature Services (WFS) as GeoJSON in Pulp pipelines, with paging and completeness checks.",
+            "homepage": "https://github.com/open-mapsight/mapsight-pulp",
+            "keywords": [
+                "geojson",
+                "mapsight",
+                "ogc",
+                "pulp",
+                "wfs"
+            ],
+            "support": {
+                "issues": "https://github.com/open-mapsight/mapsight-pulp/issues",
+                "source": "https://github.com/open-mapsight/mapsight-pulp/tree/main/packages/pulp-ogc"
             },
             "transport-options": {
                 "symlink": true,
@@ -6704,6 +6766,7 @@
         "mapsight/pulp-gtfs": 20,
         "mapsight/pulp-json": 20,
         "mapsight/pulp-mobilithek": 20,
+        "mapsight/pulp-ogc": 20,
         "mapsight/pulp-pdo": 20,
         "mapsight/pulp-search-index": 20,
         "mapsight/pulp-soap": 20,

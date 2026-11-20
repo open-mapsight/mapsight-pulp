@@ -51,6 +51,7 @@ jobs:
           - pulp-datex-fuel
           - pulp-datex-roadworks
           - pulp-mobilithek
+          - pulp-ogc
           - pulp-pdo
           - pulp-search-index
           - pulp-geocsv

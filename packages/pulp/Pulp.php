@@ -14,6 +14,7 @@ use OpenMapsight\pulp\FilterHandler;
 use OpenMapsight\pulp\Handler;
 use OpenMapsight\pulp\MapHandler;
 use OpenMapsight\pulp\MergeHandler;
+use OpenMapsight\pulp\RepairDoubleEncodedUtf8Handler;
 use OpenMapsight\pulp\ResultsHandler;
 use OpenMapsight\pulp\ServeHttpHandler;
 use OpenMapsight\pulp\ShadowHandler;
@@ -163,6 +164,16 @@ class Pulp implements Handler
     public static function utf8decode(): Utf8DecodeHandler
     {
         return new Utf8DecodeHandler();
+    }
+
+    /**
+     * Repair text that was encoded as UTF-8 twice ("Ã¶" → "ö"). String content is repaired
+     * as a whole; array content has every string value repaired. See
+     * `Utils::repairDoubleEncodedUtf8()` for when a string is changed.
+     */
+    public static function repairDoubleEncodedUtf8(): RepairDoubleEncodedUtf8Handler
+    {
+        return new RepairDoubleEncodedUtf8Handler();
     }
 
     public static function debug($length = 30): DebugHandler
