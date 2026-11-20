@@ -4,6 +4,12 @@ All notable changes to `mapsight/pulp-zip` are documented here.
 
 ## Unreleased
 
+## 1.0.1 - 2026-06-26
+
+### Changed
+
+- License the package under MIT.
+
 ## 1.0.0 - 2026-06-18
 
 ### Added

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-versions="${PHP_VERSIONS:-8.2 8.3 8.4 8.5}"
+versions="${PHP_VERSIONS:-8.2 8.3 8.4 8.5 8.6}"
 composer_cache="${COMPOSER_CACHE_DIR:-$repo_root/build/composer-cache}"
 tty_args=()
 
